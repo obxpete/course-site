@@ -145,6 +145,52 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   border-bottom-color: var(--accent-gold);
 }
 
+/* Hamburger button — hidden on wide screens */
+.topbar__menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 0.35rem;
+  border-radius: 6px;
+  line-height: 0;
+  flex-shrink: 0;
+}
+.topbar__menu-btn:hover { background: var(--paper-deep); }
+.topbar__menu-btn .icon-close { display: none; }
+.topbar__menu-btn[aria-expanded="true"] .icon-open { display: none; }
+.topbar__menu-btn[aria-expanded="true"] .icon-close { display: block; }
+
+@media (max-width: 640px) {
+  .topbar__menu-btn { display: flex; align-items: center; }
+
+  .topbar__nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.4rem 1.5rem 0.8rem;
+    background: rgba(241, 240, 234, 0.97);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 4px 16px rgba(32, 44, 60, 0.08);
+    z-index: 19;
+  }
+
+  .topbar__nav.is-open { display: flex; }
+
+  .topbar__nav a {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 1rem;
+  }
+  .topbar__nav a:last-child { border-bottom: none; }
+}
+
 /* =============== Layout shell =============== */
 .shell {
   position: relative;
