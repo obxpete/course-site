@@ -1,0 +1,6 @@
+{
+  "label": "Try it: test a regular expression",
+  "starterPattern": "\\b[A-Z][a-z]+\\b",
+  "starterFlags": "g",
+  "starterText": "Rivka and Tova are debugging a Regex pattern together on Sunday."
+}

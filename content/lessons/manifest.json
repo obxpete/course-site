@@ -58,7 +58,8 @@
       "summary": "Turning a vague idea into a plan, then turning that plan into code.",
       "duration": "55 min",
       "file": "03-requirements-and-js.md",
-      "quiz": "03.json"
+      "quiz": "03.json",
+      "interactive": { "type": "playground", "file": "03.json" }
     },
     {
       "id": "04",
@@ -66,7 +67,8 @@
       "summary": "The everyday tools that keep a project organized and shareable.",
       "duration": "45 min",
       "file": "04-toolkit-git-markdown-npm.md",
-      "quiz": "04.json"
+      "quiz": "04.json",
+      "interactive": { "type": "markdown-preview", "file": "04.json" }
     },
     {
       "id": "05",
@@ -74,7 +76,8 @@
       "summary": "The data format and request pattern behind almost every modern app.",
       "duration": "50 min",
       "file": "05-apis-and-json.md",
-      "quiz": "05.json"
+      "quiz": "05.json",
+      "interactive": { "type": "api-tester", "file": "05.json" }
     },
     {
       "id": "06",
@@ -90,7 +93,8 @@
       "summary": "Writing JavaScript that runs on a server instead of a browser.",
       "duration": "55 min",
       "file": "07-server-side-node.md",
-      "quiz": "07.json"
+      "quiz": "07.json",
+      "interactive": { "type": "node-sandbox", "file": "07.json" }
     },
     {
       "id": "08",
@@ -98,7 +102,8 @@
       "summary": "Why frameworks exist, and how to choose one for a given job.",
       "duration": "50 min",
       "file": "08-frontend-frameworks.md",
-      "quiz": "08.json"
+      "quiz": "08.json",
+      "interactive": { "type": "playground", "file": "08.json" }
     },
     {
       "id": "09",
@@ -106,7 +111,8 @@
       "summary": "The reference sites, tools, and habits that make you self-sufficient.",
       "duration": "45 min",
       "file": "09-resources-testing-debugging.md",
-      "quiz": "09.json"
+      "quiz": "09.json",
+      "interactive": { "type": "regex-tester", "file": "09.json" }
     },
     {
       "id": "10",

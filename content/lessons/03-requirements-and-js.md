@@ -48,7 +48,7 @@ These aren't abstract ideals — they're the difference between a project that's
 
 ## Try It
 
-Open a Codespace and create an `index.html` file with a `<script>` tag. Use `alert()` to display a personalized greeting, then try changing it to write the message onto the page instead, using `document.write()` or, better, by updating an element's content directly.
+Use the playground below — no account or setup needed. Change `message`, then try replacing the `alert()` call with code that updates the page's text directly instead.
 
 ## Recap
 

@@ -26,13 +26,9 @@ A JSON example:
 
 ## Technology
 
-**Postman** is a widely used tool for exploring and testing APIs without writing any code — you can send a request to an API endpoint and inspect exactly what comes back. It's an excellent way to understand an API before you start writing code that depends on it.
+**Postman** is a widely used tool for exploring and testing APIs without writing any code — you can send a request to an API endpoint and inspect exactly what comes back. It's an excellent way to understand an API before you start writing code that depends on it. (Postman itself now asks you to sign in for its full desktop app — the request tester below gives you the same core idea, right on this page, with no account needed.)
 
-Try it:
-
-1. Install [Postman](https://www.postman.com/) or use its web version.
-2. Send a `GET` request to a free public API, such as `https://jsonplaceholder.typicode.com/users`.
-3. Look at the response: notice the structure, the status code, and how it maps to the JSON pattern above.
+Try it below: pick a preset or paste any public API URL, send a `GET` request, and look at the response — notice the structure, the status code, and how it maps to the JSON pattern above.
 
 ## Soft Skills
 
@@ -44,7 +40,7 @@ APIs are also a lesson in professional communication — a well-designed API is,
 
 ## Try It
 
-Using Postman (or your browser, for a simple `GET` request), fetch data from `https://jsonplaceholder.typicode.com/todos/1` and identify: the HTTP status code returned, and the field names in the JSON response.
+Using the request tester above, fetch `https://jsonplaceholder.typicode.com/todos/1` and identify: the HTTP status code returned, and the field names in the JSON response.
 
 ## Recap
 

@@ -20,9 +20,11 @@ Owning your own servers (sometimes called being **on-premises**) comes with real
 
 ## Technology
 
-**GitHub Codespaces** gives you a full, cloud-hosted instance of Visual Studio Code — no local installation required. You'll use it throughout this course to write and run code directly in your browser, and to collaborate in real time with an instructor or classmate.
+**GitHub Codespaces** gives you a full, cloud-hosted instance of Visual Studio Code — no local installation required. It's genuinely useful once you're working on a real, multi-file project, and to collaborate in real time with an instructor or classmate.
 
-Try it now:
+This is the one lesson in the course where trying things hands-on means creating a free account — Git and GitHub are the actual subject here. Every other lesson's "Try It" runs directly on this page with no sign-up at all.
+
+Try it now (optional, but recommended for this lesson specifically):
 
 1. Create a free account at [github.com](https://github.com) if you don't already have one.
 2. Open any public repository and click the green **Code** button, then choose **Codespaces → Create codespace on main**.

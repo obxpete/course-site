@@ -48,7 +48,7 @@ Choosing a framework is itself a professional judgment call, not just a technica
 
 ## Try It
 
-Take a plain HTML page and add Bootstrap via the CDN link above. Convert one section into a responsive two-column layout using Bootstrap's grid classes, and add one styled button.
+The playground below already has Bootstrap loaded — no account or setup needed. Add a third column, or swap the button's class to `btn-outline-secondary` and see what changes.
 
 ## Recap
 

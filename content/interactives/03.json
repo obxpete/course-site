@@ -1,0 +1,6 @@
+{
+  "label": "Try it: your first JavaScript",
+  "html": "<h1>Hello, page</h1>\n<p>Edit the JavaScript tab, then press Run.</p>\n<button id=\"greet\">Say hello</button>",
+  "css": "body { font-family: sans-serif; padding: 1.5rem; color: #202C3C; }\nbutton { padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid #ccc; cursor: pointer; }",
+  "js": "let message = \"Hello, world\";\n\ndocument.getElementById(\"greet\").addEventListener(\"click\", () => {\n  alert(message);\n});\n\n// Try changing `message`, or swap alert() for updating\n// an element's text instead:\n// document.querySelector(\"h1\").textContent = message;"
+}

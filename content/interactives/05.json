@@ -1,0 +1,10 @@
+{
+  "label": "Try it: send a real API request",
+  "presets": [
+    { "label": "Get a user", "method": "GET", "url": "https://jsonplaceholder.typicode.com/users/1" },
+    { "label": "Get a list of todos", "method": "GET", "url": "https://jsonplaceholder.typicode.com/todos?_limit=5" },
+    { "label": "Get one post", "method": "GET", "url": "https://jsonplaceholder.typicode.com/posts/1" }
+  ],
+  "defaultMethod": "GET",
+  "defaultUrl": "https://jsonplaceholder.typicode.com/users/1"
+}

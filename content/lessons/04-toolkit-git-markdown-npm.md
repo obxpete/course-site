@@ -38,7 +38,7 @@ Documentation is a form of communication with your future collaborators, and tha
 
 ## Try It
 
-Create a `README.md` file for any project you've started in this course so far. Include a one-sentence description, a "how to run this" section, and a short list of technologies used.
+Use the live editor below to draft a README — no account needed. Include a one-sentence description, a "how to run this" section, and a short list of technologies used, and watch it render as you type.
 
 ## Recap
 

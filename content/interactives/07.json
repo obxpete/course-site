@@ -1,0 +1,10 @@
+{
+  "label": "Try it: run a real Express server",
+  "title": "CIS 365 — Express Starter",
+  "description": "A minimal Express server to experiment with, right in the browser.",
+  "openFile": "server.js",
+  "files": {
+    "server.js": "const express = require('express');\nconst app = express();\n\napp.get('/', (req, res) => {\n  res.send('Hello, world');\n});\n\napp.get('/students', (req, res) => {\n  res.json([\n    { firstName: 'Rivka', lastName: 'Klein' },\n    { firstName: 'Tova', lastName: 'Berman' }\n  ]);\n});\n\nconst port = process.env.PORT || 3000;\napp.listen(port, () => {\n  console.log('Server running on port ' + port);\n});\n",
+    "package.json": "{\n  \"name\": \"cis365-express-starter\",\n  \"version\": \"1.0.0\",\n  \"main\": \"server.js\",\n  \"scripts\": {\n    \"start\": \"node server.js\"\n  },\n  \"dependencies\": {\n    \"express\": \"^4.19.2\"\n  }\n}\n"
+  }
+}

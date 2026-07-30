@@ -68,6 +68,41 @@ npx serve .
 Then open the printed local URL. (Opening `index.html` directly via `file://` mostly works
 too, but `fetch()` for the Markdown/JSON content is more reliable over an actual local server.)
 
+## Hands-on practice without accounts
+
+Six lessons now include a live, embedded widget so students can try that lesson's
+skill directly on the page — no GitHub, Postman, or CodeSandbox account required:
+
+| Lesson | Widget | What it does |
+|---|---|---|
+| 03 — First JavaScript | HTML/CSS/JS playground | Editable tabs + live `srcdoc` iframe preview |
+| 04 — Markdown & npm | Markdown live preview | Split-pane editor, renders with the same marked.js already on the page |
+| 05 — APIs & JSON | API tester | A minimal Postman-style tool built on `fetch()`, presets included |
+| 07 — Node.js & Express | Node sandbox | A **real, running** Node/Express server via StackBlitz's WebContainers |
+| 08 — Frontend Frameworks | HTML/CSS/JS playground | Same playground, pre-loaded with the Bootstrap CDN |
+| 09 — Testing & Debugging | Regex tester | Live pattern matching with highlighted results |
+
+All of these (`js/components/*.js`) are plain Vue 3 components with zero new npm
+dependencies, registered globally in `lesson.html` and rendered based on each lesson's
+`"interactive"` entry in `manifest.json`, which points at a small config file under
+`content/interactives/`.
+
+**The one exception is Lesson 7's Node sandbox**, which embeds StackBlitz's WebContainers
+via their public JS SDK (`@stackblitz/sdk`, loaded from CDN) — this is the one way to run
+*actual* server-side Node/Express code in a browser tab. Opening and editing it requires
+no account; StackBlitz only asks for sign-in if a student wants to save their own copy of
+the project, which is entirely optional. It's set to `clickToLoad`, so it doesn't cost any
+load time on the page until a student actually opens it.
+
+**Lesson 1 is the deliberate exception to "no accounts."** It's the lesson about Git and
+GitHub themselves, so trying it hands-on does mean creating a free GitHub account — every
+other lesson's "Try It" needs nothing beyond a browser.
+
+To add a widget to a new lesson: create a config file under `content/interactives/`, add
+an `"interactive": { "type": "...", "file": "..." }` entry to that lesson in
+`manifest.json`, and reference `{ "type" }` from the `COMPONENT_MAP` already defined in
+`lesson.html` (all five widget types are already mapped).
+
 ## Data persistence: what to use, and why
 
 You asked for something cheap and appropriate, with APIs handling the persistence layer

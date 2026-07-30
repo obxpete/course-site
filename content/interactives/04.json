@@ -1,0 +1,4 @@
+{
+  "label": "Try it: write a README",
+  "starter": "# My Project\n\nA one-sentence description of what this does.\n\n## How to run it\n\n1. Clone the repository\n2. Run `npm install`\n3. Run `npm start`\n\n## Built with\n\n- HTML, CSS, JavaScript\n- Node.js\n\n> Edit this text on the left — the preview on the right updates as you type."
+}

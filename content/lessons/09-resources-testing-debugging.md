@@ -38,11 +38,11 @@ For visual assets, use sources that are clearly free to use and appropriately li
 
 ## A note on Regular Expressions
 
-A **regular expression (regex)** is a compact pattern language for matching text — useful for validating a phone number format, extracting a date, or searching across a large codebase. Regex has a well-earned reputation for being hard to read at a glance; treat it as a tool to reach for deliberately, test carefully (sites like [regex101.com](https://regex101.com/) show you a live match), and comment generously so a future reader — including you — doesn't have to decode it cold.
+A **regular expression (regex)** is a compact pattern language for matching text — useful for validating a phone number format, extracting a date, or searching across a large codebase. Regex has a well-earned reputation for being hard to read at a glance; treat it as a tool to reach for deliberately, test carefully (sites like [regex101.com](https://regex101.com/), or the tester built into this lesson, show you a live match), and comment generously so a future reader — including you — doesn't have to decode it cold.
 
 ## Try It
 
-Open your browser's developer tools on any website you use regularly. Find one network request in the Network tab and identify its method (GET/POST), status code, and response format.
+First, open your browser's developer tools on any website you use regularly — find one network request in the Network tab and identify its method (GET/POST), status code, and response format. Then use the regex tester below (no account needed) to change the pattern and see which words it matches.
 
 ## Recap
 

@@ -43,6 +43,10 @@
           <p class="skeleton">Loading lesson…</p>
         </div>
 
+        <section v-if="interactive" class="interactive">
+          <component :is="interactive.componentName" :config="interactive.config"></component>
+        </section>
+
         <section v-if="quiz" class="quiz">
           <div class="quiz__head">
             <h3>Check your understanding</h3>
@@ -93,15 +97,29 @@
 <script src="js/api-config.js"></script>
 <script src="js/data-store.js"></script>
 <script src="js/markdown-render.js"></script>
+<script src="js/components/playground.js"></script>
+<script src="js/components/api-tester.js"></script>
+<script src="js/components/markdown-preview.js"></script>
+<script src="js/components/regex-tester.js"></script>
+<script src="js/components/node-sandbox.js"></script>
 <script>
 const { createApp, ref, computed, onMounted, watch } = Vue;
 
-createApp({
+const COMPONENT_MAP = {
+  "playground": "playground-widget",
+  "api-tester": "api-tester-widget",
+  "markdown-preview": "markdown-preview-widget",
+  "regex-tester": "regex-tester-widget",
+  "node-sandbox": "node-sandbox-widget"
+};
+
+const app = createApp({
   setup() {
     const params = new URLSearchParams(location.search);
     const currentId = ref(params.get("lesson") || "00");
     const manifest = ref(null);
     const quiz = ref(null);
+    const interactive = ref(null);
     const answers = ref({});
     const submitted = ref(false);
     const score = ref(0);
@@ -124,6 +142,17 @@ createApp({
         quiz.value = await res.json();
       } else {
         quiz.value = null;
+      }
+
+      if (lesson.interactive) {
+        const res = await fetch("content/interactives/" + lesson.interactive.file);
+        const cfg = await res.json();
+        interactive.value = {
+          componentName: COMPONENT_MAP[lesson.interactive.type],
+          config: cfg
+        };
+      } else {
+        interactive.value = null;
       }
 
       doneNow.value = window.CourseStore.isComplete(currentId.value);
@@ -186,12 +215,20 @@ createApp({
     }
 
     return {
-      manifest, currentId, quiz, answers, submitted, score, doneNow,
+      manifest, currentId, quiz, interactive, answers, submitted, score, doneNow,
       lessonById, isDone, prevLesson, nextLesson, allAnswered,
       submitQuiz, choiceClass, markComplete
     };
   }
-}).mount("#app");
+});
+
+app.component("playground-widget", window.CourseComponents.PlaygroundWidget);
+app.component("api-tester-widget", window.CourseComponents.ApiTesterWidget);
+app.component("markdown-preview-widget", window.CourseComponents.MarkdownPreviewWidget);
+app.component("regex-tester-widget", window.CourseComponents.RegexTesterWidget);
+app.component("node-sandbox-widget", window.CourseComponents.NodeSandboxWidget);
+
+app.mount("#app");
 </script>
 </body>
 </html>

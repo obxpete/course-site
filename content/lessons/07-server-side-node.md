@@ -37,12 +37,7 @@ app.listen(3000, () => {
 });
 ```
 
-To build this yourself:
-
-1. In a Codespace terminal, run `npm init -y` to start a project.
-2. Run `npm install express`.
-3. Create `server.js` with the code above, then run `node server.js`.
-4. Visit the forwarded port in your browser to see it respond.
+The sandbox below is a real, running Node.js server, pre-loaded with this code — click it and it boots in seconds, no account or local setup required. (If you'd rather build it yourself step by step: `npm init -y`, then `npm install express`, then run `node server.js` — the sandbox is doing exactly that for you.)
 
 From here, try adding a second route that returns a small JSON object instead of plain text — that's the shape almost every real API takes.
 
@@ -56,7 +51,7 @@ Working on "the backend" tends to reward a specific kind of patience: errors are
 
 ## Try It
 
-Extend the server above with a route at `/students` that responds with a small JSON array of two or three sample student names, using the same JSON structure from the previous lesson.
+In the sandbox above, add a third route of your own, then visit it in the sandbox's preview pane to see the response.
 
 ## Recap
 

@@ -21,12 +21,11 @@ Lessons build on each other, so plan to move through them in order the first tim
 
 ## What you'll need
 
-- A modern browser (Chrome, Edge, or Safari all work well).
-- A free [GitHub](https://github.com) account.
-- A cloud development environment such as GitHub Codespaces, or a local install of [Visual Studio Code](https://code.visualstudio.com/) if you prefer working on your own machine.
+- A modern browser (Chrome, Edge, or Safari all work well). That's genuinely enough for most of this course — most lessons include a live, editable example right on the page, so you can experiment without installing anything or creating any account.
+- A free [GitHub](https://github.com) account — only needed for Lesson 1, which is specifically about Git and GitHub. Everywhere else, it's optional.
 - Curiosity and a willingness to break things — every developer does, constantly, and that's how the tools get learned.
 
-No paid textbook or software is required. Everything in this course uses free tiers of mainstream developer tools.
+No paid textbook or software is required. Everything in this course uses free tiers of mainstream developer tools, and the hands-on exercises are designed to work with zero setup.
 
 ## A note on pace
 
