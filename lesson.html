@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Lesson — CIS 365</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="topbar__brand" href="index.html">
+    <span class="code">CIS 365</span>
+    Full Stack Web Development
+  </a>
+  <nav class="topbar__nav">
+    <a href="index.html">Course</a>
+    <a href="syllabus.html">Syllabus</a>
+  </nav>
+</header>
+
+<main id="app" class="shell shell--wide">
+  <div class="lesson-layout" v-if="manifest">
+
+    <nav class="tab-rail" aria-label="Lesson navigation">
+      <template v-for="mod in manifest.modules" :key="mod.id">
+        <p class="tab-rail__module">{{ mod.title }}</p>
+        <a v-for="lid in mod.lessons"
+           :key="lid"
+           :href="'lesson.html?lesson=' + lid"
+           :class="{ 'is-active': lid === currentId, 'is-done': isDone(lid) }">
+          <span class="dot"></span>
+          {{ lessonById(lid).title }}
+        </a>
+      </template>
+    </nav>
+
+    <div>
+      <article class="lesson-page">
+        <div class="lesson-content" id="content">
+          <p class="skeleton">Loading lesson…</p>
+        </div>
+
+        <section v-if="quiz" class="quiz">
+          <div class="quiz__head">
+            <h3>Check your understanding</h3>
+            <span class="progress-label" v-if="submitted">{{ score }} / {{ quiz.questions.length }} correct</span>
+          </div>
+
+          <div class="quiz-q" v-for="(q, qi) in quiz.questions" :key="qi">
+            <p class="stem">{{ qi + 1 }}. {{ q.q }}</p>
+            <label
+              v-for="(choice, ci) in q.choices"
+              :key="ci"
+              class="quiz-choice"
+              :class="choiceClass(qi, ci)">
+              <input type="radio" :name="'q' + qi" :value="ci" v-model="answers[qi]" :disabled="submitted">
+              <span>{{ choice }}</span>
+            </label>
+          </div>
+
+          <button class="btn btn--primary btn--sm" @click="submitQuiz" v-if="!submitted" :disabled="!allAnswered">
+            Submit answers
+          </button>
+          <p class="quiz__result" v-if="submitted">
+            Saved to your progress. {{ score === quiz.questions.length ? "Perfect score!" : "Feel free to revisit this lesson and try again anytime." }}
+          </p>
+        </section>
+
+        <div class="lesson-nav">
+          <a v-if="prevLesson" class="btn btn--ghost" :href="'lesson.html?lesson=' + prevLesson.id">← {{ prevLesson.title }}</a>
+          <span v-else></span>
+          <button class="btn btn--primary" @click="markComplete" :disabled="doneNow">
+            {{ doneNow ? "Lesson complete ✓" : "Mark lesson complete" }}
+          </button>
+          <a v-if="nextLesson" class="btn btn--ghost" :href="'lesson.html?lesson=' + nextLesson.id">{{ nextLesson.title }} →</a>
+          <span v-else></span>
+        </div>
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  CIS 365 · Full Stack Web Development — content updated 2026.
+</footer>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="js/api-config.js"></script>
+<script src="js/data-store.js"></script>
+<script src="js/markdown-render.js"></script>
+<script>
+const { createApp, ref, computed, onMounted, watch } = Vue;
+
+createApp({
+  setup() {
+    const params = new URLSearchParams(location.search);
+    const currentId = ref(params.get("lesson") || "00");
+    const manifest = ref(null);
+    const quiz = ref(null);
+    const answers = ref({});
+    const submitted = ref(false);
+    const score = ref(0);
+    const doneNow = ref(false);
+    const storeTick = ref(0);
+
+    async function loadLesson() {
+      submitted.value = false;
+      answers.value = {};
+      score.value = 0;
+
+      const lesson = lessonById(currentId.value);
+      document.getElementById("page-title").textContent = lesson.title + " — CIS 365";
+
+      const html = await renderMarkdownFrom("content/lessons/" + lesson.file);
+      document.getElementById("content").innerHTML = html;
+
+      if (lesson.quiz) {
+        const res = await fetch("content/quizzes/" + lesson.quiz);
+        quiz.value = await res.json();
+      } else {
+        quiz.value = null;
+      }
+
+      doneNow.value = window.CourseStore.isComplete(currentId.value);
+    }
+
+    onMounted(async () => {
+      const res = await fetch("content/lessons/manifest.json");
+      manifest.value = await res.json();
+      await window.CourseStore.ready;
+      storeTick.value++;
+      await loadLesson();
+    });
+
+    function lessonById(id) {
+      if (!manifest.value) return { title: "", file: "" };
+      return manifest.value.lessons.find(l => l.id === id) || {};
+    }
+    function isDone(id) {
+      storeTick.value;
+      return window.CourseStore.isComplete(id);
+    }
+
+    const orderedIds = computed(() => manifest.value ? manifest.value.lessons.map(l => l.id) : []);
+    const prevLesson = computed(() => {
+      const idx = orderedIds.value.indexOf(currentId.value);
+      return idx > 0 ? lessonById(orderedIds.value[idx - 1]) : null;
+    });
+    const nextLesson = computed(() => {
+      const idx = orderedIds.value.indexOf(currentId.value);
+      return idx >= 0 && idx < orderedIds.value.length - 1 ? lessonById(orderedIds.value[idx + 1]) : null;
+    });
+
+    const allAnswered = computed(() => {
+      if (!quiz.value) return false;
+      return quiz.value.questions.every((_, qi) => answers.value[qi] !== undefined);
+    });
+
+    function submitQuiz() {
+      let correct = 0;
+      quiz.value.questions.forEach((q, qi) => {
+        if (answers.value[qi] === q.answer) correct++;
+      });
+      score.value = correct;
+      submitted.value = true;
+      window.CourseStore.saveQuizResult(currentId.value, correct, quiz.value.questions.length);
+    }
+
+    function choiceClass(qi, ci) {
+      if (!submitted.value) return {};
+      const q = quiz.value.questions[qi];
+      if (ci === q.answer) return { "is-correct": true };
+      if (answers.value[qi] === ci) return { "is-wrong": true };
+      return {};
+    }
+
+    function markComplete() {
+      window.CourseStore.markComplete(currentId.value);
+      doneNow.value = true;
+      storeTick.value++;
+    }
+
+    return {
+      manifest, currentId, quiz, answers, submitted, score, doneNow,
+      lessonById, isDone, prevLesson, nextLesson, allAnswered,
+      submitQuiz, choiceClass, markComplete
+    };
+  }
+}).mount("#app");
+</script>
+</body>
+</html>

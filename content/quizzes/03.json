@@ -1,0 +1,20 @@
+{
+  "lessonId": "03",
+  "questions": [
+    {
+      "q": "In the \"cards, conversations, confirmation\" model, what do conversations provide?",
+      "choices": ["A legal contract", "The detail a short card can't hold on its own", "A final invoice", "A replacement for wireframes"],
+      "answer": 1
+    },
+    {
+      "q": "Where does JavaScript typically run?",
+      "choices": ["Only on the server", "Only inside a database", "In the browser (and, as covered later, on servers too)", "Only inside GitHub"],
+      "answer": 2
+    },
+    {
+      "q": "Which habit most directly prevents a project from becoming unmaintainable later?",
+      "choices": ["Writing documentation as you go, not reconstructing it later", "Skipping tests to save time", "Avoiding stakeholder conversations", "Waiting until the end to plan"],
+      "answer": 0
+    }
+  ]
+}

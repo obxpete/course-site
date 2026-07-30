@@ -1,0 +1,120 @@
+{
+  "course": {
+    "code": "CIS 365",
+    "title": "Full Stack Web Development",
+    "subtitle": "An introduction to building complete web applications, front to back",
+    "updated": "2026"
+  },
+  "modules": [
+    {
+      "id": "foundations",
+      "title": "Foundations",
+      "lessons": ["00", "01", "02"]
+    },
+    {
+      "id": "building-blocks",
+      "title": "Building Blocks",
+      "lessons": ["03", "04", "05"]
+    },
+    {
+      "id": "going-deeper",
+      "title": "Going Deeper",
+      "lessons": ["06", "07", "08"]
+    },
+    {
+      "id": "finishing-strong",
+      "title": "Finishing Strong",
+      "lessons": ["09", "10"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "00",
+      "title": "Welcome & How This Course Works",
+      "summary": "Meet the course, see the roadmap, and set up your toolbox.",
+      "duration": "30 min",
+      "file": "00-orientation.md",
+      "quiz": null
+    },
+    {
+      "id": "01",
+      "title": "Foundations: Version Control, GitHub & the Cloud",
+      "summary": "Why developers track every change, and what \"the cloud\" actually means.",
+      "duration": "50 min",
+      "file": "01-foundations-cloud-git.md",
+      "quiz": "01.json"
+    },
+    {
+      "id": "02",
+      "title": "Systems Design: MVC, SDLC & Agile Thinking",
+      "summary": "How applications are structured, and how teams decide what to build next.",
+      "duration": "50 min",
+      "file": "02-systems-design.md",
+      "quiz": "02.json"
+    },
+    {
+      "id": "03",
+      "title": "Requirements, Wireframes & Your First JavaScript",
+      "summary": "Turning a vague idea into a plan, then turning that plan into code.",
+      "duration": "55 min",
+      "file": "03-requirements-and-js.md",
+      "quiz": "03.json"
+    },
+    {
+      "id": "04",
+      "title": "The Developer Toolkit: Git Workflows, Markdown & npm",
+      "summary": "The everyday tools that keep a project organized and shareable.",
+      "duration": "45 min",
+      "file": "04-toolkit-git-markdown-npm.md",
+      "quiz": "04.json"
+    },
+    {
+      "id": "05",
+      "title": "APIs & JSON: How Applications Talk to Each Other",
+      "summary": "The data format and request pattern behind almost every modern app.",
+      "duration": "50 min",
+      "file": "05-apis-and-json.md",
+      "quiz": "05.json"
+    },
+    {
+      "id": "06",
+      "title": "Careers in Web Development, Agile & DevOps",
+      "summary": "What the job actually looks like, and how teams ship software together.",
+      "duration": "45 min",
+      "file": "06-careers-agile-devops.md",
+      "quiz": "06.json"
+    },
+    {
+      "id": "07",
+      "title": "The Server Side: Node.js & Express",
+      "summary": "Writing JavaScript that runs on a server instead of a browser.",
+      "duration": "55 min",
+      "file": "07-server-side-node.md",
+      "quiz": "07.json"
+    },
+    {
+      "id": "08",
+      "title": "Frontend Frameworks: Bootstrap, Alpine & Beyond",
+      "summary": "Why frameworks exist, and how to choose one for a given job.",
+      "duration": "50 min",
+      "file": "08-frontend-frameworks.md",
+      "quiz": "08.json"
+    },
+    {
+      "id": "09",
+      "title": "Developer Resources, Testing & Debugging",
+      "summary": "The reference sites, tools, and habits that make you self-sufficient.",
+      "duration": "45 min",
+      "file": "09-resources-testing-debugging.md",
+      "quiz": "09.json"
+    },
+    {
+      "id": "10",
+      "title": "Capstone Review: Architecture & Your Next Steps",
+      "summary": "Tying the whole stack together and planning where to go from here.",
+      "duration": "40 min",
+      "file": "10-capstone-review.md",
+      "quiz": "10.json"
+    }
+  ]
+}

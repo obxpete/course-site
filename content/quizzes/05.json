@@ -1,0 +1,20 @@
+{
+  "lessonId": "05",
+  "questions": [
+    {
+      "q": "An API is best described as:",
+      "choices": ["A visual design tool", "A way for one piece of software to request data or action from another", "A type of database", "A programming language"],
+      "answer": 1
+    },
+    {
+      "q": "JSON is used:",
+      "choices": ["Only inside JavaScript programs", "Only for images", "Broadly, as a common data format across many languages and systems", "Only for storing passwords"],
+      "answer": 2
+    },
+    {
+      "q": "What does Postman let you do?",
+      "choices": ["Write and test API requests without writing code first", "Design database schemas", "Host a website", "Edit Markdown files"],
+      "answer": 0
+    }
+  ]
+}

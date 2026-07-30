@@ -1,0 +1,20 @@
+{
+  "lessonId": "09",
+  "questions": [
+    {
+      "q": "Which browser dev tools panel shows every request a page makes, including API calls?",
+      "choices": ["Elements", "Console", "Network", "Sources"],
+      "answer": 2
+    },
+    {
+      "q": "What is the first recommended step before trying to fix a bug?",
+      "choices": ["Change several things at once to save time", "Reproduce the bug reliably", "Ignore the error message", "Rewrite the whole file from scratch"],
+      "answer": 1
+    },
+    {
+      "q": "How should regular expressions generally be treated?",
+      "choices": ["As a tool to reach for automatically for any text matching", "As a tool used deliberately, tested live, and documented clearly", "As obsolete and unnecessary", "As something only databases use"],
+      "answer": 1
+    }
+  ]
+}

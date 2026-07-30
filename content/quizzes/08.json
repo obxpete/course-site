@@ -1,0 +1,20 @@
+{
+  "lessonId": "08",
+  "questions": [
+    {
+      "q": "What is a key difference between a library and a framework?",
+      "choices": ["There is no difference", "A framework usually shapes more of a project's overall structure; a library provides individual reusable tools", "Libraries are always bigger than frameworks", "Frameworks only apply to back-end code"],
+      "answer": 1
+    },
+    {
+      "q": "What changed in Bootstrap 5 compared to earlier versions?",
+      "choices": ["It added a dependency on jQuery", "It dropped its earlier dependency on jQuery in favor of plain JavaScript", "It removed responsive grid support", "It became a back-end framework"],
+      "answer": 1
+    },
+    {
+      "q": "Alpine.js is best suited for:",
+      "choices": ["Large, complex single-page applications only", "Lightweight interactivity added directly in HTML markup, without a build step", "Server-side database management", "Replacing Node.js"],
+      "answer": 1
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "lessonId": "01",
+  "questions": [
+    {
+      "q": "What does Git track over the life of a project?",
+      "choices": ["Only the most recent version of each file", "A complete history of changes as commits", "Just the file names, not their contents", "Only changes made by the project owner"],
+      "answer": 1
+    },
+    {
+      "q": "What is the main relationship between Git and GitHub?",
+      "choices": ["They are two names for the same tool", "Git tracks history locally; GitHub hosts that history in the cloud for sharing", "GitHub replaces the need for Git", "Git only works inside GitHub Codespaces"],
+      "answer": 1
+    },
+    {
+      "q": "Cloud computing is best described as:",
+      "choices": ["Software that only runs on rainy days", "A way of accessing computing resources on demand, without owning the hardware", "A synonym for the internet in general", "A type of database"],
+      "answer": 1
+    }
+  ]
+}

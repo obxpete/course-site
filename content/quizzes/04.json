@@ -1,0 +1,20 @@
+{
+  "lessonId": "04",
+  "questions": [
+    {
+      "q": "What is Markdown primarily used for?",
+      "choices": ["Compiling JavaScript code", "Lightweight, readable text formatting that converts cleanly to HTML", "Hosting websites", "Managing databases"],
+      "answer": 1
+    },
+    {
+      "q": "What two things is npm, at once?",
+      "choices": ["A code editor and a browser", "A package registry and the tool used to install/manage packages", "A version control system and a hosting platform", "A database and a query language"],
+      "answer": 1
+    },
+    {
+      "q": "What does package.json do?",
+      "choices": ["Stores your project's images", "Records exactly which packages a project depends on", "Runs your tests automatically", "Replaces the need for a README"],
+      "answer": 1
+    }
+  ]
+}

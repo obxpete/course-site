@@ -1,0 +1,20 @@
+{
+  "lessonId": "07",
+  "questions": [
+    {
+      "q": "What does Node.js make possible?",
+      "choices": ["Running JavaScript outside the browser, including on a server", "Running CSS on a database", "Replacing HTML entirely", "Hosting Markdown files only"],
+      "answer": 0
+    },
+    {
+      "q": "What role does Express play?",
+      "choices": ["It replaces the need for Node.js", "It's a framework for building a web server with Node.js, including defining routes", "It's a database system", "It's a CSS framework"],
+      "answer": 1
+    },
+    {
+      "q": "In `app.get('/users', ...)`, what does GET represent?",
+      "choices": ["A file extension", "An HTTP method indicating the type of request/action", "A variable name", "A CSS selector"],
+      "answer": 1
+    }
+  ]
+}

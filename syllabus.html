@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syllabus — CIS 365</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="topbar__brand" href="index.html">
+    <span class="code">CIS 365</span>
+    Full Stack Web Development
+  </a>
+  <nav class="topbar__nav">
+    <a href="index.html">Course</a>
+    <a href="syllabus.html" class="is-active">Syllabus</a>
+    <a href="lesson.html?lesson=00">Start Lesson 1</a>
+  </nav>
+</header>
+
+<main class="shell" style="max-width:800px;">
+  <article class="lesson-page lesson-content" id="content">
+    <p class="skeleton">Loading syllabus…</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  CIS 365 · Full Stack Web Development — content updated 2026.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="js/markdown-render.js"></script>
+<script>
+  renderMarkdownFrom("content/syllabus.md")
+    .then((html) => { document.getElementById("content").innerHTML = html; })
+    .catch((err) => { document.getElementById("content").innerHTML = "<p>Could not load the syllabus right now.</p>"; console.error(err); });
+</script>
+</body>
+</html>

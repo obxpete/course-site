@@ -1,0 +1,20 @@
+{
+  "lessonId": "02",
+  "questions": [
+    {
+      "q": "In MVC, which part is responsible for connecting user actions to data and deciding what happens next?",
+      "choices": ["Model", "View", "Controller", "Database"],
+      "answer": 2
+    },
+    {
+      "q": "What core assumption does Agile make that Waterfall does not?",
+      "choices": ["Requirements will change during development, and the process should expect that", "Testing should never happen until the very end", "Developers should never talk to stakeholders", "All requirements must be finalized before coding begins"],
+      "answer": 0
+    },
+    {
+      "q": "A wireframe is best described as:",
+      "choices": ["The final, fully styled version of a screen", "A low-fidelity sketch of layout and content, without visual design", "A type of database schema", "A piece of server-side code"],
+      "answer": 1
+    }
+  ]
+}

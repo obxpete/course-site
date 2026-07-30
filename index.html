@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIS 365 — Full Stack Web Development</title>
+<meta name="description" content="An introduction to full stack web application development: front-end, back-end, APIs, and the soft skills that connect them.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="topbar__brand" href="index.html">
+    <span class="code">CIS 365</span>
+    Full Stack Web Development
+  </a>
+  <nav class="topbar__nav">
+    <a href="index.html" class="is-active">Course</a>
+    <a href="syllabus.html">Syllabus</a>
+    <a href="lesson.html?lesson=00">Start Lesson 1</a>
+  </nav>
+</header>
+
+<main id="app" class="shell">
+
+  <section class="hero">
+    <div>
+      <p class="hero__eyebrow">Self-paced · 11 lessons</p>
+      <h1>Build the whole stack, one lesson at a time.</h1>
+      <p class="lede">Front-end interfaces, back-end APIs, databases, and the cloud that hosts it all — plus the planning and communication skills that make any of it shippable.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="lesson.html?lesson=00">Begin Lesson 1 →</a>
+        <a class="btn btn--ghost" href="syllabus.html">Read the syllabus</a>
+      </div>
+      <div style="margin-top:1.8rem; max-width:360px;">
+        <div class="progress-track"><div class="progress-track__fill" :style="{ width: progressPct + '%' }"></div></div>
+        <p class="progress-label" style="margin-top:0.5rem;">{{ completedCount }} of {{ totalLessons }} lessons complete</p>
+      </div>
+    </div>
+
+    <div class="bookmark-figure" aria-hidden="true">
+      <svg viewBox="0 0 220 300" xmlns="http://www.w3.org/2000/svg">
+        <rect x="18" y="8" width="170" height="272" rx="6" fill="#FAFAF6" stroke="#D8D4C6" stroke-width="1.5"/>
+        <rect x="10" y="16" width="170" height="272" rx="6" fill="#FAFAF6" stroke="#D8D4C6" stroke-width="1.5"/>
+        <line x1="34" y1="16" x2="34" y2="288" stroke="#D8D4C6" stroke-width="1" stroke-dasharray="2 4"/>
+        <line x1="52" y1="52" x2="150" y2="52" stroke="#E7E4D9" stroke-width="6" stroke-linecap="round"/>
+        <line x1="52" y1="76" x2="130" y2="76" stroke="#E7E4D9" stroke-width="6" stroke-linecap="round"/>
+        <line x1="52" y1="100" x2="145" y2="100" stroke="#E7E4D9" stroke-width="6" stroke-linecap="round"/>
+        <line x1="52" y1="124" x2="115" y2="124" stroke="#E7E4D9" stroke-width="6" stroke-linecap="round"/>
+        <path d="M138 16 L138 118 L153 100 L168 118 L168 16 Z" fill="#7A2E3B"/>
+        <circle cx="52" cy="168" r="5" fill="#B07C2C"/>
+        <circle cx="52" cy="190" r="5" fill="#B07C2C"/>
+        <circle cx="52" cy="212" r="5" fill="#E7E4D9" stroke="#D8D4C6"/>
+        <circle cx="52" cy="234" r="5" fill="#E7E4D9" stroke="#D8D4C6"/>
+        <line x1="66" y1="168" x2="150" y2="168" stroke="#E7E4D9" stroke-width="5" stroke-linecap="round"/>
+        <line x1="66" y1="190" x2="140" y2="190" stroke="#E7E4D9" stroke-width="5" stroke-linecap="round"/>
+        <line x1="66" y1="212" x2="150" y2="212" stroke="#E7E4D9" stroke-width="5" stroke-linecap="round"/>
+        <line x1="66" y1="234" x2="120" y2="234" stroke="#E7E4D9" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <section v-if="manifest" v-for="mod in manifest.modules" :key="mod.id" class="module-block">
+    <div class="module-block__head">
+      <h2>{{ mod.title }}</h2>
+      <span class="count">{{ mod.lessons.length }} lessons</span>
+    </div>
+    <div class="lesson-grid">
+      <a v-for="lid in mod.lessons" :key="lid" :href="'lesson.html?lesson=' + lid" class="lesson-card">
+        <span class="lesson-card__num">Lesson {{ parseInt(lid) + 1 }}</span>
+        <h3>{{ lessonById(lid).title }}</h3>
+        <p>{{ lessonById(lid).summary }}</p>
+        <div class="lesson-card__meta">
+          <span>{{ lessonById(lid).duration }}</span>
+          <span v-if="isDone(lid)" class="badge-done">Complete</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <p v-if="!manifest" class="skeleton">Loading course outline…</p>
+
+</main>
+
+<footer class="site-footer">
+  CIS 365 · Full Stack Web Development — content updated 2026.
+  <a href="syllabus.html">Syllabus</a>
+</footer>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="js/api-config.js"></script>
+<script src="js/data-store.js"></script>
+<script>
+const { createApp, ref, computed, onMounted } = Vue;
+
+createApp({
+  setup() {
+    const manifest = ref(null);
+    const storeTick = ref(0); // bump to force re-evaluate completion badges
+
+    onMounted(async () => {
+      const res = await fetch("content/lessons/manifest.json");
+      manifest.value = await res.json();
+      await window.CourseStore.ready;
+      storeTick.value++;
+    });
+
+    const totalLessons = computed(() => manifest.value ? manifest.value.lessons.length : 0);
+    const completedCount = computed(() => {
+      storeTick.value; // dependency
+      if (!manifest.value) return 0;
+      return window.CourseStore.completedCount(manifest.value.lessons.map(l => l.id));
+    });
+    const progressPct = computed(() => totalLessons.value ? Math.round((completedCount.value / totalLessons.value) * 100) : 0);
+
+    function lessonById(id) {
+      return manifest.value.lessons.find(l => l.id === id) || {};
+    }
+    function isDone(id) {
+      storeTick.value;
+      return window.CourseStore.isComplete(id);
+    }
+
+    return { manifest, totalLessons, completedCount, progressPct, lessonById, isDone, parseInt };
+  }
+}).mount("#app");
+</script>
+</body>
+</html>

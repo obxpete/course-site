@@ -1,0 +1,20 @@
+{
+  "lessonId": "10",
+  "questions": [
+    {
+      "q": "In the full modern architecture, what typically connects the front-end to the database?",
+      "choices": ["A direct file link, with no server involved", "An API on a server, usually returning JSON", "A Markdown file", "A CSS stylesheet"],
+      "answer": 1
+    },
+    {
+      "q": "What is the key difference between IaaS, PaaS, and SaaS?",
+      "choices": ["They are three names for the same thing", "How much of the stack you rent versus build yourself", "Only their price", "Only PaaS involves the cloud"],
+      "answer": 1
+    },
+    {
+      "q": "What is identified as the most valuable next step after this course?",
+      "choices": ["Memorizing every framework's documentation", "Building something real, however small, and documenting it clearly", "Avoiding hosting anything until it's perfect", "Skipping projects and going straight to interviews"],
+      "answer": 1
+    }
+  ]
+}

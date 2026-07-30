@@ -1,0 +1,20 @@
+{
+  "lessonId": "06",
+  "questions": [
+    {
+      "q": "According to the BLS, how does the job outlook for web developers compare to the average across all occupations?",
+      "choices": ["Slower than average", "About the same as average", "Faster than average", "Declining"],
+      "answer": 2
+    },
+    {
+      "q": "What is the main difference between what Agile and DevOps each shape?",
+      "choices": ["They are identical concepts", "Agile shapes what a team builds next; DevOps shapes how that work reaches users reliably", "Agile is about hosting; DevOps is about design", "DevOps replaced Agile entirely"],
+      "answer": 1
+    },
+    {
+      "q": "How has AI-assisted coding changed the value of fundamentals?",
+      "choices": ["It has made fundamentals irrelevant", "It has increased the value of being able to read, evaluate, and debug code, AI-suggested or not", "It has eliminated the need for testing", "It only affects back-end developers"],
+      "answer": 1
+    }
+  ]
+}
