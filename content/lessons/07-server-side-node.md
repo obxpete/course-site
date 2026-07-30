@@ -37,7 +37,7 @@ app.listen(3000, () => {
 });
 ```
 
-The sandbox below is a real, running Node.js server, pre-loaded with this code — click it and it boots in seconds, no account or local setup required. (If you'd rather build it yourself step by step: `npm init -y`, then `npm install express`, then run `node server.js` — the sandbox is doing exactly that for you.)
+The sandbox below launches a real, running Node.js server in a new tab, pre-loaded with this code — no account or local setup required to edit and run it. (If you'd rather build it yourself step by step: `npm init -y`, then `npm install express`, then run `node server.js` — the sandbox is doing exactly that for you.)
 
 From here, try adding a second route that returns a small JSON object instead of plain text — that's the shape almost every real API takes.
 
@@ -51,7 +51,7 @@ Working on "the backend" tends to reward a specific kind of patience: errors are
 
 ## Try It
 
-In the sandbox above, add a third route of your own, then visit it in the sandbox's preview pane to see the response.
+In the sandbox, add a third route of your own, then visit it in the preview pane that opens alongside the editor to see the response.
 
 ## Recap
 

@@ -87,12 +87,19 @@ dependencies, registered globally in `lesson.html` and rendered based on each le
 `"interactive"` entry in `manifest.json`, which points at a small config file under
 `content/interactives/`.
 
-**The one exception is Lesson 7's Node sandbox**, which embeds StackBlitz's WebContainers
-via their public JS SDK (`@stackblitz/sdk`, loaded from CDN) — this is the one way to run
-*actual* server-side Node/Express code in a browser tab. Opening and editing it requires
-no account; StackBlitz only asks for sign-in if a student wants to save their own copy of
-the project, which is entirely optional. It's set to `clickToLoad`, so it doesn't cost any
-load time on the page until a student actually opens it.
+**The one exception is Lesson 7's Node sandbox**, which launches StackBlitz's WebContainers
+(via their public JS SDK, `@stackblitz/sdk`, loaded from CDN) in a **new tab** rather than
+embedding it inline. That's a deliberate choice, not a corner cut: running real Node in a
+browser requires the hosting page to send `Cross-Origin-Opener-Policy` /
+`Cross-Origin-Embedder-Policy` headers, and GitHub Pages has no mechanism to set custom
+response headers — an inline embed simply cannot work here (or on Netlify/Cloudflare Pages
+without extra header configuration, and even then StackBlitz's inline embed is known to be
+unreliable — see stackblitz/sdk#37 and stackblitz/webcontainer-core#2045 upstream). Opening
+a fresh stackblitz.com tab sidesteps the problem entirely, since that page sets its own
+headers correctly, and it works the same regardless of how this site itself is hosted.
+Opening/editing it needs no account; StackBlitz only asks for sign-in if a student wants to
+save their own copy, which is optional. The lesson page also shows the starter code inline
+(read-only) so students aren't staring at a blank widget before they click launch.
 
 **Lesson 1 is the deliberate exception to "no accounts."** It's the lesson about Git and
 GitHub themselves, so trying it hands-on does mean creating a free GitHub account — every

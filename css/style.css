@@ -653,9 +653,13 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   padding: 0 2px;
 }
 
-/* Node sandbox (StackBlitz embed) */
-.node-sandbox { border-radius: 8px; overflow: hidden; min-height: 480px; background: #14202E; }
-.node-sandbox iframe { border: none; width: 100%; height: 480px; }
+/* Node sandbox (StackBlitz launch-in-new-tab) */
+.widget pre {
+  background: #14202E;
+  margin: 0 0 1rem;
+  max-height: 320px;
+  overflow: auto;
+}
 
 /* =============== Footer =============== */
 .site-footer {
