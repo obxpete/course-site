@@ -4,17 +4,20 @@
     {
       "q": "What does Node.js make possible?",
       "choices": ["Running JavaScript outside the browser, including on a server", "Running CSS on a database", "Replacing HTML entirely", "Hosting Markdown files only"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Node.js took the V8 JavaScript engine out of Chrome and packaged it as a standalone runtime. This is what made server-side JavaScript possible — the same language you use to update a DOM element can now handle HTTP requests, read files, or query a database."
     },
     {
       "q": "What role does Express play?",
       "choices": ["It replaces the need for Node.js", "It's a framework for building a web server with Node.js, including defining routes", "It's a database system", "It's a CSS framework"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "Express is a minimal web framework layered on top of Node.js. It handles the boilerplate of an HTTP server — parsing requests, routing URLs to handler functions, sending responses — so you don't have to implement all that from scratch."
     },
     {
       "q": "In `app.get('/users', ...)`, what does GET represent?",
       "choices": ["A file extension", "An HTTP method indicating the type of request/action", "A variable name", "A CSS selector"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "HTTP methods encode intent. GET means 'give me data without changing anything.' POST means 'create something.' PUT means 'update.' DELETE means 'remove.' In Express, you register a handler for a specific method + path pair, so the server knows what action to take."
     }
   ]
 }

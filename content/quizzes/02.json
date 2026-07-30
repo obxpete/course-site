@@ -4,17 +4,20 @@
     {
       "q": "In MVC, which part is responsible for connecting user actions to data and deciding what happens next?",
       "choices": ["Model", "View", "Controller", "Database"],
-      "answer": 2
+      "answer": 2,
+      "explanation": "The Controller is the mediator in MVC: it receives a user action (from the View), queries or updates data (via the Model), then decides what to display next. The Model holds data logic; the View just renders what it's given."
     },
     {
       "q": "What core assumption does Agile make that Waterfall does not?",
       "choices": ["Requirements will change during development, and the process should expect that", "Testing should never happen until the very end", "Developers should never talk to stakeholders", "All requirements must be finalized before coding begins"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Agile's defining assumption is that requirements will change — often because users don't fully know what they want until they see early versions. Waterfall assumes requirements can be fully defined upfront, which rarely holds in practice."
     },
     {
       "q": "A wireframe is best described as:",
       "choices": ["The final, fully styled version of a screen", "A low-fidelity sketch of layout and content, without visual design", "A type of database schema", "A piece of server-side code"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "Wireframes are intentionally rough — boxes, lines, and placeholder text. They let you agree on layout and content flow quickly, before investing time in visual design or code. That's exactly the point: cheap to change."
     }
   ]
 }

@@ -32,7 +32,9 @@
       <h1>Build the whole stack, one lesson at a time.</h1>
       <p class="lede">Front-end interfaces, back-end APIs, databases, and the cloud that hosts it all — plus the planning and communication skills that make any of it shippable.</p>
       <div class="hero__actions">
-        <a class="btn btn--primary" href="lesson.html?lesson=00">Begin Lesson 1 →</a>
+        <a class="btn btn--primary" :href="'lesson.html?lesson=' + (continueLesson ? continueLesson.id : '00')">
+          {{ allDone ? 'Review Capstone →' : hasProgress ? 'Continue Lesson ' + (continueLesson ? (parseInt(continueLesson.id) + 1) : 1) + ' →' : 'Begin Lesson 1 →' }}
+        </a>
         <a class="btn btn--ghost" href="syllabus.html">Read the syllabus</a>
       </div>
       <div style="margin-top:1.8rem; max-width:360px;">
@@ -66,7 +68,12 @@
   <section v-if="manifest" v-for="mod in manifest.modules" :key="mod.id" class="module-block">
     <div class="module-block__head">
       <h2>{{ mod.title }}</h2>
-      <span class="count">{{ mod.lessons.length }} lessons</span>
+      <div class="module-block__progress">
+        <span class="count">{{ moduleCompletedCount(mod) }}/{{ mod.lessons.length }}</span>
+        <div class="module-progress-bar">
+          <div class="module-progress-bar__fill" :style="{ width: moduleProgress(mod) + '%' }"></div>
+        </div>
+      </div>
     </div>
     <div class="lesson-grid">
       <a v-for="lid in mod.lessons" :key="lid" :href="'lesson.html?lesson=' + lid" class="lesson-card">
@@ -75,6 +82,7 @@
         <p>{{ lessonById(lid).summary }}</p>
         <div class="lesson-card__meta">
           <span>{{ lessonById(lid).duration }}</span>
+          <span v-if="quizResult(lid)" class="badge-score">{{ quizResult(lid).score }}/{{ quizResult(lid).total }}</span>
           <span v-if="isDone(lid)" class="badge-done">Complete</span>
         </div>
       </a>
@@ -124,8 +132,41 @@ createApp({
       storeTick.value;
       return window.CourseStore.isComplete(id);
     }
+    function quizResult(id) {
+      storeTick.value;
+      return window.CourseStore.getBestQuizScore(id);
+    }
+    function moduleCompletedCount(mod) {
+      storeTick.value;
+      return mod.lessons.filter(id => window.CourseStore.isComplete(id)).length;
+    }
+    function moduleProgress(mod) {
+      return Math.round((moduleCompletedCount(mod) / mod.lessons.length) * 100);
+    }
 
-    return { manifest, totalLessons, completedCount, progressPct, lessonById, isDone, parseInt };
+    const hasProgress = computed(() => {
+      storeTick.value;
+      if (!manifest.value) return false;
+      return manifest.value.lessons.some(l => window.CourseStore.isComplete(l.id));
+    });
+    const allDone = computed(() => {
+      storeTick.value;
+      if (!manifest.value) return false;
+      return manifest.value.lessons.every(l => window.CourseStore.isComplete(l.id));
+    });
+    const continueLesson = computed(() => {
+      storeTick.value;
+      if (!manifest.value) return null;
+      const lessons = manifest.value.lessons;
+      return lessons.find(l => !window.CourseStore.isComplete(l.id)) || lessons[lessons.length - 1];
+    });
+
+    return {
+      manifest, totalLessons, completedCount, progressPct,
+      hasProgress, allDone, continueLesson,
+      lessonById, isDone, quizResult, moduleCompletedCount, moduleProgress,
+      parseInt
+    };
   }
 }).mount("#app");
 </script>

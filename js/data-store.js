@@ -61,7 +61,17 @@
       state.lessons[row.lesson_id] = { completedAt: row.completed_at };
     });
     (quizRows || []).forEach((row) => {
-      state.quizzes[row.lesson_id] = { score: row.score, total: row.total, updatedAt: row.updated_at };
+      // Merge remote best score into local state without clobbering attempt history
+      const local = state.quizzes[row.lesson_id];
+      if (!local || row.score >= (local.bestScore ?? local.score ?? 0)) {
+        state.quizzes[row.lesson_id] = {
+          score: row.score,
+          total: row.total,
+          updatedAt: row.updated_at,
+          bestScore: row.score,
+          attempts: local?.attempts || [{ score: row.score, total: row.total, takenAt: row.updated_at }]
+        };
+      }
     });
     writeLocal(state);
   }
@@ -107,10 +117,28 @@
       return state.quizzes[lessonId] || null;
     },
 
+    getQuizHistory(lessonId) {
+      return state.quizzes[lessonId]?.attempts || [];
+    },
+
+    getBestQuizScore(lessonId) {
+      const entry = state.quizzes[lessonId];
+      if (!entry) return null;
+      if (entry.attempts && entry.attempts.length > 0) {
+        const best = entry.attempts.reduce((b, a) => a.score > b.score ? a : b, entry.attempts[0]);
+        return { score: best.score, total: best.total };
+      }
+      return { score: entry.score, total: entry.total };
+    },
+
     saveQuizResult(lessonId, score, total) {
-      state.quizzes[lessonId] = { score, total, updatedAt: new Date().toISOString() };
+      const prev = state.quizzes[lessonId];
+      const newAttempt = { score, total, takenAt: new Date().toISOString() };
+      const attempts = prev?.attempts ? [...prev.attempts, newAttempt] : [newAttempt];
+      const bestScore = attempts.reduce((b, a) => Math.max(b, a.score), 0);
+      state.quizzes[lessonId] = { score, total, updatedAt: newAttempt.takenAt, attempts, bestScore };
       writeLocal(state);
-      pushQuizResult(lessonId, score, total);
+      pushQuizResult(lessonId, bestScore, total); // always push best to remote
     },
 
     completedCount(lessonIds) {

@@ -4,17 +4,20 @@
     {
       "q": "According to the BLS, how does the job outlook for web developers compare to the average across all occupations?",
       "choices": ["Slower than average", "About the same as average", "Faster than average", "Declining"],
-      "answer": 2
+      "answer": 2,
+      "explanation": "The BLS projects web development to grow significantly faster than the average occupation through 2034, driven by continued growth in e-commerce, mobile applications, and digital services across every industry — not just tech companies."
     },
     {
       "q": "What is the main difference between what Agile and DevOps each shape?",
       "choices": ["They are identical concepts", "Agile shapes what a team builds next; DevOps shapes how that work reaches users reliably", "Agile is about hosting; DevOps is about design", "DevOps replaced Agile entirely"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "Agile and DevOps solve adjacent problems. Agile answers 'what should the team work on, in what order?' DevOps answers 'once it's built, how do we deploy, monitor, and maintain it reliably?' Most modern teams use both."
     },
     {
       "q": "How has AI-assisted coding changed the value of fundamentals?",
       "choices": ["It has made fundamentals irrelevant", "It has increased the value of being able to read, evaluate, and debug code, AI-suggested or not", "It has eliminated the need for testing", "It only affects back-end developers"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "AI tools generate code faster, but they also generate bugs, security holes, and overengineered solutions. The value of fundamentals has increased because evaluating, debugging, and refactoring AI-suggested code requires deeper understanding — not less."
     }
   ]
 }

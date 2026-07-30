@@ -4,17 +4,20 @@
     {
       "q": "What is Markdown primarily used for?",
       "choices": ["Compiling JavaScript code", "Lightweight, readable text formatting that converts cleanly to HTML", "Hosting websites", "Managing databases"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "Markdown was designed so the source looks nearly identical to plain text — `# Heading` is obviously a heading — while still converting cleanly to structured HTML. That readability-plus-portability tradeoff is why it became the standard for READMEs, documentation, and course content like this."
     },
     {
       "q": "What two things is npm, at once?",
       "choices": ["A code editor and a browser", "A package registry and the tool used to install/manage packages", "A version control system and a hosting platform", "A database and a query language"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "npm wears two hats: it hosts the registry at npmjs.com where packages live, and it's the CLI tool you run to install, update, and uninstall those packages in your project. Both are usually just called 'npm'."
     },
     {
       "q": "What does package.json do?",
       "choices": ["Stores your project's images", "Records exactly which packages a project depends on", "Runs your tests automatically", "Replaces the need for a README"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "package.json is the project's manifest. It records exactly which packages (and which version ranges) the project needs, so anyone who clones the repo can run `npm install` and get an identical setup — without committing gigabytes of node_modules to Git."
     }
   ]
 }

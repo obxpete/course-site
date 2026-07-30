@@ -4,17 +4,20 @@
     {
       "q": "An API is best described as:",
       "choices": ["A visual design tool", "A way for one piece of software to request data or action from another", "A type of database", "A programming language"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "API stands for Application Programming Interface — a defined contract that lets one piece of software ask another to do something (like your weather app asking a weather service for tomorrow's forecast) without either one knowing the other's internals."
     },
     {
       "q": "JSON is used:",
       "choices": ["Only inside JavaScript programs", "Only for images", "Broadly, as a common data format across many languages and systems", "Only for storing passwords"],
-      "answer": 2
+      "answer": 2,
+      "explanation": "JSON was invented alongside JavaScript, but it's now the dominant data-exchange format everywhere: Python, Ruby, Go, Java, and every other modern language can read and write it natively. That universality is why it became the glue of the web."
     },
     {
       "q": "What does Postman let you do?",
       "choices": ["Write and test API requests without writing code first", "Design database schemas", "Host a website", "Edit Markdown files"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Postman (and the API tester on this page) let you construct and send HTTP requests visually, then inspect the response. That means you can verify an API works and understand its data format before writing a single line of code to consume it."
     }
   ]
 }

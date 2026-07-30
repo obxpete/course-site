@@ -4,17 +4,20 @@
     {
       "q": "What is a key difference between a library and a framework?",
       "choices": ["There is no difference", "A framework usually shapes more of a project's overall structure; a library provides individual reusable tools", "Libraries are always bigger than frameworks", "Frameworks only apply to back-end code"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "A library (like Axios or Lodash) gives you tools you call when you need them — you're in control. A framework (like React, Vue, or Angular) sets the overall structure and calls your code. Rails' famous phrase for this is 'inversion of control.'"
     },
     {
       "q": "What changed in Bootstrap 5 compared to earlier versions?",
       "choices": ["It added a dependency on jQuery", "It dropped its earlier dependency on jQuery in favor of plain JavaScript", "It removed responsive grid support", "It became a back-end framework"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "Bootstrap 5 dropped jQuery because modern browsers now natively support what jQuery was originally solving: DOM selection, event handling, and AJAX. Removing it cut Bootstrap's footprint and eliminated a dependency with its own security surface."
     },
     {
       "q": "Alpine.js is best suited for:",
       "choices": ["Large, complex single-page applications only", "Lightweight interactivity added directly in HTML markup, without a build step", "Server-side database management", "Replacing Node.js"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "Alpine.js targets the 'I need a little interactivity on this page' use case — a dropdown, a modal, a toggle — without a build step or component architecture. It's the spiritual successor to older jQuery patterns, but with reactive data binding."
     }
   ]
 }

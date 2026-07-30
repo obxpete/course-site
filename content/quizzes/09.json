@@ -4,17 +4,20 @@
     {
       "q": "Which browser dev tools panel shows every request a page makes, including API calls?",
       "choices": ["Elements", "Console", "Network", "Sources"],
-      "answer": 2
+      "answer": 2,
+      "explanation": "The Network panel is the closest thing dev tools has to a wire tap — it shows every HTTP request the page makes, including timing, headers, status codes, and full response bodies. It's indispensable for debugging API calls and slow page loads."
     },
     {
       "q": "What is the first recommended step before trying to fix a bug?",
       "choices": ["Change several things at once to save time", "Reproduce the bug reliably", "Ignore the error message", "Rewrite the whole file from scratch"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "If you can't reproduce a bug reliably, you can't know when you've actually fixed it. Reproduction first forces you to understand the exact conditions that trigger the problem — which usually reveals the cause before you've written a single fix."
     },
     {
       "q": "How should regular expressions generally be treated?",
       "choices": ["As a tool to reach for automatically for any text matching", "As a tool used deliberately, tested live, and documented clearly", "As obsolete and unnecessary", "As something only databases use"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "Regex is powerful but notoriously hard to read after the fact. Best practice: use it when it genuinely saves complexity over a plain string method, test it interactively (as this lesson's widget lets you do), and leave a comment explaining what pattern it matches."
     }
   ]
 }

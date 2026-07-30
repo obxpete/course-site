@@ -4,17 +4,20 @@
     {
       "q": "In the full modern architecture, what typically connects the front-end to the database?",
       "choices": ["A direct file link, with no server involved", "An API on a server, usually returning JSON", "A Markdown file", "A CSS stylesheet"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "Letting a browser connect directly to a database would expose credentials and bypass all authorization logic. Instead, the browser talks to an API server, which validates the request, queries the database, and returns JSON — keeping credentials and business rules safely server-side."
     },
     {
       "q": "What is the key difference between IaaS, PaaS, and SaaS?",
       "choices": ["They are three names for the same thing", "How much of the stack you rent versus build yourself", "Only their price", "Only PaaS involves the cloud"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "IaaS (e.g., bare EC2 instances) gives you raw servers to configure however you like. PaaS (e.g., Heroku, Railway) manages the server layer so you just deploy code. SaaS (e.g., Supabase, Stripe) manages everything and you just call an API. Each step trades control for convenience."
     },
     {
       "q": "What is identified as the most valuable next step after this course?",
       "choices": ["Memorizing every framework's documentation", "Building something real, however small, and documenting it clearly", "Avoiding hosting anything until it's perfect", "Skipping projects and going straight to interviews"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "Every framework you could memorize will look different in two years. Building a real project forces you to make decisions, hit real problems, and develop the debugging instinct that's harder to teach than any specific technology."
     }
   ]
 }

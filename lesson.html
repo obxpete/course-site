@@ -32,7 +32,8 @@
            :href="'lesson.html?lesson=' + lid"
            :class="{ 'is-active': lid === currentId, 'is-done': isDone(lid) }">
           <span class="dot"></span>
-          {{ lessonById(lid).title }}
+          <span class="tab-rail__title">{{ lessonById(lid).title }}</span>
+          <span v-if="quizScore(lid)" class="tab-rail__score">{{ quizScore(lid) }}</span>
         </a>
       </template>
     </nav>
@@ -42,6 +43,13 @@
         <div class="lesson-content" id="content">
           <p class="skeleton">Loading lesson…</p>
         </div>
+
+        <nav v-if="toc.length > 1" class="lesson-toc">
+          <p class="lesson-toc__label">In this lesson</p>
+          <ol class="lesson-toc__list">
+            <li v-for="item in toc" :key="item.id"><a :href="'#' + item.id">{{ item.text }}</a></li>
+          </ol>
+        </nav>
 
         <section v-if="interactive" class="interactive">
           <component :is="interactive.componentName" :config="interactive.config"></component>
@@ -63,14 +71,22 @@
               <input type="radio" :name="'q' + qi" :value="ci" v-model="answers[qi]" :disabled="submitted">
               <span>{{ choice }}</span>
             </label>
+            <p v-if="submitted && q.explanation" class="quiz-explanation">{{ q.explanation }}</p>
           </div>
 
           <button class="btn btn--primary btn--sm" @click="submitQuiz" v-if="!submitted" :disabled="!allAnswered">
             Submit answers
           </button>
-          <p class="quiz__result" v-if="submitted">
-            Saved to your progress. {{ score === quiz.questions.length ? "Perfect score!" : "Feel free to revisit this lesson and try again anytime." }}
-          </p>
+          <div v-if="submitted" class="quiz__footer">
+            <p class="quiz__result">
+              {{ score === quiz.questions.length ? "Perfect score!" : "Review the explanations above, then retake anytime." }}
+            </p>
+            <div v-if="quizHistory.length > 1" class="quiz-attempts">
+              <span class="quiz-attempts__label">Past attempts:</span>
+              <span v-for="(a, i) in quizHistory.slice(0, -1)" :key="i" class="quiz-attempt-chip">{{ a.score }}/{{ a.total }}</span>
+            </div>
+            <button class="btn btn--ghost btn--sm" @click="retakeQuiz" style="margin-top:0.7rem">Retake quiz</button>
+          </div>
         </section>
 
         <div class="lesson-nav">
@@ -125,6 +141,8 @@ const app = createApp({
     const score = ref(0);
     const doneNow = ref(false);
     const storeTick = ref(0);
+    const toc = ref([]);
+    const quizHistory = ref([]);
 
     async function loadLesson() {
       submitted.value = false;
@@ -136,6 +154,16 @@ const app = createApp({
 
       const html = await renderMarkdownFrom("content/lessons/" + lesson.file);
       document.getElementById("content").innerHTML = html;
+
+      // Build ToC from h2 headings
+      const headings = document.querySelectorAll('#content h2');
+      toc.value = Array.from(headings).map((h, i) => {
+        const id = 'section-' + i;
+        h.id = id;
+        return { id, text: h.textContent.trim() };
+      });
+
+      quizHistory.value = window.CourseStore.getQuizHistory(currentId.value);
 
       if (lesson.quiz) {
         const res = await fetch("content/quizzes/" + lesson.quiz);
@@ -198,6 +226,19 @@ const app = createApp({
       score.value = correct;
       submitted.value = true;
       window.CourseStore.saveQuizResult(currentId.value, correct, quiz.value.questions.length);
+      quizHistory.value = window.CourseStore.getQuizHistory(currentId.value);
+    }
+
+    function retakeQuiz() {
+      submitted.value = false;
+      answers.value = {};
+      score.value = 0;
+    }
+
+    function quizScore(id) {
+      storeTick.value;
+      const r = window.CourseStore.getBestQuizScore(id);
+      return r ? r.score + '/' + r.total : null;
     }
 
     function choiceClass(qi, ci) {
@@ -216,8 +257,9 @@ const app = createApp({
 
     return {
       manifest, currentId, quiz, interactive, answers, submitted, score, doneNow,
-      lessonById, isDone, prevLesson, nextLesson, allAnswered,
-      submitQuiz, choiceClass, markComplete
+      toc, quizHistory,
+      lessonById, isDone, prevLesson, nextLesson, allAnswered, quizScore,
+      submitQuiz, choiceClass, markComplete, retakeQuiz
     };
   }
 });

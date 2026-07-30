@@ -4,17 +4,20 @@
     {
       "q": "In the \"cards, conversations, confirmation\" model, what do conversations provide?",
       "choices": ["A legal contract", "The detail a short card can't hold on its own", "A final invoice", "A replacement for wireframes"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "A card (user story) is just a short placeholder — a reminder to have a conversation. The conversation fills in the edge cases, constraints, and context the card couldn't hold. Confirmation (acceptance criteria) then nails down what 'done' actually means."
     },
     {
       "q": "Where does JavaScript typically run?",
       "choices": ["Only on the server", "Only inside a database", "In the browser (and, as covered later, on servers too)", "Only inside GitHub"],
-      "answer": 2
+      "answer": 2,
+      "explanation": "JavaScript was originally browser-only, but today it also runs on servers via Node.js (covered in Lesson 7). That's what 'full stack JavaScript' means — one language front to back."
     },
     {
       "q": "Which habit most directly prevents a project from becoming unmaintainable later?",
       "choices": ["Writing documentation as you go, not reconstructing it later", "Skipping tests to save time", "Avoiding stakeholder conversations", "Waiting until the end to plan"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Documentation reconstructed from memory is always incomplete. Writing it as you go captures decisions while they're fresh and prevents future-you (or a teammate) from having to reverse-engineer why something was built the way it was."
     }
   ]
 }

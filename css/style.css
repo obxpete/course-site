@@ -359,17 +359,6 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .tab-rail__module:first-child { margin-top: 0; }
 
-.tab-rail a {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: var(--ink-soft);
-  font-size: 0.9rem;
-  padding: 0.32rem 0;
-  position: relative;
-}
-
 .tab-rail a .dot {
   width: 8px;
   height: 8px;
@@ -469,13 +458,6 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 
 .quiz-choice.is-correct { background: var(--accent-sage-soft); border-color: var(--accent-sage); }
 .quiz-choice.is-wrong { background: var(--accent-berry-soft); border-color: var(--accent-berry); }
-
-.quiz__result {
-  margin-top: 1rem;
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  color: var(--ink-soft);
-}
 
 /* =============== Interactive widgets =============== */
 .interactive { margin-top: 2.8rem; }
@@ -672,6 +654,159 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   z-index: 1;
 }
 .site-footer a { color: var(--ink-soft); }
+
+/* =============== Lesson ToC =============== */
+.lesson-toc {
+  margin: 1.8rem 0 2rem;
+  padding: 1rem 1.3rem;
+  background: var(--paper-deep);
+  border-left: 3px solid var(--accent-gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.lesson-toc__label {
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 0.6rem;
+}
+
+.lesson-toc__list {
+  margin: 0;
+  padding-left: 1.1rem;
+  list-style: none;
+  counter-reset: toc;
+}
+
+.lesson-toc__list li {
+  counter-increment: toc;
+  margin-bottom: 0.25rem;
+  font-size: 0.92rem;
+}
+
+.lesson-toc__list li::before {
+  content: counter(toc) ". ";
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+}
+
+.lesson-toc__list a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.lesson-toc__list a:hover { color: var(--ink); text-decoration: underline; }
+
+/* =============== Quiz explanation =============== */
+.quiz-explanation {
+  margin: 0.6rem 0 0;
+  padding: 0.6rem 0.9rem;
+  background: rgba(32, 44, 60, 0.04);
+  border-left: 3px solid var(--accent-gold);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+/* =============== Quiz footer (retake + history) =============== */
+.quiz__footer {
+  margin-top: 1rem;
+}
+
+.quiz__result {
+  margin: 0 0 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.quiz-attempts {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.quiz-attempts__label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+}
+
+.quiz-attempt-chip {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+
+/* =============== Tab rail score badge =============== */
+.tab-rail a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  padding: 0.32rem 0;
+  position: relative;
+}
+
+.tab-rail__title {
+  flex: 1;
+  min-width: 0;
+}
+
+.tab-rail__score {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--accent-gold);
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+/* =============== Module-level progress =============== */
+.module-block__progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.module-block__progress .count {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+}
+
+.module-progress-bar {
+  width: 60px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--paper-deep);
+  overflow: hidden;
+}
+
+.module-progress-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-berry));
+  transition: width 0.4s ease;
+}
+
+/* =============== Quiz score badge on lesson cards =============== */
+.badge-score {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-gold);
+  font-weight: 600;
+}
 
 /* Utility */
 .text-muted { color: var(--ink-soft); }
