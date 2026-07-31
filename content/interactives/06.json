@@ -1,0 +1,37 @@
+{
+  "label": "Which role owns this task?",
+  "prompt": "Click the role that typically owns each responsibility. Some tasks could involve multiple roles — pick the primary owner.",
+  "categories": ["Frontend", "Backend", "DevOps", "Designer"],
+  "items": [
+    {
+      "task": "Style the checkout button so it stands out on mobile screens",
+      "answer": "Frontend",
+      "explanation": "Visual styling and responsive behavior is frontend work — implementing the designer's spec in CSS/JS."
+    },
+    {
+      "task": "Write the SQL query that calculates monthly revenue by region",
+      "answer": "Backend",
+      "explanation": "Database queries and business logic live on the server. The backend exposes results via an API endpoint."
+    },
+    {
+      "task": "Set up automated deployments whenever code merges to the main branch",
+      "answer": "DevOps",
+      "explanation": "CI/CD pipelines, deployment automation, and infrastructure-as-code are core DevOps responsibilities."
+    },
+    {
+      "task": "Create wireframes and a user flow for the new onboarding screens",
+      "answer": "Designer",
+      "explanation": "Wireframes, user flows, and overall UX structure are the designer's primary output before implementation begins."
+    },
+    {
+      "task": "Add rate limiting so the public API can't be abused",
+      "answer": "Backend",
+      "explanation": "API security, rate limiting, and server-side validation are backend concerns — they must happen server-side to be enforceable."
+    },
+    {
+      "task": "Monitor server CPU and alert on-call when it spikes above 90%",
+      "answer": "DevOps",
+      "explanation": "Observability, alerting, and on-call infrastructure are owned by DevOps (or a platform/SRE team at larger companies)."
+    }
+  ]
+}

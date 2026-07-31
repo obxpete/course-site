@@ -50,7 +50,8 @@
       </div>
       <div style="margin-top:1.8rem; max-width:360px;">
         <div class="progress-track"><div class="progress-track__fill" :style="{ width: progressPct + '%' }"></div></div>
-        <p class="progress-label" style="margin-top:0.5rem;">{{ completedCount }} of {{ totalLessons }} lessons complete</p>
+        <p class="progress-label" style="margin-top:0.5rem;">{{ completedCount }} of {{ totalLessons }} lessons complete<span v-if="timeLeft"> · {{ timeLeft }}</span></p>
+        <p style="margin-top:0.6rem;" v-if="allDone"><a href="certificate.html" class="progress-label" style="color:var(--accent-gold);">View your certificate →</a></p>
       </div>
     </div>
 
@@ -173,9 +174,24 @@ createApp({
       return lessons.find(l => !window.CourseStore.isComplete(l.id)) || lessons[lessons.length - 1];
     });
 
+    function parseMinutes(duration) {
+      const m = (duration || '').match(/(\d+)/);
+      return m ? parseInt(m[1]) : 0;
+    }
+    const timeLeft = computed(() => {
+      storeTick.value;
+      if (!manifest.value) return null;
+      const mins = manifest.value.lessons
+        .filter(l => !window.CourseStore.isComplete(l.id))
+        .reduce((sum, l) => sum + parseMinutes(l.duration), 0);
+      if (mins === 0) return null;
+      const h = Math.floor(mins / 60), m = mins % 60;
+      return h > 0 ? `~${h}h ${m}m left` : `~${m}m left`;
+    });
+
     return {
       manifest, totalLessons, completedCount, progressPct,
-      hasProgress, allDone, continueLesson,
+      hasProgress, allDone, continueLesson, timeLeft,
       lessonById, isDone, quizResult, moduleCompletedCount, moduleProgress,
       parseInt
     };

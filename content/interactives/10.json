@@ -1,0 +1,47 @@
+{
+  "label": "Map it to the stack",
+  "prompt": "Assign each technology or concept to its correct layer in a full-stack web application.",
+  "categories": ["Browser", "Frontend", "Backend", "Database"],
+  "items": [
+    {
+      "term": "React component",
+      "answer": "Frontend",
+      "explanation": "React components are frontend — they run in the browser but represent the application logic layer above raw HTML. 'Frontend' and 'Browser' are distinct: frontend is the code you write; browser is the runtime that executes it."
+    },
+    {
+      "term": "SQL JOIN",
+      "answer": "Database",
+      "explanation": "SQL runs inside the database engine and never leaves that layer. The backend calls it, but the JOIN itself executes in the database."
+    },
+    {
+      "term": "Express route handler",
+      "answer": "Backend",
+      "explanation": "Express handlers run on the Node.js server process — not in the browser, not in the database."
+    },
+    {
+      "term": "localStorage",
+      "answer": "Browser",
+      "explanation": "localStorage is a browser API that stores data in the user's own browser. It's not accessible from the server and disappears if the user clears their data."
+    },
+    {
+      "term": "JWT token verification",
+      "answer": "Backend",
+      "explanation": "Token verification must happen server-side. If you only verified it in the browser, any user could trivially bypass it by editing JavaScript."
+    },
+    {
+      "term": "CSS media query",
+      "answer": "Frontend",
+      "explanation": "CSS is part of the frontend presentation layer. It's sent to the browser as a file and interpreted by the rendering engine — but it's code you write on the frontend."
+    },
+    {
+      "term": "PostgreSQL index",
+      "answer": "Database",
+      "explanation": "Indexes are a database-layer optimization — they exist entirely inside the database engine and speed up query lookups."
+    },
+    {
+      "term": "fetch('/api/users')",
+      "answer": "Frontend",
+      "explanation": "fetch() is called from JavaScript running in the browser (your frontend code) to make an HTTP request to the backend API."
+    }
+  ]
+}

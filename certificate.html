@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificate of Completion — CIS 365</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.cert-shell {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+.certificate {
+  width: 100%;
+  max-width: 680px;
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 3.5rem 4rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+/* Corner bracket decorations */
+.certificate::before,
+.certificate::after,
+.cert-corner-bl,
+.cert-corner-tr {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+}
+.certificate::before { top: 14px; left: 14px; border-top: 2px solid var(--accent-gold); border-left: 2px solid var(--accent-gold); }
+.certificate::after  { bottom: 14px; right: 14px; border-bottom: 2px solid var(--accent-gold); border-right: 2px solid var(--accent-gold); }
+.cert-corner-bl { bottom: 14px; left: 14px; border-bottom: 2px solid var(--accent-gold); border-left: 2px solid var(--accent-gold); }
+.cert-corner-tr { top: 14px; right: 14px; border-top: 2px solid var(--accent-gold); border-right: 2px solid var(--accent-gold); }
+
+.cert-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-berry);
+  margin: 0 0 1.4rem;
+}
+
+.cert-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0 0 0.3rem;
+}
+
+.cert-divider {
+  width: 72px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-berry));
+  margin: 1.4rem auto;
+}
+
+.cert-body {
+  color: var(--ink-soft);
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+
+.cert-name-input {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  color: var(--ink);
+  border: none;
+  border-bottom: 2px solid var(--accent-gold);
+  background: transparent;
+  text-align: center;
+  width: 100%;
+  max-width: 380px;
+  padding: 0.25rem 0.5rem;
+  margin: 0.6rem 0 1.4rem;
+  outline: none;
+}
+.cert-name-input::placeholder { color: var(--ink-faint); }
+
+.cert-course {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin: 0 0 0.35rem;
+}
+
+.cert-meta {
+  font-family: var(--font-mono);
+  font-size: 0.77rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.cert-date {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-top: 1.8rem;
+}
+
+.cert-actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.cert-notice {
+  margin-top: 1.5rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  text-align: center;
+  display: none;
+}
+
+@media (max-width: 560px) {
+  .certificate { padding: 2.5rem 1.8rem; }
+}
+
+@media print {
+  .topbar, .site-footer, .cert-actions { display: none !important; }
+  .cert-shell { padding: 0; min-height: unset; justify-content: flex-start; }
+  .certificate { box-shadow: none; max-width: 100%; page-break-inside: avoid; }
+  .cert-name-input { border-bottom-color: #999; }
+  body { background: white; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="topbar__brand" href="index.html">
+    <span class="code">CIS 365</span>
+    Full Stack Web Development
+  </a>
+  <nav class="topbar__nav">
+    <a href="index.html">Course</a>
+    <a href="syllabus.html">Syllabus</a>
+  </nav>
+</header>
+
+<main class="cert-shell">
+  <div class="certificate">
+    <span class="cert-corner-bl"></span>
+    <span class="cert-corner-tr"></span>
+    <p class="cert-eyebrow">Certificate of Completion</p>
+    <h1 class="cert-title">Full Stack<br>Web Development</h1>
+    <div class="cert-divider"></div>
+    <p class="cert-body">This certifies that</p>
+    <input
+      class="cert-name-input"
+      type="text"
+      id="student-name"
+      placeholder="your name here"
+      maxlength="60"
+      autocomplete="off"
+      aria-label="Your name"
+    >
+    <p class="cert-body">has successfully completed</p>
+    <p class="cert-course">CIS 365 — Full Stack Web Development</p>
+    <p class="cert-meta">11 lessons · 4 modules · Front-end, Back-end, APIs &amp; the Cloud</p>
+    <p class="cert-date" id="cert-date"></p>
+  </div>
+
+  <div class="cert-actions">
+    <button class="btn btn--primary" onclick="window.print()">Print certificate</button>
+    <a class="btn btn--ghost" href="index.html">← Back to course</a>
+  </div>
+
+  <p class="cert-notice" id="cert-notice">
+    You haven't completed all 11 lessons yet — finish the course to earn this certificate.
+  </p>
+</main>
+
+<footer class="site-footer">
+  CIS 365 · Full Stack Web Development — content updated 2026.
+</footer>
+
+<script src="js/nav.js" defer></script>
+<script>
+(function () {
+  const stored = JSON.parse(localStorage.getItem("cis365.progress.v1") || "{}");
+  const lessons = stored.lessons || {};
+  const completedCount = Object.keys(lessons).length;
+  const TOTAL = 11;
+
+  if (completedCount < TOTAL) {
+    document.getElementById("cert-notice").style.display = "block";
+  }
+
+  const dates = Object.values(lessons)
+    .map(function (l) { return l.completedAt; })
+    .filter(Boolean)
+    .sort();
+
+  if (dates.length > 0) {
+    const d = new Date(dates[dates.length - 1]);
+    document.getElementById("cert-date").textContent =
+      "Completed " + d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  }
+})();
+</script>
+</body>
+</html>

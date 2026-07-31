@@ -854,6 +854,197 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-weight: 600;
 }
 
+/* =============== Scroll progress bar =============== */
+.scroll-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-berry));
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* =============== Widget shared =============== */
+.widget__prompt {
+  font-size: 0.88rem;
+  color: #B7C0CE;
+  margin: 0 0 1rem;
+  line-height: 1.55;
+}
+
+/* =============== Git simulator =============== */
+.git-log {
+  margin: 0 0 1rem;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.git-commit {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.git-commit__track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 0.3rem;
+}
+
+.git-commit__node {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  flex-shrink: 0;
+}
+
+.git-commit__line {
+  width: 2px;
+  flex: 1;
+  min-height: 20px;
+  background: rgba(176, 124, 44, 0.3);
+  margin: 3px 0;
+}
+
+.git-commit__body {
+  padding-bottom: 0.75rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.git-commit__hash {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-gold-soft);
+  flex-shrink: 0;
+}
+
+.git-commit__msg {
+  font-size: 0.9rem;
+  color: #EDE7D6;
+}
+
+.git-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.git-input__field {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid rgba(237,231,214,0.25);
+  background: #14202E;
+  color: #EDE7D6;
+  min-width: 0;
+}
+.git-input__field::placeholder { color: #5A6778; }
+
+/* =============== Classifier widget =============== */
+.classifier-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.classifier-item {
+  background: #14202E;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(237,231,214,0.1);
+  transition: border-color 0.15s;
+}
+
+.classifier-item.is-correct { border-color: rgba(76, 107, 91, 0.6); }
+.classifier-item.is-wrong   { border-color: rgba(122, 46, 59, 0.6); }
+
+.classifier-item__text {
+  font-size: 0.92rem;
+  color: #EDE7D6;
+  margin-bottom: 0.65rem;
+  line-height: 1.5;
+}
+
+.classifier-item__text code {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-gold-soft);
+  background: none;
+  padding: 0;
+}
+
+.classifier-cats {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.classifier-reveal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.classifier-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.classifier-tag.tag-correct { color: #7ABF9A; }
+.classifier-tag.tag-wrong   { color: #E7A0A8; }
+
+.classifier-explanation {
+  font-size: 0.86rem;
+  color: #B7C0CE;
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* =============== highlight.js overrides (keep site theme) =============== */
+.lesson-content .hljs {
+  background: var(--ink);
+  border-radius: var(--radius);
+  font-size: 0.88em;
+}
+
+/* =============== Print styles =============== */
+@media print {
+  .topbar,
+  .site-footer,
+  .tab-rail,
+  .lesson-nav,
+  .interactive,
+  .lesson-toc,
+  .scroll-progress-bar,
+  .quiz__footer { display: none !important; }
+
+  body { background: white; color: black; font-size: 11pt; }
+  .shell--wide { max-width: 100%; padding: 0; }
+  .lesson-layout { display: block; }
+  .lesson-page { border: none; box-shadow: none; padding: 0.5rem 0; }
+
+  pre {
+    white-space: pre-wrap;
+    border: 1px solid #ccc;
+    background: #f5f5f5 !important;
+    color: black !important;
+  }
+
+  .quiz { page-break-inside: avoid; border: 1px solid #ccc; }
+  .quiz-choice.is-correct { background: #e6f4ea; }
+  .quiz-choice.is-wrong   { background: #fce8ea; }
+  a::after { content: none !important; }
+}
+
 /* Utility */
 .text-muted { color: var(--ink-soft); }
 .mt-0 { margin-top: 0; }

@@ -1,0 +1,8 @@
+{
+  "label": "Try it: build a commit history",
+  "prompt": "Type a commit message and click Commit. Notice how each commit gets a unique hash and the history grows — this is the chain Git actually stores on your machine.",
+  "startingCommits": [
+    { "hash": "a1b2c3d", "message": "Initial commit" },
+    { "hash": "e4f5a6b", "message": "Add index.html and styles" }
+  ]
+}

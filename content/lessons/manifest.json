@@ -34,7 +34,7 @@
       "summary": "Meet the course, see the roadmap, and set up your toolbox.",
       "duration": "30 min",
       "file": "00-orientation.md",
-      "quiz": null
+      "quiz": "00.json"
     },
     {
       "id": "01",
@@ -42,7 +42,8 @@
       "summary": "Why developers track every change, and what \"the cloud\" actually means.",
       "duration": "50 min",
       "file": "01-foundations-cloud-git.md",
-      "quiz": "01.json"
+      "quiz": "01.json",
+      "interactive": { "type": "git-simulator", "file": "01.json" }
     },
     {
       "id": "02",
@@ -50,7 +51,8 @@
       "summary": "How applications are structured, and how teams decide what to build next.",
       "duration": "50 min",
       "file": "02-systems-design.md",
-      "quiz": "02.json"
+      "quiz": "02.json",
+      "interactive": { "type": "classifier", "file": "02.json" }
     },
     {
       "id": "03",
@@ -85,7 +87,8 @@
       "summary": "What the job actually looks like, and how teams ship software together.",
       "duration": "45 min",
       "file": "06-careers-agile-devops.md",
-      "quiz": "06.json"
+      "quiz": "06.json",
+      "interactive": { "type": "classifier", "file": "06.json" }
     },
     {
       "id": "07",
@@ -120,7 +123,8 @@
       "summary": "Tying the whole stack together and planning where to go from here.",
       "duration": "40 min",
       "file": "10-capstone-review.md",
-      "quiz": "10.json"
+      "quiz": "10.json",
+      "interactive": { "type": "classifier", "file": "10.json" }
     }
   ]
 }
