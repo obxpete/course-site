@@ -2,6 +2,13 @@
 
 *Finishing Strong · About 40 minutes*
 
+<div class="lesson-audio">
+  <audio controls preload="metadata" src="../../audio/10.mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <span class="lesson-audio__label">Lesson overview · ~75 sec</span>
+</div>
+
 ## Where we're headed
 
 This final lesson ties the whole stack together — front-end, back-end, data, and the cloud infrastructure underneath all of it — and points toward where to go once this course ends.

@@ -2,6 +2,13 @@
 
 *Finishing Strong · About 45 minutes*
 
+<div class="lesson-audio">
+  <audio controls preload="metadata" src="../../audio/09.mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <span class="lesson-audio__label">Lesson overview · ~75 sec</span>
+</div>
+
 ## Where we're headed
 
 No developer memorizes everything — the job is as much about knowing where to look as it is about knowing the answer outright. This lesson is a curated map of the reference tools and debugging habits that make you self-sufficient.

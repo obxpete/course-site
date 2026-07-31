@@ -2,6 +2,13 @@
 
 *Building Blocks · About 45 minutes*
 
+<div class="lesson-audio">
+  <audio controls preload="metadata" src="../../audio/04.mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <span class="lesson-audio__label">Lesson overview · ~75 sec</span>
+</div>
+
 ## Where we're headed
 
 This lesson rounds out your everyday toolkit with two things you'll use constantly: Markdown, for writing readable documentation, and npm, for installing and managing code other people have already written.

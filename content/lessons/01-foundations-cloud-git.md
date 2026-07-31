@@ -2,6 +2,13 @@
 
 *Foundations · About 50 minutes*
 
+<div class="lesson-audio">
+  <audio controls preload="metadata" src="../../audio/01.mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <span class="lesson-audio__label">Lesson overview · ~75 sec</span>
+</div>
+
 ## Where we're headed
 
 Before writing a single line of application code, every developer needs two things: a safety net for their work, and a shared understanding of where that work actually runs. This lesson covers both — version control with Git, and the basics of cloud computing.

@@ -2,6 +2,13 @@
 
 *Building Blocks · About 55 minutes*
 
+<div class="lesson-audio">
+  <audio controls preload="metadata" src="../../audio/03.mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <span class="lesson-audio__label">Lesson overview · ~75 sec</span>
+</div>
+
 ## Where we're headed
 
 This lesson pairs a deeper look at requirements gathering with your first hands-on JavaScript — the language that brings a webpage to life in the browser.

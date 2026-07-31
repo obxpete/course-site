@@ -2,6 +2,13 @@
 
 *Going Deeper · About 45 minutes*
 
+<div class="lesson-audio">
+  <audio controls preload="metadata" src="../../audio/06.mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <span class="lesson-audio__label">Lesson overview · ~75 sec</span>
+</div>
+
 ## Where we're headed
 
 This lesson zooms out from code to career: what the job market actually looks like, what "full stack" really includes, and the team practices — Agile and DevOps — you'll encounter on almost any professional team.

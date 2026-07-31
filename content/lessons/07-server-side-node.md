@@ -2,6 +2,13 @@
 
 *Going Deeper · About 55 minutes*
 
+<div class="lesson-audio">
+  <audio controls preload="metadata" src="../../audio/07.mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <span class="lesson-audio__label">Lesson overview · ~75 sec</span>
+</div>
+
 ## Where we're headed
 
 Everything so far has run in the browser. This lesson introduces the other half of full stack development: code that runs on a server, handling requests before a browser ever sees them.

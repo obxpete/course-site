@@ -2,6 +2,13 @@
 
 *Building Blocks · About 50 minutes*
 
+<div class="lesson-audio">
+  <audio controls preload="metadata" src="../../audio/05.mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <span class="lesson-audio__label">Lesson overview · ~75 sec</span>
+</div>
+
 ## Where we're headed
 
 Nearly every app you use talks to at least one other system behind the scenes — checking a weather forecast, loading a friend's profile, processing a payment. This lesson covers the pattern that makes that possible.

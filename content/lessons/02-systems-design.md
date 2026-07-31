@@ -2,6 +2,13 @@
 
 *Foundations · About 50 minutes*
 
+<div class="lesson-audio">
+  <audio controls preload="metadata" src="../../audio/02.mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <span class="lesson-audio__label">Lesson overview · ~75 sec</span>
+</div>
+
 ## Where we're headed
 
 Before you write code, it helps to know the shape that code is likely to take. This lesson introduces two ideas that show up in almost every professional codebase: a pattern for organizing an application (MVC), and a philosophy for managing how it gets built (Agile).
