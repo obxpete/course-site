@@ -2,6 +2,13 @@
 
 *Foundations · About 30 minutes*
 
+<div class="lesson-audio">
+  <audio controls preload="metadata" src="../../audio/welcome.mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <span class="lesson-audio__label">Course overview · ~90 sec</span>
+</div>
+
 ## Why you're here
 
 This course is a deep dive into full stack web application development — the front-end interfaces people click on, the server-side code that powers them, and the databases and APIs that connect everything underneath. By the end, you'll be able to describe how a modern web application fits together, and you'll have built pieces of one yourself.
