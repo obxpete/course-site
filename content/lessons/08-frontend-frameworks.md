@@ -45,6 +45,8 @@ A minimal example:
 
 For lighter interactivity than a full JavaScript framework requires, **Alpine.js** offers a small, HTML-first way to add behavior directly in your markup — useful for toggles, dropdowns, and simple state without a build step. For more structured, component-based applications, **Vue.js** and **React** are the two most common choices today, both well suited to building an interface out of small, reusable pieces.
 
+One more name worth knowing as you look at job listings and modern codebases: **TypeScript**. It's JavaScript with a type system added on top — you declare that a variable is a number or a specific object shape, and the compiler catches mismatches before they become runtime bugs. All the major frameworks (React, Vue, Angular) have full TypeScript support, and it's increasingly the default choice for new projects. If you know JavaScript, TypeScript is a natural next step rather than a different language entirely.
+
 ## Soft Skills
 
 Choosing a framework is itself a professional judgment call, not just a technical one:

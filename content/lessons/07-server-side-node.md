@@ -48,6 +48,20 @@ The sandbox below launches a real, running Node.js server in a new tab, pre-load
 
 From here, try adding a second route that returns a small JSON object instead of plain text — that's the shape almost every real API takes.
 
+### Middleware
+
+**Middleware** is a function that runs between receiving a request and sending a response. The `app.use()` calls at the top of most Express files are middleware — they can parse request bodies, log activity, check authentication, compress responses, and more. Middleware functions run in order; each one calls `next()` to pass control to the next function in the chain, or sends a response early to short-circuit it.
+
+```javascript
+app.use(express.json());            // parse JSON request bodies
+app.use((req, res, next) => {      // custom logging middleware
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+```
+
+Understanding middleware is the key to reading real Express apps — most of the interesting behavior in a production server happens before the route handler ever runs.
+
 ## Soft Skills
 
 Working on "the backend" tends to reward a specific kind of patience: errors are often less visible than in the browser, and debugging usually means reading logs carefully rather than watching something break on screen. A few habits that help:

@@ -39,12 +39,12 @@
 
   <section class="hero">
     <div>
-      <p class="hero__eyebrow">Self-paced · 11 lessons</p>
+      <p class="hero__eyebrow">Self-paced · 12 lessons</p>
       <h1>Build the whole stack, one lesson at a time.</h1>
       <p class="lede">Front-end interfaces, back-end APIs, databases, and the cloud that hosts it all — plus the planning and communication skills that make any of it shippable.</p>
       <div class="hero__actions">
         <a class="btn btn--primary" :href="'lesson.html?lesson=' + (continueLesson ? continueLesson.id : '00')">
-          {{ allDone ? 'Review Capstone →' : hasProgress ? 'Continue Lesson ' + (continueLesson ? (parseInt(continueLesson.id) + 1) : 1) + ' →' : 'Begin Lesson 1 →' }}
+          {{ allDone ? 'Review Capstone →' : hasProgress ? 'Continue Lesson ' + (continueLesson ? lessonNumber(continueLesson.id) : 1) + ' →' : 'Begin Lesson 1 →' }}
         </a>
         <a class="btn btn--ghost" href="syllabus.html">Read the syllabus</a>
       </div>
@@ -89,7 +89,7 @@
     </div>
     <div class="lesson-grid">
       <a v-for="lid in mod.lessons" :key="lid" :href="'lesson.html?lesson=' + lid" class="lesson-card">
-        <span class="lesson-card__num">Lesson {{ parseInt(lid) + 1 }}</span>
+        <span class="lesson-card__num">Lesson {{ lessonNumber(lid) }}</span>
         <h3>{{ lessonById(lid).title }}</h3>
         <p>{{ lessonById(lid).summary }}</p>
         <div class="lesson-card__meta">
@@ -156,6 +156,10 @@ createApp({
     function moduleProgress(mod) {
       return Math.round((moduleCompletedCount(mod) / mod.lessons.length) * 100);
     }
+    function lessonNumber(lid) {
+      if (!manifest.value) return 0;
+      return manifest.value.lessons.findIndex(l => l.id === lid) + 1;
+    }
 
     const hasProgress = computed(() => {
       storeTick.value;
@@ -192,8 +196,7 @@ createApp({
     return {
       manifest, totalLessons, completedCount, progressPct,
       hasProgress, allDone, continueLesson, timeLeft,
-      lessonById, isDone, quizResult, moduleCompletedCount, moduleProgress,
-      parseInt
+      lessonById, isDone, quizResult, moduleCompletedCount, moduleProgress, lessonNumber
     };
   }
 }).mount("#app");

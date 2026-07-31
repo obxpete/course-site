@@ -1,37 +1,36 @@
 {
-  "label": "MVC: classify each item",
-  "prompt": "Click M, V, or C to assign each snippet to its layer. Each one belongs clearly to one part of the Model-View-Controller pattern.",
-  "categories": ["M", "V", "C"],
+  "prompt": "Classify each snippet as a Model, View, or Controller (backend MVC) — or as a Component (frontend architecture).",
+  "categories": ["Model", "View", "Controller", "Component"],
   "items": [
     {
       "snippet": "SELECT * FROM products WHERE price < 50",
-      "answer": "M",
-      "explanation": "Querying the database is the Model's job — it owns all data access and business rules."
-    },
-    {
-      "snippet": "<h1>{{ product.name }}</h1>",
-      "answer": "V",
-      "explanation": "Rendering data as markup is the View's responsibility — it only displays, never decides what to show."
+      "answer": "Model",
+      "explanation": "Querying the database is the Model's job — it owns all data access and business rules in an MVC backend."
     },
     {
       "snippet": "app.get('/products', (req, res) => { ... })",
-      "answer": "C",
-      "explanation": "Handling a route and deciding what to do next is the Controller's job — it's the mediator between View and Model."
+      "answer": "Controller",
+      "explanation": "Handling a route and deciding what to do next is the Controller's job — it sits between Model and View."
     },
     {
       "snippet": "class User { validate() { return this.email.includes('@'); } }",
-      "answer": "M",
+      "answer": "Model",
       "explanation": "Business rules and data validation live in the Model, not the controller or view."
     },
     {
-      "snippet": "<form @submit='saveUser'>...</form>",
-      "answer": "V",
-      "explanation": "The form is part of the interface the user sees and interacts with — that's the View, even though it triggers an action."
+      "snippet": "if (req.session.userId) res.redirect('/dashboard')",
+      "answer": "Controller",
+      "explanation": "Deciding where to send the user based on application state is control flow — squarely the Controller's territory."
     },
     {
-      "snippet": "if (req.session.userId) res.redirect('/dashboard')",
-      "answer": "C",
-      "explanation": "Deciding where to send the user based on application state is control flow — squarely the Controller's territory."
+      "snippet": "data() { return { count: 0 } }, template: `<button @click=\"count++\">...</button>`",
+      "answer": "Component",
+      "explanation": "A self-contained piece with its own template and state is a frontend Component — the building block of React, Vue, and Alpine apps."
+    },
+    {
+      "snippet": "<ProductCard v-for=\"p in products\" :product=\"p\" />",
+      "answer": "Component",
+      "explanation": "Composing a page from reusable named elements is the component model in action — each ProductCard owns its own template and behavior."
     }
   ]
 }

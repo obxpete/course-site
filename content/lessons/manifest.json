@@ -19,7 +19,7 @@
     {
       "id": "going-deeper",
       "title": "Going Deeper",
-      "lessons": ["06", "07", "08"]
+      "lessons": ["06", "07", "11", "08"]
     },
     {
       "id": "finishing-strong",
@@ -47,7 +47,7 @@
     },
     {
       "id": "02",
-      "title": "Systems Design: MVC, SDLC & Agile Thinking",
+      "title": "Systems Design: MVC, Components & Agile Thinking",
       "summary": "How applications are structured, and how teams decide what to build next.",
       "duration": "50 min",
       "file": "02-systems-design.md",
@@ -98,6 +98,15 @@
       "file": "07-server-side-node.md",
       "quiz": "07.json",
       "interactive": { "type": "node-sandbox", "file": "07.json" }
+    },
+    {
+      "id": "11",
+      "title": "Databases: SQL, NoSQL & Managed Services",
+      "summary": "How applications store, query, and relate data — and when to use which kind of database.",
+      "duration": "55 min",
+      "file": "11-databases.md",
+      "quiz": "11.json",
+      "interactive": { "type": "classifier", "file": "11.json" }
     },
     {
       "id": "08",

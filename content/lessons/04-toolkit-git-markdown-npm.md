@@ -28,10 +28,15 @@ A few npm commands you'll use often:
 ```bash
 npm init -y          # start a new project with a default package.json
 npm install express  # add a package to your project
-npm list              # see what's installed
+npm list             # see what's installed
+npx create-react-app my-app  # run a package without installing it globally
+npm audit            # scan for known security vulnerabilities
+npm outdated         # see which packages have newer versions available
 ```
 
 Every npm project keeps track of its installed packages in a `package.json` file — think of it as a packing list for your project, so anyone who clones your repository can run one command (`npm install`) and get the exact same set of tools you were using.
+
+**`npx`** lets you run a package directly from the registry without installing it globally first — useful for one-time tools like project scaffolders (`create-react-app`, `create-vue`, etc.) that you don't need permanently on your machine. **`npm audit`** scans your project's dependencies against a database of known security vulnerabilities and reports anything that needs attention; run it before deploying.
 
 Try writing a short README for a real or imaginary project, using at least a heading, a bulleted list, and a fenced code block like the one above. VS Code will render it for you as you type — open the file and use the built-in Markdown preview to see it rendered live.
 

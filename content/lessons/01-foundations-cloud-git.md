@@ -27,6 +27,8 @@ Owning your own servers (sometimes called being **on-premises**) comes with real
 
 ## Technology
 
+A **`.gitignore` file** tells Git which files and folders to skip entirely — dependency folders (`node_modules`), local environment files (`.env`), editor config, and anything else that shouldn't be tracked or shared. Most project templates include one by default; when starting from scratch, [gitignore.io](https://www.toptal.com/developers/gitignore) generates one for your environment in seconds.
+
 **GitHub Codespaces** gives you a full, cloud-hosted instance of Visual Studio Code — no local installation required. It's genuinely useful once you're working on a real, multi-file project, and to collaborate in real time with an instructor or classmate.
 
 This is the one lesson in the course where trying things hands-on means creating a free account — Git and GitHub are the actual subject here. Every other lesson's "Try It" runs directly on this page with no sign-up at all.
