@@ -1,4 +1,6 @@
-[
+{
+  "lessonId": "11",
+  "questions": [
   {
     "q": "What does SQL stand for?",
     "choices": ["Structured Query Language", "Sequential Query Logic", "Simple Question Language", "Server Query Layer"],
@@ -59,4 +61,5 @@
     "answer": 2,
     "explanation": "Supabase is an open-source backend built on PostgreSQL that provides a managed database, REST API, authentication, and real-time subscriptions — all with a generous free tier. It's one of the most practical options for student and small-team projects."
   }
-]
+  ]
+}
