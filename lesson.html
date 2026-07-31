@@ -53,16 +53,18 @@
 
     <div>
       <article class="lesson-page">
-        <div class="lesson-content" id="content">
-          <p class="skeleton">Loading lesson…</p>
-        </div>
+        <div class="lesson-body">
+          <div class="lesson-content" id="content">
+            <p class="skeleton">Loading lesson…</p>
+          </div>
 
-        <nav v-if="toc.length > 1" class="lesson-toc">
-          <p class="lesson-toc__label">In this lesson</p>
-          <ol class="lesson-toc__list">
-            <li v-for="item in toc" :key="item.id"><a :href="'#' + item.id">{{ item.text }}</a></li>
-          </ol>
-        </nav>
+          <nav v-if="toc.length > 1" class="lesson-toc">
+            <p class="lesson-toc__label">In this lesson</p>
+            <ol class="lesson-toc__list">
+              <li v-for="item in toc" :key="item.id"><a :href="'#' + item.id">{{ item.text }}</a></li>
+            </ol>
+          </nav>
+        </div>
 
         <section v-if="interactive" class="interactive">
           <component :is="interactive.componentName" :config="interactive.config"></component>

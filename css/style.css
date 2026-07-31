@@ -433,6 +433,18 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .lesson-page { padding: 1.8rem 1.4rem; }
   .hero { grid-template-columns: 1fr; }
   .bookmark-figure { justify-self: start; width: 160px; height: 210px; }
+  .lesson-body { flex-direction: column; }
+  .lesson-toc { position: static; width: 100%; max-height: none; order: -1; margin-bottom: 1.5rem; }
+}
+
+.lesson-body {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+.lesson-content {
+  flex: 1;
+  min-width: 0;
 }
 
 .lesson-content h1 { font-size: 2rem; margin-top: 0; }
@@ -703,7 +715,13 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 
 /* =============== Lesson ToC =============== */
 .lesson-toc {
-  margin: 1.8rem 0 2rem;
+  flex-shrink: 0;
+  width: 210px;
+  position: sticky;
+  top: 4rem;
+  align-self: flex-start;
+  max-height: calc(100vh - 5rem);
+  overflow-y: auto;
   padding: 1rem 1.3rem;
   background: var(--paper-deep);
   border-left: 3px solid var(--accent-gold);
