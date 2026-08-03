@@ -470,6 +470,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   padding: 0.5rem 0.7rem;
 }
 .lesson-content th { font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); }
+.lesson-content table { display: block; overflow-x: auto; }
+.lesson-content pre { overflow-x: auto; }
 
 .lesson-nav {
   display: flex;
@@ -1062,6 +1064,33 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   background: var(--ink);
   border-radius: var(--radius);
   font-size: 0.88em;
+}
+
+/* =============== Small-phone layout fixes (≤ 560px) =============== */
+@media (max-width: 560px) {
+  /* Tighten lesson page and shell padding */
+  .lesson-page { padding: 1.2rem 0.9rem; }
+  .shell { padding-left: 1rem; padding-right: 1rem; }
+
+  /* Widget inner padding */
+  .widget { padding: 1rem 0.9rem 1.2rem; }
+
+  /* Quiz */
+  .quiz { padding: 1.2rem 1rem; }
+
+  /* Lesson nav: stack vertically so three buttons don't squash */
+  .lesson-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .lesson-nav .btn,
+  .lesson-nav a.btn,
+  .lesson-nav button.btn { text-align: center; justify-content: center; }
+  .lesson-nav span { display: none; }
+
+  /* API tester: URL input full-width on its own row, method+send below */
+  .api-tester__bar { flex-wrap: wrap; }
+  .api-tester__bar input { order: -1; flex-basis: 100%; }
 }
 
 /* =============== Print styles =============== */
