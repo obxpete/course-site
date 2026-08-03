@@ -1,0 +1,115 @@
+{
+  "lessonId": "13",
+  "questions": [
+    {
+      "q": "What is the key difference between static hosting and server hosting?",
+      "choices": [
+        "Static hosting is free; server hosting always costs money",
+        "Static hosting serves pre-built files; server hosting runs a process that executes code at runtime",
+        "Static hosting requires a database; server hosting does not",
+        "Static hosting is only for HTML; server hosting handles CSS and JavaScript"
+      ],
+      "answer": 1,
+      "explanation": "Static hosting delivers pre-built HTML, CSS, and JavaScript files — no server-side code runs on each request. Server (dynamic) hosting keeps a process running (Node.js, Python, etc.) that can execute logic, query databases, and generate responses at request time. Choose based on whether your app has a server process."
+    },
+    {
+      "q": "Which hosting platform is best suited for a plain HTML/CSS/JavaScript course project?",
+      "choices": [
+        "Render, because it handles all project types",
+        "Railway, because it's the fastest option",
+        "GitHub Pages or Netlify, because they're optimized for static files",
+        "Fly.io, because it offers the most free resources"
+      ],
+      "answer": 2,
+      "explanation": "GitHub Pages and Netlify are static hosting platforms — they serve pre-built files with no running server process. They're free, simple to set up, and ideal for plain HTML/CSS/JS projects, portfolios, and course work. Render and Railway are better suited when you need a Node.js process or other server-side runtime."
+    },
+    {
+      "q": "Where should production environment variables (API keys, database URLs) be set?",
+      "choices": [
+        "In a .env file committed to the repository",
+        "Hardcoded in the source code for reliability",
+        "In the hosting platform's environment variables dashboard",
+        "In a separate public config file so teammates can access them"
+      ],
+      "answer": 2,
+      "explanation": "Every major hosting platform (Render, Netlify, Vercel, Railway) has a dashboard section for setting environment variables. The running app reads them via process.env the same way it reads a .env file locally — but the values never touch your repository. A .env file should be in .gitignore and never committed."
+    },
+    {
+      "q": "What does a build step (npm run build) typically do?",
+      "choices": [
+        "Installs all npm packages listed in package.json",
+        "Pushes the project to GitHub",
+        "Transforms source files (JSX, TypeScript, SCSS) into plain HTML, CSS, and JavaScript for deployment",
+        "Runs all automated tests before deployment"
+      ],
+      "answer": 2,
+      "explanation": "A build step compiles source code into deployable output. For a React or Vue project, this means converting JSX or .vue files into browser-readable JavaScript. For TypeScript, it compiles .ts to .js. The output (usually a dist/ or build/ folder) is what gets deployed — not your source files."
+    },
+    {
+      "q": "What does CI/CD stand for?",
+      "choices": [
+        "Code Integration / Code Distribution",
+        "Continuous Integration / Continuous Deployment",
+        "Central Index / Cloud Delivery",
+        "Compiled Interface / Component Design"
+      ],
+      "answer": 1,
+      "explanation": "CI/CD stands for Continuous Integration / Continuous Deployment. CI means automatically running tests whenever code is pushed. CD means automatically deploying to production (or staging) when tests pass. Together they reduce manual steps, catch regressions early, and let teams ship faster with more confidence."
+    },
+    {
+      "q": "What file format does GitHub Actions use to define a CI/CD pipeline?",
+      "choices": [
+        "JSON, stored in .github/actions/",
+        "XML, stored in the project root",
+        "YAML, stored in .github/workflows/",
+        "Markdown, stored in docs/"
+      ],
+      "answer": 2,
+      "explanation": "GitHub Actions workflows are YAML files stored in .github/workflows/. They define triggers (e.g., push to main), the environment to run in (ubuntu-latest), and a series of steps — checking out the code, installing dependencies, running tests, building, and deploying."
+    },
+    {
+      "q": "What two steps are required to connect a custom domain to a hosting platform?",
+      "choices": [
+        "Pay for SSL and submit a domain application to the platform",
+        "Add the domain in the platform dashboard and update DNS at your domain registrar",
+        "Purchase a dedicated IP and configure a reverse proxy",
+        "Enable a static IP on the server and add the domain to package.json"
+      ],
+      "answer": 1,
+      "explanation": "First, add your custom domain in the hosting platform's dashboard — it will give you a DNS record to set. Second, log in to your domain registrar (Namecheap, Cloudflare, etc.) and add that record (usually a CNAME or A record). Once DNS propagates, the platform provisions an HTTPS certificate automatically."
+    },
+    {
+      "q": "Why do experienced developers avoid deploying on Fridays?",
+      "choices": [
+        "Hosting platforms charge higher rates on weekends",
+        "GitHub is slower on Fridays due to high traffic",
+        "If a deploy breaks something, the team may be unavailable to fix it until Monday",
+        "DNS changes don't propagate on weekends"
+      ],
+      "answer": 2,
+      "explanation": "This is a well-known industry practice. If a Friday deploy causes a production incident, the team may not be reachable over the weekend, leaving users affected for days. Deploying early in the week gives the full team window to monitor and respond if something goes wrong."
+    },
+    {
+      "q": "What is a staging environment?",
+      "choices": [
+        "A local development server running on localhost",
+        "A production-like environment for testing changes before they go live",
+        "A GitHub branch that stores completed features",
+        "A Docker container used to test database migrations"
+      ],
+      "answer": 1,
+      "explanation": "A staging environment mirrors production as closely as possible — same database schema, same env vars structure, same server configuration — but is not user-facing. You deploy and test changes there before promoting them to production. It catches environment-specific bugs that don't appear in local development."
+    },
+    {
+      "q": "What should you do immediately after a deployment breaks production?",
+      "choices": [
+        "Hotfix the code and deploy again as fast as possible",
+        "Investigate the root cause in the production logs before taking action",
+        "Roll back to the previous working deployment, then investigate",
+        "Restart the server and wait to see if the issue resolves itself"
+      ],
+      "answer": 2,
+      "explanation": "Roll back first, ask questions second. Every hosting platform has a one-click rollback or a list of previous deploys you can redeploy instantly. Restoring service to users is the priority. Once the app is stable, you can examine logs, reproduce the issue in staging, and fix it properly — without the pressure of a live outage."
+    }
+  ]
+}

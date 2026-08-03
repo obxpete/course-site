@@ -1,0 +1,38 @@
+{
+  "prompt": "Classify each tool, command, or scenario into its deployment role.",
+  "categories": ["Static Hosting", "Server Hosting", "CI/CD", "Env Config"],
+  "items": [
+    {
+      "label": "GitHub Pages",
+      "answer": "Static Hosting"
+    },
+    {
+      "label": "Render (running a Node.js web service)",
+      "answer": "Server Hosting"
+    },
+    {
+      "label": "A GitHub Actions workflow that runs npm test then deploys on push to main",
+      "answer": "CI/CD"
+    },
+    {
+      "label": "Setting DATABASE_URL in Render's environment variables dashboard",
+      "answer": "Env Config"
+    },
+    {
+      "label": "Netlify (publishing a dist/ folder of built files)",
+      "answer": "Static Hosting"
+    },
+    {
+      "label": "Railway (deploying an Express API with a PostgreSQL add-on)",
+      "answer": "Server Hosting"
+    },
+    {
+      "label": "Adding STRIPE_SECRET_KEY to Vercel's project settings",
+      "answer": "Env Config"
+    },
+    {
+      "label": "A YAML file in .github/workflows/ that lints and builds the project on every pull request",
+      "answer": "CI/CD"
+    }
+  ]
+}

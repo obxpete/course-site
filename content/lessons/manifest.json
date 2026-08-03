@@ -24,7 +24,7 @@
     {
       "id": "finishing-strong",
       "title": "Finishing Strong",
-      "lessons": ["09", "10"]
+      "lessons": ["09", "13", "10"]
     }
   ],
   "lessons": [
@@ -134,6 +134,15 @@
       "file": "09-resources-testing-debugging.md",
       "quiz": "09.json",
       "interactive": { "type": "regex-tester", "file": "09.json" }
+    },
+    {
+      "id": "13",
+      "title": "Deployment: Taking Your App Live",
+      "summary": "From local machine to live URL — hosting platforms, environment variables, CI/CD, and what to watch after you ship.",
+      "duration": "50 min",
+      "file": "13-deployment.md",
+      "quiz": "13.json",
+      "interactive": { "type": "classifier", "file": "13.json" }
     },
     {
       "id": "10",

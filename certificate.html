@@ -175,7 +175,7 @@
     >
     <p class="cert-body">has successfully completed</p>
     <p class="cert-course">CIS 365 — Full Stack Web Development</p>
-    <p class="cert-meta">13 lessons · 4 modules · Front-end, Back-end, APIs &amp; the Cloud</p>
+    <p class="cert-meta">14 lessons · 4 modules · Front-end, Back-end, APIs &amp; the Cloud</p>
     <p class="cert-date" id="cert-date"></p>
   </div>
 
@@ -185,7 +185,7 @@
   </div>
 
   <p class="cert-notice" id="cert-notice">
-    You haven't completed all 13 lessons yet — finish the course to earn this certificate.
+    You haven't completed all 14 lessons yet — finish the course to earn this certificate.
   </p>
 </main>
 
@@ -199,7 +199,7 @@
   const stored = JSON.parse(localStorage.getItem("cis365.progress.v1") || "{}");
   const lessons = stored.lessons || {};
   const completedCount = Object.keys(lessons).length;
-  const TOTAL = 13;
+  const TOTAL = 14;
 
   if (completedCount < TOTAL) {
     document.getElementById("cert-notice").style.display = "block";
