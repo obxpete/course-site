@@ -1143,6 +1143,96 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .topbar__search:hover { background: var(--paper-deep); color: var(--ink); }
 
+/* =============== Auth =============== */
+#auth-ui { display: flex; align-items: center; flex-shrink: 0; }
+
+.auth-google-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.auth-google-btn:hover { border-color: var(--accent-gold); background: var(--paper-deep); }
+
+.auth-user { position: relative; display: flex; align-items: center; }
+
+.auth-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.auth-avatar--initial {
+  background: var(--accent-berry);
+  color: var(--paper-card);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.auth-popover {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  right: 0;
+  min-width: 190px;
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  z-index: 30;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+.auth-user:hover .auth-popover,
+.auth-user:focus-within .auth-popover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.auth-email {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  word-break: break-all;
+}
+
+.auth-signout-btn {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.auth-signout-btn:hover { border-color: var(--accent-berry); color: var(--accent-berry); }
+
+@media (max-width: 640px) {
+  .auth-google-btn span { display: none; }
+  .auth-google-btn { padding: 0.4rem; border-radius: 50%; }
+}
+
 .search-overlay {
   position: fixed;
   inset: 0;

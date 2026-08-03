@@ -34,6 +34,16 @@
 
     supabase = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey);
 
+    supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_IN" && session && session.user && !session.user.is_anonymous) {
+        // A real (Google) sign-in just replaced the anonymous session. Push
+        // whatever progress lived under the old anonymous user up under the
+        // new identity first, then pull down anything already saved there
+        // from another device, so neither side loses data.
+        pushAllLocal().then(pullRemote);
+      }
+    });
+
     // Ensure we have a stable (anonymous) identity for RLS-scoped rows.
     const { data: { session } } = await supabase.auth.getSession();
     if (!session) {
@@ -100,8 +110,56 @@
     });
   }
 
+  // Re-pushes every locally-held lesson/quiz record under whoever is
+  // currently signed in — used right after a Google sign-in so progress
+  // earned anonymously isn't stranded under the old anonymous user id.
+  async function pushAllLocal() {
+    if (!remoteReady) return;
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+
+    const lessonWrites = Object.entries(state.lessons).map(([lessonId, entry]) =>
+      supabase.from("lesson_progress").upsert({
+        user_id: user.id,
+        lesson_id: lessonId,
+        completed_at: entry.completedAt
+      })
+    );
+    const quizWrites = Object.entries(state.quizzes).map(([lessonId, entry]) =>
+      supabase.from("quiz_results").upsert({
+        user_id: user.id,
+        lesson_id: lessonId,
+        score: entry.bestScore ?? entry.score,
+        total: entry.total,
+        updated_at: entry.updatedAt
+      })
+    );
+    await Promise.all([...lessonWrites, ...quizWrites]);
+  }
+
   window.CourseStore = {
     ready: initRemote(), // a promise callers may await if they want remote-hydrated state
+
+    async getUser() {
+      if (!supabase) return null;
+      const { data: { user } } = await supabase.auth.getUser();
+      return user;
+    },
+
+    async signInWithGoogle() {
+      if (!supabase) return;
+      await supabase.auth.signInWithOAuth({ provider: "google" });
+    },
+
+    async signOut() {
+      if (!supabase) return;
+      await supabase.auth.signOut();
+    },
+
+    onAuthChange(callback) {
+      if (!supabase) return { data: { subscription: { unsubscribe() {} } } };
+      return supabase.auth.onAuthStateChange(callback);
+    },
 
     isComplete(lessonId) {
       return Boolean(state.lessons[lessonId]);
