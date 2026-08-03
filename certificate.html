@@ -130,12 +130,29 @@
   display: none;
 }
 
+.cert-share-hint {
+  margin-top: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+.cert-name-input[readonly] {
+  border-bottom-color: var(--line);
+  cursor: default;
+}
+
+.btn.is-copied {
+  border-color: var(--accent-sage);
+  color: var(--accent-sage);
+}
+
 @media (max-width: 560px) {
   .certificate { padding: 2.5rem 1.8rem; }
 }
 
 @media print {
-  .topbar, .site-footer, .cert-actions { display: none !important; }
+  .topbar, .site-footer, .cert-actions, .cert-share-hint, .cert-notice { display: none !important; }
   .cert-shell { padding: 0; min-height: unset; justify-content: flex-start; }
   .certificate { box-shadow: none; max-width: 100%; page-break-inside: avoid; }
   .cert-name-input { border-bottom-color: #999; }
@@ -180,9 +197,12 @@
   </div>
 
   <div class="cert-actions">
-    <button class="btn btn--primary" onclick="window.print()">Print certificate</button>
+    <button class="btn btn--primary" id="copy-link-btn" disabled>Copy shareable link</button>
+    <button class="btn btn--ghost" id="linkedin-btn" disabled>Share on LinkedIn</button>
+    <button class="btn btn--ghost" onclick="window.print()">Print / Save PDF</button>
     <a class="btn btn--ghost" href="index.html">← Back to course</a>
   </div>
+  <p class="cert-share-hint" id="cert-share-hint">Type your name above to generate a shareable link.</p>
 
   <p class="cert-notice" id="cert-notice">
     You haven't completed all 14 lessons yet — finish the course to earn this certificate.
@@ -196,25 +216,99 @@
 <script src="js/nav.js" defer></script>
 <script>
 (function () {
-  const stored = JSON.parse(localStorage.getItem("cis365.progress.v1") || "{}");
-  const lessons = stored.lessons || {};
-  const completedCount = Object.keys(lessons).length;
-  const TOTAL = 14;
+  var TOTAL = 14;
+  var params = new URLSearchParams(location.search);
+  var paramName = params.get('name');
+  var paramDate = params.get('date');
+  var isSharedView = !!paramName;
 
-  if (completedCount < TOTAL) {
-    document.getElementById("cert-notice").style.display = "block";
+  var nameInput = document.getElementById('student-name');
+  var dateEl = document.getElementById('cert-date');
+  var copyBtn = document.getElementById('copy-link-btn');
+  var linkedinBtn = document.getElementById('linkedin-btn');
+  var shareHint = document.getElementById('cert-share-hint');
+
+  // Pre-fill name from URL param (shared view — someone else's cert)
+  if (paramName) {
+    nameInput.value = paramName;
+    nameInput.readOnly = true;
   }
 
-  const dates = Object.values(lessons)
-    .map(function (l) { return l.completedAt; })
-    .filter(Boolean)
-    .sort();
-
-  if (dates.length > 0) {
-    const d = new Date(dates[dates.length - 1]);
-    document.getElementById("cert-date").textContent =
-      "Completed " + d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  // Completion date: from URL param, or derive from localStorage
+  var completionDateStr = '';
+  if (paramDate) {
+    completionDateStr = paramDate;
+    dateEl.textContent = 'Completed ' + paramDate;
+  } else {
+    var stored = JSON.parse(localStorage.getItem('cis365.progress.v1') || '{}');
+    var lessons = stored.lessons || {};
+    var dates = Object.values(lessons).map(function (l) { return l.completedAt; }).filter(Boolean).sort();
+    if (dates.length > 0) {
+      var d = new Date(dates[dates.length - 1]);
+      completionDateStr = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      dateEl.textContent = 'Completed ' + completionDateStr;
+    }
+    // Completion check — only applies when not viewing via shared link
+    var completedCount = Object.keys(lessons).length;
+    if (completedCount < TOTAL) {
+      document.getElementById('cert-notice').style.display = 'block';
+    }
   }
+
+  // Build the shareable URL from the current page URL + name + date params
+  function buildShareUrl() {
+    var url = new URL(location.href.split('?')[0]);
+    var name = nameInput.value.trim();
+    if (name) url.searchParams.set('name', name);
+    if (completionDateStr) url.searchParams.set('date', completionDateStr);
+    return url.toString();
+  }
+
+  // Update address bar URL whenever name changes
+  function syncUrl() {
+    var url = buildShareUrl();
+    history.replaceState(null, '', url);
+  }
+
+  // Enable share buttons and update hint when a name is present
+  function refreshShareState() {
+    var hasName = nameInput.value.trim().length > 0;
+    copyBtn.disabled = !hasName;
+    linkedinBtn.disabled = !hasName;
+    shareHint.textContent = hasName
+      ? 'Your shareable link is ready — copy it or share directly to LinkedIn.'
+      : 'Type your name above to generate a shareable link.';
+  }
+
+  // On shared view the name is already in the input
+  if (isSharedView) {
+    refreshShareState();
+    shareHint.textContent = 'Viewing a shared certificate.';
+  } else {
+    nameInput.addEventListener('input', function () {
+      syncUrl();
+      refreshShareState();
+    });
+  }
+
+  // Copy link button
+  copyBtn.addEventListener('click', function () {
+    var self = this;
+    navigator.clipboard.writeText(buildShareUrl()).then(function () {
+      self.textContent = 'Link copied!';
+      self.classList.add('is-copied');
+      setTimeout(function () {
+        self.textContent = 'Copy shareable link';
+        self.classList.remove('is-copied');
+      }, 2500);
+    });
+  });
+
+  // LinkedIn share button
+  linkedinBtn.addEventListener('click', function () {
+    var url = encodeURIComponent(buildShareUrl());
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank', 'noopener');
+  });
 })();
 </script>
 </body>
