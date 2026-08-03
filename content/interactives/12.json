@@ -1,0 +1,38 @@
+{
+  "prompt": "Classify each code snippet or scenario by the security issue it represents — or mark it as safe.",
+  "categories": ["SQL Injection", "XSS", "Auth Issue", "Safe"],
+  "items": [
+    {
+      "label": "db.query(`SELECT * FROM users WHERE id = ${req.params.id}`)",
+      "answer": "SQL Injection"
+    },
+    {
+      "label": "res.send('<p>Welcome, ' + req.query.name + '!</p>')",
+      "answer": "XSS"
+    },
+    {
+      "label": "Storing the user's password as-is in the database after registration",
+      "answer": "Auth Issue"
+    },
+    {
+      "label": "db.query('SELECT * FROM users WHERE id = ?', [req.params.id])",
+      "answer": "Safe"
+    },
+    {
+      "label": "if (req.body.password === storedPassword) { /* login */ }",
+      "answer": "Auth Issue"
+    },
+    {
+      "label": "element.textContent = userInput  // instead of innerHTML",
+      "answer": "Safe"
+    },
+    {
+      "label": "const apiKey = 'sk_live_abc123'; // hardcoded in app.js",
+      "answer": "Auth Issue"
+    },
+    {
+      "label": "const hash = await bcrypt.hash(password, 10); // stored in DB",
+      "answer": "Safe"
+    }
+  ]
+}

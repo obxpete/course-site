@@ -19,7 +19,7 @@
     {
       "id": "going-deeper",
       "title": "Going Deeper",
-      "lessons": ["06", "07", "11", "08"]
+      "lessons": ["06", "07", "11", "12", "08"]
     },
     {
       "id": "finishing-strong",
@@ -107,6 +107,15 @@
       "file": "11-databases.md",
       "quiz": "11.json",
       "interactive": { "type": "classifier", "file": "11.json" }
+    },
+    {
+      "id": "12",
+      "title": "Security: Auth, HTTPS & Common Vulnerabilities",
+      "summary": "Authentication, password hashing, HTTPS, and the attacks every developer needs to know how to prevent.",
+      "duration": "55 min",
+      "file": "12-security.md",
+      "quiz": "12.json",
+      "interactive": { "type": "classifier", "file": "12.json" }
     },
     {
       "id": "08",
