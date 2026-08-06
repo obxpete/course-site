@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.command // empty' | { read -r cmd; if echo \"$cmd\" | grep -qiE 'sudo[[:space:]]+chmod'; then printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Blocked: sudo chmod broke macOS TCC filesystem access for Claude Code in this repo before and required a session restart (see CLAUDE.md). Do not run sudo chmod here.\"}}'; fi; }"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // .tool_response.filePath // empty' | { read -r f; case \"$f\" in */content/quizzes/*.json) if ! jq -e 'type==\"object\" and has(\"lessonId\") and has(\"questions\") and (.questions|type==\"array\")' \"$f\" >/dev/null 2>&1; then jq -n --arg f \"$f\" '{decision:\"block\", reason: (\"Invalid quiz JSON in \" + $f + \" \\u2014 must be {lessonId, questions:[...]}, not a bare array. A bare array causes a silent Vue render failure that empties the lesson content div.\")}'; fi ;; esac; }"
+          }
+        ]
+      }
+    ]
+  }
+}
