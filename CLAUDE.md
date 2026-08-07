@@ -28,11 +28,6 @@ file layout and design rationale — this file is conventions and gotchas only.
   2. Redirects to `localhost:3000` after sign-in → Supabase's Site URL defaults to
      `localhost:3000`; `js/data-store.js`'s `signInWithGoogle` passes
      `redirectTo: window.location.href` to override it — don't remove that.
-- **Quiz score sync display bug** (`js/data-store.js` `pullRemote()`): a better score
-  synced down from Supabase updates `bestScore`/`score`, but `getBestQuizScore()` (used
-  by both the lesson tab-rail chip and the home page lesson-card badge) reads from the
-  local `attempts[]` array instead, so the synced win doesn't show until the user
-  retakes the quiz on that device. Known, not yet fixed.
 - **`manifest.json` has two lesson-id lists** that aren't cross-validated: the flat
   `lessons` array (drives prev/next + `lessonNumber()`) and each module's `lessons` id
   array (drives the tab-rail + home page cards). An id present in one but not the other

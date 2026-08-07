@@ -71,15 +71,28 @@
       state.lessons[row.lesson_id] = { completedAt: row.completed_at };
     });
     (quizRows || []).forEach((row) => {
-      // Merge remote best score into local state without clobbering attempt history
+      // Merge remote best score into local state without clobbering attempt history.
+      // getBestQuizScore()/getQuizHistory() both derive from attempts[], so a
+      // remote-only win (earned on another device) must land there too, not
+      // just in bestScore, or it never surfaces in the UI.
       const local = state.quizzes[row.lesson_id];
-      if (!local || row.score >= (local.bestScore ?? local.score ?? 0)) {
+      const localBest = local?.bestScore ?? local?.score ?? 0;
+      if (!local) {
         state.quizzes[row.lesson_id] = {
           score: row.score,
           total: row.total,
           updatedAt: row.updated_at,
           bestScore: row.score,
-          attempts: local?.attempts || [{ score: row.score, total: row.total, takenAt: row.updated_at }]
+          attempts: [{ score: row.score, total: row.total, takenAt: row.updated_at }]
+        };
+      } else if (row.score > localBest) {
+        state.quizzes[row.lesson_id] = {
+          ...local,
+          score: row.score,
+          total: row.total,
+          updatedAt: row.updated_at,
+          bestScore: row.score,
+          attempts: [...local.attempts, { score: row.score, total: row.total, takenAt: row.updated_at }]
         };
       }
     });
