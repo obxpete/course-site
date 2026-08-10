@@ -1193,6 +1193,27 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 /* =============== Auth =============== */
 #auth-ui { display: flex; align-items: center; flex-shrink: 0; }
 
+.auth-error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 1.5rem;
+  background: var(--accent-berry-soft);
+  color: var(--accent-berry);
+  border-bottom: 1px solid var(--accent-berry);
+  font-size: 0.9rem;
+}
+.auth-error-banner button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+  text-decoration: underline;
+}
+
 .auth-google-btn {
   display: flex;
   align-items: center;

@@ -20,7 +20,7 @@ file layout and design rationale — this file is conventions and gotchas only.
 - **`js/` permissions**: do not run `sudo chmod` on files in this repo from Claude
   Code — it has previously broken the process's filesystem access (macOS TCC) and
   required a session restart.
-- **Google OAuth via Supabase** — two failure modes seen in production, check these
+- **Google OAuth via Supabase** — three failure modes seen in production, check these
   before assuming a code regression:
   1. `Error 400: redirect_uri_mismatch` → Google Cloud Console's OAuth client is
      missing Supabase's callback URL (`https://tbiiixiaoxtdbqdsrfuo.supabase.co/auth/v1/callback`)
@@ -28,6 +28,14 @@ file layout and design rationale — this file is conventions and gotchas only.
   2. Redirects to `localhost:3000` after sign-in → Supabase's Site URL defaults to
      `localhost:3000`; `js/data-store.js`'s `signInWithGoogle` passes
      `redirectTo: window.location.href` to override it — don't remove that.
+  3. Redirects back successfully but still shows "Sign in to sync" → Supabase's own
+     token exchange with Google failed server-side (`?error=server_error&error_description=
+     Unable+to+exchange+external+code...`), most likely a stale/mismatched Google OAuth
+     Client Secret in Supabase's Authentication → Providers → Google config, or the
+     Google Cloud OAuth consent screen still being in "Testing" mode with the account
+     not added as a test user. `js/auth-ui.js`'s `checkAuthErrorInUrl()` now surfaces
+     this visibly (a dismissible banner) instead of failing silently — check the banner
+     text and browser console first.
 - **`manifest.json` has two lesson-id lists** that aren't cross-validated: the flat
   `lessons` array (drives prev/next + `lessonNumber()`) and each module's `lessons` id
   array (drives the tab-rail + home page cards). An id present in one but not the other

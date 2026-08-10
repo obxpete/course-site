@@ -45,9 +45,45 @@
     });
   }
 
+  // Supabase reports OAuth failures (e.g. a Google code-exchange error) by
+  // redirecting back with ?error=&error_description= in the query and/or
+  // hash — never as a JS exception, so it fails completely silently unless
+  // something explicitly looks for it.
+  function showAuthError(message) {
+    var banner = document.createElement('div');
+    banner.className = 'auth-error-banner';
+    banner.innerHTML =
+      '<span>Sign-in failed: ' + message + '</span>' +
+      '<button type="button" aria-label="Dismiss">Dismiss</button>';
+    var topbar = document.querySelector('.topbar');
+    if (topbar) topbar.insertAdjacentElement('afterend', banner);
+    banner.querySelector('button').addEventListener('click', function () {
+      banner.remove();
+    });
+  }
+
+  function checkAuthErrorInUrl() {
+    var url = new URL(location.href);
+    var hashParams = new URLSearchParams(url.hash.replace(/^#/, ''));
+    var error = url.searchParams.get('error') || hashParams.get('error');
+    var description = url.searchParams.get('error_description') || hashParams.get('error_description');
+    if (!error) return;
+
+    console.error('Supabase auth error:', error, description);
+    showAuthError(description || error);
+
+    ['error', 'error_code', 'error_description'].forEach(function (k) { url.searchParams.delete(k); });
+    ['error', 'error_code', 'error_description', 'sb'].forEach(function (k) { hashParams.delete(k); });
+    var newHash = hashParams.toString();
+    url.hash = newHash ? '#' + newHash : '';
+    history.replaceState(null, '', url.pathname + url.search + url.hash);
+  }
+
   function init() {
     var container = document.getElementById('auth-ui');
     if (!container || !window.CourseStore) return;
+
+    checkAuthErrorInUrl();
 
     window.CourseStore.ready.then(function () {
       window.CourseStore.getUser().then(function (user) {
