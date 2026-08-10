@@ -22,9 +22,15 @@
   --shadow: 0 1px 2px rgba(32, 44, 60, 0.06), 0 6px 20px rgba(32, 44, 60, 0.06);
 
   /* Code blocks intentionally render dark regardless of site theme (already
-     the case pre-dark-mode) — deliberately NOT theme-reactive, unlike --ink. */
+     the case pre-dark-mode) — deliberately NOT theme-reactive, unlike --ink.
+     Accent colors for text/marks on this fixed-dark surface must also stay
+     fixed — the theme-reactive --accent-*-soft vars are tuned as light-mode
+     backgrounds and go near-invisible as dark-mode foreground text. */
   --code-bg: #202C3C;
   --code-text: #EDE7D6;
+  --code-accent-gold: #D9A94E;
+  --code-accent-green: #8FB39E;
+  --code-accent-red: #E28A9A;
 
   /* Type */
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
@@ -581,7 +587,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   letter-spacing: 0.03em;
-  color: var(--accent-gold-soft);
+  color: var(--code-accent-gold);
 }
 
 .widget .progress-label { color: #B7C0CE; }
@@ -611,7 +617,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   border-radius: 6px 6px 0 0;
   cursor: pointer;
 }
-.playground__tabs button.is-active { background: #14202E; color: var(--accent-gold-soft); border-color: var(--accent-gold-soft); }
+.playground__tabs button.is-active { background: #14202E; color: var(--code-accent-gold); border-color: var(--code-accent-gold); }
 
 .playground__editor textarea {
   flex: 1;
@@ -692,7 +698,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 
 /* Regex tester */
 .regex-tester__bar { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.8rem; }
-.regex-tester__slash { font-family: var(--font-mono); color: var(--accent-gold-soft); }
+.regex-tester__slash { font-family: var(--font-mono); color: var(--code-accent-gold); }
 .regex-tester__pattern, .regex-tester__flags {
   font-family: var(--font-mono);
   font-size: 0.9rem;
@@ -989,8 +995,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .git-term__line--command { opacity: 1; font-weight: 600; }
 .git-term__line--error { color: #E7B4B4; opacity: 1; }
 
+.git-term__seg--dim { opacity: 0.7; }
+.git-term__seg--green { color: var(--code-accent-green); }
+.git-term__seg--red { color: var(--code-accent-red); }
+
 .git-term__prompt {
-  color: var(--accent-gold-soft);
+  color: var(--code-accent-gold);
   margin-right: 0.4rem;
   user-select: none;
 }
@@ -1041,7 +1051,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .classifier-item__text code {
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: var(--accent-gold-soft);
+  color: var(--code-accent-gold);
   background: none;
   padding: 0;
 }

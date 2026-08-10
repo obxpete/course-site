@@ -40,12 +40,15 @@ window.CourseComponents.GitSimulatorWidget = {
       });
     },
     printWelcome() {
-      this.lines = [
-        { type: "output", text: this.config.prompt || "Type real git commands below — try `git init` to get started." }
-      ];
+      this.lines = [];
+      this.print(this.config.prompt || "Type real git commands below — try `git init` to get started.");
     },
-    print(text, type = "output") {
-      this.lines.push({ type, text });
+    // content: a string (single line, default color) or an array of
+    // {text, cls} line objects for multi-line/colored output, e.g. `git
+    // status`'s staged (green) vs untracked (red) file lists.
+    print(content, type = "output") {
+      const parts = typeof content === "string" ? [{ text: content }] : content;
+      this.lines.push({ type, parts });
     },
     reset() {
       this.initialized = !!this.config.startInitialized;
@@ -135,17 +138,19 @@ window.CourseComponents.GitSimulatorWidget = {
       const staged = Object.entries(this.files).filter(([, s]) => s === "staged").map(([n]) => n);
       const untracked = Object.entries(this.files).filter(([, s]) => s === "untracked").map(([n]) => n);
       if (!staged.length && !untracked.length) {
-        return this.print("On branch main\nnothing to commit, working tree clean");
+        return this.print([{ text: "On branch main" }, { text: "nothing to commit, working tree clean" }]);
       }
-      let out = "On branch main\n";
+      const parts = [{ text: "On branch main" }];
       if (staged.length) {
-        out += "Changes to be committed:\n" + staged.map((n) => `  new file:   ${n}`).join("\n") + "\n";
+        parts.push({ text: "Changes to be committed:", cls: "dim" });
+        staged.forEach((n) => parts.push({ text: `  new file:   ${n}`, cls: "green" }));
       }
       if (untracked.length) {
-        out += "Untracked files:\n" + untracked.map((n) => `  ${n}`).join("\n") +
-          "\n(use \"git add <file>...\" to include in what will be committed)";
+        parts.push({ text: "Untracked files:", cls: "dim" });
+        untracked.forEach((n) => parts.push({ text: `  ${n}`, cls: "red" }));
+        parts.push({ text: '(use "git add <file>..." to include in what will be committed)', cls: "dim" });
       }
-      this.print(out.trim());
+      this.print(parts);
     },
     cmdAdd(args) {
       if (!this.requireRepo()) return;
@@ -198,10 +203,17 @@ window.CourseComponents.GitSimulatorWidget = {
       </div>
       <div class="git-term" @click="$refs.input && $refs.input.focus()">
         <div class="git-term__output" ref="output">
-          <div v-for="(line, i) in lines" :key="i" class="git-term__line" :class="'git-term__line--' + line.type">
-            <template v-if="line.type === 'command'"><span class="git-term__prompt">$</span> {{ line.text }}</template>
-            <template v-else>{{ line.text }}</template>
-          </div>
+          <template v-for="(line, i) in lines" :key="i">
+            <div v-if="line.type === 'command'" class="git-term__line git-term__line--command">
+              <span class="git-term__prompt">$</span>{{ line.parts[0].text }}
+            </div>
+            <div
+              v-else
+              v-for="(p, pi) in line.parts"
+              :key="i + '-' + pi"
+              class="git-term__line"
+              :class="['git-term__line--' + line.type, p.cls ? 'git-term__seg--' + p.cls : '']">{{ p.text }}</div>
+          </template>
         </div>
         <div class="git-term__input-row">
           <span class="git-term__prompt">$</span>
