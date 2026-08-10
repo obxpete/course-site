@@ -420,6 +420,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .tab-rail {
   position: sticky;
   top: 90px;
+  max-height: calc(100vh - 90px - 1.5rem);
+  overflow-y: auto;
   border-left: 3px dashed var(--line);
   padding-left: 1.1rem;
 }
