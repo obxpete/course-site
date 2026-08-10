@@ -6,6 +6,7 @@
 :root {
   /* Palette */
   --paper: #F1F0EA;
+  --paper-rgb: 241, 240, 234; /* same as --paper, as r,g,b components for rgba() use (topbar blur) */
   --paper-card: #FAFAF6;
   --paper-deep: #E7E4D9;
   --ink: #202C3C;
@@ -20,12 +21,40 @@
   --line: #D8D4C6;
   --shadow: 0 1px 2px rgba(32, 44, 60, 0.06), 0 6px 20px rgba(32, 44, 60, 0.06);
 
+  /* Code blocks intentionally render dark regardless of site theme (already
+     the case pre-dark-mode) — deliberately NOT theme-reactive, unlike --ink. */
+  --code-bg: #202C3C;
+  --code-text: #EDE7D6;
+
   /* Type */
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
 
   --radius: 10px;
+}
+
+/* Dark mode overrides. `data-theme` is set on <html> before first paint by an
+   inline script in each page's <head> (avoids a flash of the wrong theme),
+   resolving stored preference > prefers-color-scheme > light default — see
+   js/theme-toggle.js. CSS only needs to react to the attribute, not the
+   media query itself. */
+[data-theme="dark"] {
+  --paper: #1E1C16;
+  --paper-rgb: 30, 28, 22;
+  --paper-card: #262319;
+  --paper-deep: #2D2A1F;
+  --ink: #EDE7D6;
+  --ink-soft: #B7C0CE;
+  --ink-faint: #7C8494;
+  --accent-gold: #D9A94E;
+  --accent-gold-soft: #4A3A1C;
+  --accent-berry: #E28A9A;
+  --accent-berry-soft: #4A2229;
+  --accent-sage: #8FB39E;
+  --accent-sage-soft: #253830;
+  --line: #3A362A;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 
 * { box-sizing: border-box; }
@@ -69,8 +98,8 @@ code, pre {
 }
 
 pre {
-  background: var(--ink);
-  color: #EDE7D6;
+  background: var(--code-bg);
+  color: var(--code-text);
   padding: 1.1rem 1.25rem;
   border-radius: var(--radius);
   overflow-x: auto;
@@ -105,7 +134,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   align-items: center;
   gap: 1rem;
   padding: 0.9rem 1.5rem;
-  background: rgba(241, 240, 234, 0.92);
+  background: rgba(var(--paper-rgb), 0.92);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line);
 }
@@ -174,7 +203,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     flex-direction: column;
     gap: 0;
     padding: 0.4rem 1.5rem 0.8rem;
-    background: rgba(241, 240, 234, 0.97);
+    background: rgba(var(--paper-rgb), 0.97);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--line);
     box-shadow: 0 4px 16px rgba(32, 44, 60, 0.08);
@@ -523,8 +552,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .interactive { margin-top: 2.8rem; }
 
 .widget {
-  background: var(--ink);
-  color: #EDE7D6;
+  background: var(--code-bg);
+  color: var(--code-text);
   border-radius: var(--radius);
   padding: 1.4rem 1.5rem 1.6rem;
   box-shadow: var(--shadow);
@@ -1059,9 +1088,9 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   line-height: 1.55;
 }
 
-/* =============== highlight.js overrides (keep site theme) =============== */
+/* =============== highlight.js overrides (always dark, theme-invariant — see --code-bg) =============== */
 .lesson-content .hljs {
-  background: var(--ink);
+  background: var(--code-bg);
   border-radius: var(--radius);
   font-size: 0.88em;
 }
@@ -1142,6 +1171,24 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   flex-shrink: 0;
 }
 .topbar__search:hover { background: var(--paper-deep); color: var(--ink); }
+
+/* =============== Theme toggle =============== */
+.topbar__theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-soft);
+  padding: 0.35rem;
+  border-radius: 6px;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.topbar__theme-toggle:hover { background: var(--paper-deep); color: var(--ink); }
+.topbar__theme-toggle .icon-moon { display: none; }
+[data-theme="dark"] .topbar__theme-toggle .icon-sun { display: none; }
+[data-theme="dark"] .topbar__theme-toggle .icon-moon { display: block; }
 
 /* =============== Auth =============== */
 #auth-ui { display: flex; align-items: center; flex-shrink: 0; }

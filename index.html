@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CIS 365 — Full Stack Web Development</title>
 <meta name="description" content="An introduction to full stack web application development: front-end, back-end, APIs, and the soft skills that connect them.">
+<script>
+(function () {
+  var t = localStorage.getItem('cis365.theme');
+  if (!t && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+  if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -32,6 +39,22 @@
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
       <circle cx="7.5" cy="7.5" r="5"/>
       <line x1="11.5" y1="11.5" x2="16" y2="16"/>
+    </svg>
+  </button>
+  <button class="topbar__theme-toggle" aria-label="Switch to dark mode">
+    <svg class="icon-sun" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <circle cx="9" cy="9" r="3.5"/>
+      <line x1="9" y1="1" x2="9" y2="2.5"/>
+      <line x1="9" y1="15.5" x2="9" y2="17"/>
+      <line x1="1" y1="9" x2="2.5" y2="9"/>
+      <line x1="15.5" y1="9" x2="17" y2="9"/>
+      <line x1="3.6" y1="3.6" x2="4.6" y2="4.6"/>
+      <line x1="13.4" y1="13.4" x2="14.4" y2="14.4"/>
+      <line x1="3.6" y1="14.4" x2="4.6" y2="13.4"/>
+      <line x1="13.4" y1="4.6" x2="14.4" y2="3.6"/>
+    </svg>
+    <svg class="icon-moon" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M15 10.5A6.5 6.5 0 0 1 7.5 3 6.5 6.5 0 1 0 15 10.5Z"/>
     </svg>
   </button>
   <nav class="topbar__nav">
@@ -123,6 +146,7 @@
 <script src="js/data-store.js"></script>
 <script src="js/auth-ui.js" defer></script>
 <script src="js/nav.js" defer></script>
+<script src="js/theme-toggle.js" defer></script>
 <script>
 const { createApp, ref, computed, onMounted } = Vue;
 
