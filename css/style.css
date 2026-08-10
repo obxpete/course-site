@@ -424,7 +424,13 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   overflow-y: auto;
   border-left: 3px dashed var(--line);
   padding-left: 1.1rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
 }
+.tab-rail::-webkit-scrollbar { width: 6px; }
+.tab-rail::-webkit-scrollbar-track { background: transparent; }
+.tab-rail::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+.tab-rail::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }
 
 .tab-rail__module {
   font-family: var(--font-mono);
