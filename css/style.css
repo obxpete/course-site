@@ -411,7 +411,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 /* =============== Lesson page layout =============== */
 .lesson-layout {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 300px 1fr;
   gap: 2.5rem;
   align-items: start;
 }
@@ -482,6 +482,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .lesson-content {
   flex: 1;
   min-width: 0;
+  max-width: 68ch;
 }
 
 .lesson-content h1 { font-size: 2rem; margin-top: 0; }
