@@ -962,80 +962,56 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   line-height: 1.55;
 }
 
-/* =============== Git simulator =============== */
-.git-log {
-  margin: 0 0 1rem;
+/* =============== Git terminal simulator =============== */
+.git-term {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  cursor: text;
+}
+
+.git-term__output {
   max-height: 280px;
   overflow-y: auto;
+  margin-bottom: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(237, 231, 214, 0.25) transparent;
 }
+.git-term__output::-webkit-scrollbar { width: 6px; }
+.git-term__output::-webkit-scrollbar-track { background: transparent; }
+.git-term__output::-webkit-scrollbar-thumb { background: rgba(237, 231, 214, 0.25); border-radius: 3px; }
 
-.git-commit {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
+.git-term__line {
+  white-space: pre-wrap;
+  line-height: 1.55;
+  color: var(--code-text);
+  opacity: 0.85;
 }
+.git-term__line--command { opacity: 1; font-weight: 600; }
+.git-term__line--error { color: #E7B4B4; opacity: 1; }
 
-.git-commit__track {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-  padding-top: 0.3rem;
-}
-
-.git-commit__node {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: var(--accent-gold);
-  flex-shrink: 0;
-}
-
-.git-commit__line {
-  width: 2px;
-  flex: 1;
-  min-height: 20px;
-  background: rgba(176, 124, 44, 0.3);
-  margin: 3px 0;
-}
-
-.git-commit__body {
-  padding-bottom: 0.75rem;
-  display: flex;
-  align-items: baseline;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-}
-
-.git-commit__hash {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
+.git-term__prompt {
   color: var(--accent-gold-soft);
-  flex-shrink: 0;
+  margin-right: 0.4rem;
+  user-select: none;
 }
 
-.git-commit__msg {
-  font-size: 0.9rem;
-  color: #EDE7D6;
-}
-
-.git-input {
+.git-term__input-row {
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
+  border-top: 1px solid rgba(237, 231, 214, 0.15);
+  padding-top: 0.5rem;
 }
 
-.git-input__field {
+.git-term__input {
   flex: 1;
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  padding: 0.5rem 0.7rem;
-  border-radius: 6px;
-  border: 1px solid rgba(237,231,214,0.25);
-  background: #14202E;
-  color: #EDE7D6;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--code-text);
   min-width: 0;
 }
-.git-input__field::placeholder { color: #5A6778; }
 
 /* =============== Classifier widget =============== */
 .classifier-list {
