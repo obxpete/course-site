@@ -1,5 +1,5 @@
 {
-  "label": "Try it: a real git terminal",
+  "label": "Try it: type real git commands",
   "prompt": "This is a simulated terminal — type real commands, not buttons. You already have a file called notes.md sitting untracked. Try, in order: git init, git status, git add notes.md, git status again, git commit -m \"Add first lesson notes\", then git log. Type help anytime for the full command list.",
   "startingFiles": ["notes.md"],
   "startInitialized": false
