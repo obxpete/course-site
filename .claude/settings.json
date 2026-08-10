@@ -22,5 +22,13 @@
         ]
       }
     ]
+  },
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "sandbox": {
+    "filesystem": {
+      "denyWrite": ["~/.ssh", "~/.aws", "~/.gnupg", "/etc"]
+    }
   }
 }
