@@ -169,6 +169,7 @@
 <script src="js/components/regex-tester.js"></script>
 <script src="js/components/node-sandbox.js"></script>
 <script src="js/components/git-simulator.js"></script>
+<script src="js/components/sql-tool.js"></script>
 <script src="js/components/classifier.js"></script>
 <script src="js/scroll-progress.js" defer></script>
 <script>
@@ -181,6 +182,7 @@ const COMPONENT_MAP = {
   "regex-tester": "regex-tester-widget",
   "node-sandbox": "node-sandbox-widget",
   "git-simulator": "git-simulator-widget",
+  "sql-tool": "sql-tool-widget",
   "classifier": "classifier-widget"
 };
 
@@ -332,6 +334,7 @@ app.component("markdown-preview-widget", window.CourseComponents.MarkdownPreview
 app.component("regex-tester-widget", window.CourseComponents.RegexTesterWidget);
 app.component("node-sandbox-widget", window.CourseComponents.NodeSandboxWidget);
 app.component("git-simulator-widget", window.CourseComponents.GitSimulatorWidget);
+app.component("sql-tool-widget", window.CourseComponents.SqlToolWidget);
 app.component("classifier-widget", window.CourseComponents.ClassifierWidget);
 
 app.mount("#app");

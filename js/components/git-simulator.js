@@ -201,27 +201,27 @@ window.CourseComponents.GitSimulatorWidget = {
         <span class="widget__label">{{ config.label || "Git terminal" }}</span>
         <button class="btn btn--ghost btn--sm" @click="reset" type="button">Reset</button>
       </div>
-      <div class="git-term" @click="$refs.input && $refs.input.focus()">
-        <div class="git-term__output" ref="output">
+      <div class="term" @click="$refs.input && $refs.input.focus()">
+        <div class="term__output" ref="output">
           <template v-for="(line, i) in lines" :key="i">
-            <div v-if="line.type === 'command'" class="git-term__line git-term__line--command">
-              <span class="git-term__prompt">$</span>{{ line.parts[0].text }}
+            <div v-if="line.type === 'command'" class="term__line term__line--command">
+              <span class="term__prompt">$</span>{{ line.parts[0].text }}
             </div>
             <div
               v-else
               v-for="(p, pi) in line.parts"
               :key="i + '-' + pi"
-              class="git-term__line"
-              :class="['git-term__line--' + line.type, p.cls ? 'git-term__seg--' + p.cls : '']">{{ p.text }}</div>
+              class="term__line"
+              :class="['term__line--' + line.type, p.cls ? 'term__seg--' + p.cls : '']">{{ p.text }}</div>
           </template>
         </div>
-        <div class="git-term__input-row">
-          <span class="git-term__prompt">$</span>
+        <div class="term__input-row">
+          <span class="term__prompt">$</span>
           <input
             ref="input"
             v-model="command"
             type="text"
-            class="git-term__input"
+            class="term__input"
             spellcheck="false"
             autocapitalize="off"
             autocomplete="off"

@@ -968,51 +968,51 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   line-height: 1.55;
 }
 
-/* =============== Git terminal simulator =============== */
-.git-term {
+/* =============== Terminal-style widgets (git, sql) =============== */
+.term {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   cursor: text;
 }
 
-.git-term__output {
+.term__output {
   max-height: 280px;
   overflow-y: auto;
   margin-bottom: 0.5rem;
   scrollbar-width: thin;
   scrollbar-color: rgba(237, 231, 214, 0.25) transparent;
 }
-.git-term__output::-webkit-scrollbar { width: 6px; }
-.git-term__output::-webkit-scrollbar-track { background: transparent; }
-.git-term__output::-webkit-scrollbar-thumb { background: rgba(237, 231, 214, 0.25); border-radius: 3px; }
+.term__output::-webkit-scrollbar { width: 6px; }
+.term__output::-webkit-scrollbar-track { background: transparent; }
+.term__output::-webkit-scrollbar-thumb { background: rgba(237, 231, 214, 0.25); border-radius: 3px; }
 
-.git-term__line {
+.term__line {
   white-space: pre-wrap;
   line-height: 1.55;
   color: var(--code-text);
   opacity: 0.85;
 }
-.git-term__line--command { opacity: 1; font-weight: 600; }
-.git-term__line--error { color: #E7B4B4; opacity: 1; }
+.term__line--command { opacity: 1; font-weight: 600; }
+.term__line--error { color: #E7B4B4; opacity: 1; }
 
-.git-term__seg--dim { opacity: 0.7; }
-.git-term__seg--green { color: var(--code-accent-green); }
-.git-term__seg--red { color: var(--code-accent-red); }
+.term__seg--dim { opacity: 0.7; }
+.term__seg--green { color: var(--code-accent-green); }
+.term__seg--red { color: var(--code-accent-red); }
 
-.git-term__prompt {
+.term__prompt {
   color: var(--code-accent-gold);
   margin-right: 0.4rem;
   user-select: none;
 }
 
-.git-term__input-row {
+.term__input-row {
   display: flex;
   align-items: center;
   border-top: 1px solid rgba(237, 231, 214, 0.15);
   padding-top: 0.5rem;
 }
 
-.git-term__input {
+.term__input {
   flex: 1;
   font-family: var(--font-mono);
   font-size: 0.85rem;
@@ -1021,6 +1021,25 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   outline: none;
   color: var(--code-text);
   min-width: 0;
+}
+
+.term__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.3rem 0 0.6rem;
+  font-size: 0.82rem;
+  opacity: 0.9;
+}
+.term__table th, .term__table td {
+  text-align: left;
+  padding: 0.3rem 0.6rem;
+  border-bottom: 1px solid rgba(237, 231, 214, 0.12);
+  white-space: nowrap;
+}
+.term__table th {
+  color: var(--code-accent-gold);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(237, 231, 214, 0.25);
 }
 
 /* =============== Classifier widget =============== */

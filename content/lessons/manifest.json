@@ -106,7 +106,7 @@
       "duration": "55 min",
       "file": "11-databases.md",
       "quiz": "11.json",
-      "interactive": { "type": "classifier", "file": "11.json" }
+      "interactive": { "type": "sql-tool", "file": "11.json" }
     },
     {
       "id": "12",

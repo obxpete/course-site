@@ -1,36 +1,13 @@
 {
-  "prompt": "Classify each database operation as SELECT, INSERT, UPDATE, or DELETE.",
-  "categories": ["SELECT", "INSERT", "UPDATE", "DELETE"],
-  "items": [
-    {
-      "snippet": "Get all users whose account was created after Jan 1, 2025",
-      "answer": "SELECT",
-      "explanation": "Retrieving existing data is always SELECT — it reads rows without changing them. You'd write: SELECT * FROM users WHERE created_at > '2025-01-01';"
-    },
-    {
-      "snippet": "A user submits a sign-up form and a new account is created",
-      "answer": "INSERT",
-      "explanation": "Adding a new row to a table is INSERT. The form data maps to column values: INSERT INTO users (name, email) VALUES ('Rivka', 'rivka@example.com');"
-    },
-    {
-      "snippet": "A user changes their email address in account settings",
-      "answer": "UPDATE",
-      "explanation": "Modifying an existing row is UPDATE. Always use a WHERE clause: UPDATE users SET email = 'new@example.com' WHERE id = 42; — without WHERE, every row would be changed."
-    },
-    {
-      "snippet": "An admin removes a banned account from the system",
-      "answer": "DELETE",
-      "explanation": "Removing rows is DELETE. Be careful with WHERE: DELETE FROM users WHERE id = 99; removes one row; DELETE FROM users; (no WHERE) removes all of them."
-    },
-    {
-      "snippet": "Display the five most recent orders placed on the site",
-      "answer": "SELECT",
-      "explanation": "Fetching data to display is SELECT. You'd add ORDER BY and LIMIT: SELECT * FROM orders ORDER BY created_at DESC LIMIT 5;"
-    },
-    {
-      "snippet": "A product goes out of stock — mark its quantity as 0",
-      "answer": "UPDATE",
-      "explanation": "Changing a value in an existing row is UPDATE: UPDATE products SET quantity = 0 WHERE id = 12; The row still exists — you're just changing one of its values."
-    }
+  "label": "Try it: write real SQL",
+  "prompt": "A small users table is seeded below. Type real SQL against it. Try, in order: SELECT * FROM users; then SELECT first_name, email FROM users WHERE active = true; then UPDATE users SET active = false WHERE id = 3; then SELECT * FROM users ORDER BY first_name; Type help anytime for supported syntax.",
+  "table": "users",
+  "primaryKey": "id",
+  "columns": ["id", "first_name", "email", "active"],
+  "startingRows": [
+    { "id": 1, "first_name": "Rivka", "email": "rivka@example.com", "active": true },
+    { "id": 2, "first_name": "Tova", "email": "tova@example.com", "active": true },
+    { "id": 3, "first_name": "Leah", "email": "leah@example.com", "active": false },
+    { "id": 4, "first_name": "Noah", "email": "noah@example.com", "active": true }
   ]
 }
