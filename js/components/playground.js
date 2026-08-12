@@ -56,7 +56,7 @@ window.CourseComponents.PlaygroundWidget = {
           <textarea v-show="tab === 'css'" v-model="css" spellcheck="false" @input="run"></textarea>
           <textarea v-show="tab === 'js'" v-model="js" spellcheck="false" @input="run"></textarea>
         </div>
-        <iframe class="playground__preview" sandbox="allow-scripts" :srcdoc="srcdoc" title="Live preview"></iframe>
+        <iframe class="playground__preview" sandbox="allow-scripts allow-modals" :srcdoc="srcdoc" title="Live preview"></iframe>
       </div>
     </div>
   `
