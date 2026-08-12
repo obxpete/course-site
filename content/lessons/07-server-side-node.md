@@ -46,7 +46,7 @@ app.listen(3000, () => {
 
 The sandbox below launches a real, running Node.js server in a new tab, pre-loaded with this code — no account or local setup required to edit and run it. (If you'd rather build it yourself step by step: `npm init -y`, then `npm install express`, then run `node server.js` — the sandbox is doing exactly that for you.)
 
-From here, try adding a second route that returns a small JSON object instead of plain text — that's the shape almost every real API takes.
+Notice the sandbox already includes a second route that returns a small JSON object instead of plain text — that's the shape almost every real API takes.
 
 ### Middleware
 

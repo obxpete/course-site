@@ -57,15 +57,15 @@
       "explanation": "CI/CD stands for Continuous Integration / Continuous Deployment. CI means automatically running tests whenever code is pushed. CD means automatically deploying to production (or staging) when tests pass. Together they reduce manual steps, catch regressions early, and let teams ship faster with more confidence."
     },
     {
-      "q": "What file format does GitHub Actions use to define a CI/CD pipeline?",
+      "q": "After deploying, what should you check before considering it a success?",
       "choices": [
-        "JSON, stored in .github/actions/",
-        "XML, stored in the project root",
-        "YAML, stored in .github/workflows/",
-        "Markdown, stored in docs/"
+        "Nothing — a successful deploy notification means the app is working correctly",
+        "The logs, to confirm the process actually started cleanly",
+        "Only the billing dashboard",
+        "Whether the git commit message was well-written"
       ],
-      "answer": 2,
-      "explanation": "GitHub Actions workflows are YAML files stored in .github/workflows/. They define triggers (e.g., push to main), the environment to run in (ubuntu-latest), and a series of steps — checking out the code, installing dependencies, running tests, building, and deploying."
+      "answer": 1,
+      "explanation": "A successful deploy notification just means the platform accepted your code — it doesn't mean the app is running correctly. Check the logs immediately after a deploy, and set up error tracking (Sentry) and uptime monitoring (UptimeRobot) so problems surface automatically instead of waiting for a user to report them."
     },
     {
       "q": "What two steps are required to connect a custom domain to a hosting platform?",

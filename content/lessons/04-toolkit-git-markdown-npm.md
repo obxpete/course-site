@@ -1,4 +1,4 @@
-# The Developer Toolkit: Git Workflows, Markdown & npm
+# The Developer Toolkit: Markdown & npm
 
 *Building Blocks · About 45 minutes*
 

@@ -101,15 +101,15 @@
       "explanation": "A JWT is a signed token that encodes user data (like user ID and roles) in a verifiable way. The server signs it with a secret key; on future requests, the server verifies the signature to confirm the token is genuine — no database lookup required. This makes JWTs stateless and easy to scale, at the cost of not being revocable until they expire."
     },
     {
-      "q": "What does the principle of least privilege mean in a security context?",
+      "q": "What makes a Cross-Site Request Forgery (CSRF) attack work?",
       "choices": [
-        "Users should log in with the minimum number of characters in their password",
-        "Admin accounts should never be used for everyday tasks",
-        "Each user or service should have only the minimum access it actually needs",
-        "Sensitive routes should require two-factor authentication"
+        "The attacker steals the user's password directly",
+        "The browser automatically includes the user's cookies on a request the attacker tricked them into sending",
+        "The server has no HTTPS certificate",
+        "The user's JavaScript console is left open"
       ],
-      "answer": 2,
-      "explanation": "Least privilege limits the blast radius of a breach or bug. If a read-only API endpoint's credentials are compromised, an attacker can only read data — not modify or delete it. This applies to users, service accounts, database roles, and OAuth scopes: grant only what is needed, nothing more."
+      "answer": 1,
+      "explanation": "CSRF tricks a logged-in user's browser into submitting a request to your server — often via a hidden form on a malicious site — and because browsers automatically attach cookies to requests, the server can't tell it apart from a legitimate action. Defenses include CSRF tokens and SameSite cookies; APIs using token-based (Authorization header) auth aren't vulnerable to CSRF at all, since a cross-site request can't set arbitrary headers."
     }
   ]
 }

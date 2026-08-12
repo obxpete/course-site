@@ -92,7 +92,7 @@ Database decisions are some of the hardest to reverse later:
 
 ## Try It
 
-The interactive below lists database operations — classify each one as SELECT, INSERT, UPDATE, or DELETE.
+The interactive below is a real SQL terminal, seeded with a small `users` table — type actual SELECT, INSERT, UPDATE, and DELETE queries and see the results.
 
 ## Recap
 

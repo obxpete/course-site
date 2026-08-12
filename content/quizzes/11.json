@@ -2,34 +2,10 @@
   "lessonId": "11",
   "questions": [
   {
-    "q": "What does SQL stand for?",
-    "choices": ["Structured Query Language", "Sequential Query Logic", "Simple Question Language", "Server Query Layer"],
-    "answer": 0,
-    "explanation": "SQL — Structured Query Language — is the standard language for working with relational databases. It's been the dominant database language since the 1970s and is used by PostgreSQL, MySQL, SQLite, and many others."
-  },
-  {
-    "q": "Which SQL command retrieves data from a table?",
-    "choices": ["GET", "SELECT", "FETCH", "READ"],
-    "answer": 1,
-    "explanation": "SELECT retrieves rows from one or more tables. It's the most frequently used SQL command and supports filtering (WHERE), sorting (ORDER BY), and combining tables (JOIN)."
-  },
-  {
     "q": "What is a primary key in a relational database?",
     "choices": ["The most important column in a table", "A column that uniquely identifies each row", "A password used to access the database", "The first column of any table"],
     "answer": 1,
     "explanation": "A primary key is a column (or set of columns) that uniquely identifies each row in a table. No two rows can have the same primary key value. It's the anchor for relationships between tables."
-  },
-  {
-    "q": "Which SQL command adds a new row to a table?",
-    "choices": ["ADD", "CREATE", "INSERT", "PUT"],
-    "answer": 2,
-    "explanation": "INSERT INTO adds a new row. The basic form is: INSERT INTO table_name (column1, column2) VALUES (value1, value2). It's the 'C' in CRUD for SQL databases."
-  },
-  {
-    "q": "What does a JOIN do in SQL?",
-    "choices": ["Combines two databases into one", "Links two tables based on a matching column", "Creates a backup of a table", "Merges duplicate rows"],
-    "answer": 1,
-    "explanation": "A JOIN combines rows from two tables where a condition is met — typically where a foreign key in one table matches a primary key in another. This is how relational data is queried across multiple tables in a single statement."
   },
   {
     "q": "What is a foreign key?",
@@ -38,22 +14,22 @@
     "explanation": "A foreign key is a column in one table that holds the primary key value of a related row in another table. For example, an `orders` table might have a `user_id` column that references the `id` column in a `users` table."
   },
   {
-    "q": "Which SQL command modifies existing rows?",
-    "choices": ["MODIFY", "CHANGE", "UPDATE", "EDIT"],
-    "answer": 2,
-    "explanation": "UPDATE modifies existing rows. Always include a WHERE clause: UPDATE users SET email = 'new@example.com' WHERE id = 42. Without WHERE, the update applies to every row in the table — a common and expensive mistake."
-  },
-  {
-    "q": "When is a NoSQL/document database usually a better choice than a relational database?",
-    "choices": ["When you need complex JOINs across many tables", "When data is highly structured and consistent", "When data shape varies record-to-record or evolves frequently", "When you need strong transactional guarantees"],
-    "answer": 2,
-    "explanation": "NoSQL databases shine when data doesn't fit neatly into fixed-schema tables — for example, user-generated content, product catalogs with variable attributes, or real-time event streams. For structured, relational data, SQL databases are usually the better fit."
+    "q": "What does a JOIN do in SQL?",
+    "choices": ["Combines two databases into one", "Links two tables based on a matching column", "Creates a backup of a table", "Merges duplicate rows"],
+    "answer": 1,
+    "explanation": "A JOIN combines rows from two tables where a condition is met — typically where a foreign key in one table matches a primary key in another. This is how relational data is queried across multiple tables in a single statement."
   },
   {
     "q": "What does an index do in a database?",
     "choices": ["Stores a list of all table names", "Numbers the rows in a table", "Makes specific queries faster by avoiding full-table scans", "Encrypts sensitive columns"],
     "answer": 2,
     "explanation": "An index is a data structure that lets the database find matching rows quickly without reading every row. Primary keys are indexed automatically; you can add indexes on other frequently queried columns (like foreign keys) to improve performance."
+  },
+  {
+    "q": "When is a NoSQL/document database usually a better choice than a relational database?",
+    "choices": ["When you need complex JOINs across many tables", "When data is highly structured and consistent", "When data shape varies record-to-record or evolves frequently", "When you need strong transactional guarantees"],
+    "answer": 2,
+    "explanation": "NoSQL databases shine when data doesn't fit neatly into fixed-schema tables — for example, user-generated content, product catalogs with variable attributes, or real-time event streams. For structured, relational data, SQL databases are usually the better fit."
   },
   {
     "q": "Which of these is a managed database service that includes a free tier?",

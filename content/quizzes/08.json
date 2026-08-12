@@ -18,6 +18,12 @@
       "choices": ["Large, complex single-page applications only", "Lightweight interactivity added directly in HTML markup, without a build step", "Server-side database management", "Replacing Node.js"],
       "answer": 1,
       "explanation": "Alpine.js targets the 'I need a little interactivity on this page' use case — a dropdown, a modal, a toggle — without a build step or component architecture. It's the spiritual successor to older jQuery patterns, but with reactive data binding."
+    },
+    {
+      "q": "What does TypeScript add to JavaScript?",
+      "choices": ["A new language that replaces JavaScript entirely", "A type system that catches mismatches before they become runtime bugs", "A replacement for CSS frameworks", "Server-only execution, with no browser support"],
+      "answer": 1,
+      "explanation": "TypeScript is JavaScript with a type system layered on top — you declare that a variable is a number or a specific object shape, and the compiler catches mismatches before they become runtime bugs. It doesn't replace JavaScript: TypeScript compiles down to plain JavaScript, which is what actually runs in the browser or on Node. All major frameworks (React, Vue, Angular) support it fully, and it's increasingly the default choice for new projects."
     }
   ]
 }

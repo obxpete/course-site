@@ -33,8 +33,7 @@
       "title": "Welcome & How This Course Works",
       "summary": "Meet the course, see the roadmap, and set up your toolbox.",
       "duration": "30 min",
-      "file": "00-orientation.md",
-      "quiz": "00.json"
+      "file": "00-orientation.md"
     },
     {
       "id": "01",
@@ -65,7 +64,7 @@
     },
     {
       "id": "04",
-      "title": "The Developer Toolkit: Git Workflows, Markdown & npm",
+      "title": "The Developer Toolkit: Markdown & npm",
       "summary": "The everyday tools that keep a project organized and shareable.",
       "duration": "45 min",
       "file": "04-toolkit-git-markdown-npm.md",

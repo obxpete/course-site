@@ -14,10 +14,10 @@
       "explanation": "JSON was invented alongside JavaScript, but it's now the dominant data-exchange format everywhere: Python, Ruby, Go, Java, and every other modern language can read and write it natively. That universality is why it became the glue of the web."
     },
     {
-      "q": "What does Postman let you do?",
-      "choices": ["Write and test API requests without writing code first", "Design database schemas", "Host a website", "Edit Markdown files"],
-      "answer": 0,
-      "explanation": "Postman (and the API tester on this page) let you construct and send HTTP requests visually, then inspect the response. That means you can verify an API works and understand its data format before writing a single line of code to consume it."
+      "q": "A browser blocks your fetch() call with a CORS error. What does that actually mean?",
+      "choices": ["Your JSON is formatted incorrectly", "The API server hasn't explicitly allowed requests from your origin", "The browser is broken and needs a restart", "You used the wrong HTTP method"],
+      "answer": 1,
+      "explanation": "CORS blocks cross-origin requests unless the server explicitly permits them via an Access-Control-Allow-Origin header. The browser is working correctly — the fix is almost always on the API side, or routing the request through your own backend."
     }
   ]
 }

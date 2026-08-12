@@ -31,9 +31,9 @@ A **`.gitignore` file** tells Git which files and folders to skip entirely — d
 
 **GitHub Codespaces** gives you a full, cloud-hosted instance of Visual Studio Code — no local installation required. It's genuinely useful once you're working on a real, multi-file project, and to collaborate in real time with an instructor or classmate.
 
-This is the one lesson in the course where trying things hands-on means creating a free account — Git and GitHub are the actual subject here. Every other lesson's "Try It" runs directly on this page with no sign-up at all.
+Git and GitHub are the actual subject of this lesson, so it's worth creating a free account and trying the real thing — nowhere else in the course will it pay off as much. If you'd rather stay on this page first, the terminal further down lets you practice the same commands with no sign-up at all.
 
-Try it now (optional, but recommended for this lesson specifically):
+Try it for real (optional, but recommended for this lesson specifically):
 
 1. Create a free account at [github.com](https://github.com) if you don't already have one.
 2. Open any public repository and click the green **Code** button, then choose **Codespaces → Create codespace on main**.
@@ -49,7 +49,7 @@ Working with distributed teams — often across time zones — is now a standard
 
 ## Try It
 
-Open a Codespace, create a new file called `notes.md`, write one sentence about something you learned today, and commit it with a message like `Add first lesson notes`. That's the entire Git workflow you'll repeat, in more sophisticated forms, for the rest of your career.
+Try it below first — a simulated terminal, no sign-up required. Then, for real: open a Codespace, create a new file called `notes.md`, write one sentence about something you learned today, and commit it with a message like `Add first lesson notes`. That's the entire Git workflow you'll repeat, in more sophisticated forms, for the rest of your career.
 
 ## Recap
 

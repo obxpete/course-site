@@ -1,10 +1,10 @@
 {
   "label": "Try it: send a real API request",
   "presets": [
-    { "label": "Get a user", "method": "GET", "url": "https://jsonplaceholder.typicode.com/users/1" },
-    { "label": "Get a list of todos", "method": "GET", "url": "https://jsonplaceholder.typicode.com/todos?_limit=5" },
-    { "label": "Get one post", "method": "GET", "url": "https://jsonplaceholder.typicode.com/posts/1" }
+    { "label": "Get a todo", "method": "GET", "url": "https://jsonplaceholder.typicode.com/todos/1" },
+    { "label": "A todo that doesn't exist (404)", "method": "GET", "url": "https://jsonplaceholder.typicode.com/todos/999" },
+    { "label": "Get a user", "method": "GET", "url": "https://jsonplaceholder.typicode.com/users/1" }
   ],
   "defaultMethod": "GET",
-  "defaultUrl": "https://jsonplaceholder.typicode.com/users/1"
+  "defaultUrl": "https://jsonplaceholder.typicode.com/todos/1"
 }

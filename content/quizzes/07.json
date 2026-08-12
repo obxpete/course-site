@@ -14,10 +14,10 @@
       "explanation": "Express is a minimal web framework layered on top of Node.js. It handles the boilerplate of an HTTP server — parsing requests, routing URLs to handler functions, sending responses — so you don't have to implement all that from scratch."
     },
     {
-      "q": "In `app.get('/users', ...)`, what does GET represent?",
-      "choices": ["A file extension", "An HTTP method indicating the type of request/action", "A variable name", "A CSS selector"],
+      "q": "What is middleware in an Express app?",
+      "choices": ["A type of database used only for caching", "A function that runs between receiving a request and sending a response", "The HTML template rendered to the browser", "A CSS preprocessor for styling routes"],
       "answer": 1,
-      "explanation": "HTTP methods encode intent. GET means 'give me data without changing anything.' POST means 'create something.' PUT means 'update.' DELETE means 'remove.' In Express, you register a handler for a specific method + path pair, so the server knows what action to take."
+      "explanation": "Middleware functions sit between an incoming request and the outgoing response — parsing bodies, logging, checking authentication, and more. Each one calls next() to pass control along, or can short-circuit by sending a response early. Most of what happens in a real Express app happens in middleware before any route handler runs."
     }
   ]
 }

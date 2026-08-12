@@ -14,10 +14,10 @@
       "explanation": "Agile's defining assumption is that requirements will change — often because users don't fully know what they want until they see early versions. Waterfall assumes requirements can be fully defined upfront, which rarely holds in practice."
     },
     {
-      "q": "A wireframe is best described as:",
-      "choices": ["The final, fully styled version of a screen", "A low-fidelity sketch of layout and content, without visual design", "A type of database schema", "A piece of server-side code"],
-      "answer": 1,
-      "explanation": "Wireframes are intentionally rough — boxes, lines, and placeholder text. They let you agree on layout and content flow quickly, before investing time in visual design or code. That's exactly the point: cheap to change."
+      "q": "What's the core idea behind component-based frontend architecture?",
+      "choices": ["The UI is broken into small, self-contained, reusable pieces that manage their own state", "All application logic must live in one controller file", "Components replace the need for a backend entirely", "Each component connects directly to the database"],
+      "answer": 0,
+      "explanation": "Component-based architecture breaks the UI into small, self-contained pieces — each owning its own template, styles, and behavior — composed together the way HTML is assembled from elements. React, Vue, and Alpine all use this model."
     }
   ]
 }
