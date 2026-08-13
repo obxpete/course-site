@@ -17,7 +17,8 @@ window.CourseComponents.PlaygroundWidget = {
       html: this.config.html || "",
       css: this.config.css || "",
       js: this.config.js || "",
-      srcdoc: ""
+      srcdoc: "",
+      runCount: 0
     };
   },
   mounted() {
@@ -28,6 +29,7 @@ window.CourseComponents.PlaygroundWidget = {
       const head = this.config.extraHead || "";
       const bodyEnd = this.config.extraBodyEnd || "";
       this.srcdoc = `<!DOCTYPE html><html><head><meta charset="utf-8">${head}<style>${this.css}</style></head><body>${this.html}${bodyEnd}<script>${this.js}<\/script></body></html>`;
+      this.runCount++;
     },
     reset() {
       this.html = this.config.html || "";
@@ -56,7 +58,7 @@ window.CourseComponents.PlaygroundWidget = {
           <textarea v-show="tab === 'css'" v-model="css" spellcheck="false"></textarea>
           <textarea v-show="tab === 'js'" v-model="js" spellcheck="false"></textarea>
         </div>
-        <iframe class="playground__preview" sandbox="allow-scripts allow-modals" :srcdoc="srcdoc" title="Live preview"></iframe>
+        <iframe :key="runCount" class="playground__preview" sandbox="allow-scripts allow-modals" :srcdoc="srcdoc" title="Live preview"></iframe>
       </div>
     </div>
   `
