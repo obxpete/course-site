@@ -52,9 +52,9 @@ window.CourseComponents.PlaygroundWidget = {
             <button type="button" :class="{ 'is-active': tab === 'css' }" @click="tab = 'css'">CSS</button>
             <button type="button" :class="{ 'is-active': tab === 'js' }" @click="tab = 'js'">JS</button>
           </div>
-          <textarea v-show="tab === 'html'" v-model="html" spellcheck="false" @input="run"></textarea>
-          <textarea v-show="tab === 'css'" v-model="css" spellcheck="false" @input="run"></textarea>
-          <textarea v-show="tab === 'js'" v-model="js" spellcheck="false" @input="run"></textarea>
+          <textarea v-show="tab === 'html'" v-model="html" spellcheck="false"></textarea>
+          <textarea v-show="tab === 'css'" v-model="css" spellcheck="false"></textarea>
+          <textarea v-show="tab === 'js'" v-model="js" spellcheck="false"></textarea>
         </div>
         <iframe class="playground__preview" sandbox="allow-scripts allow-modals" :srcdoc="srcdoc" title="Live preview"></iframe>
       </div>
