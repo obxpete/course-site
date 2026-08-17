@@ -43,6 +43,31 @@ A minimal example:
 </div>
 ```
 
+<figure class="lesson-figure" role="img" aria-label="Diagram of Bootstrap's 12-column grid: the full row divided into 12 equal columns above, and the code example's two col-md-6 columns below, each spanning six of the twelve">
+  <svg viewBox="0 0 640 150" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:var(--font-body);">
+    <text x="0" y="16" font-size="11" fill="var(--ink-faint)" font-family="var(--font-mono)">THE 12-COLUMN GRID BEHIND THAT EXAMPLE</text>
+    <g font-family="var(--font-mono)" font-size="9" text-anchor="middle" fill="var(--ink-faint)">
+      <rect x="20" y="30" width="48" height="26" fill="var(--paper)" stroke="var(--line)"/><text x="44" y="47">1</text>
+      <rect x="70" y="30" width="48" height="26" fill="var(--paper)" stroke="var(--line)"/><text x="94" y="47">2</text>
+      <rect x="120" y="30" width="48" height="26" fill="var(--paper)" stroke="var(--line)"/><text x="144" y="47">3</text>
+      <rect x="170" y="30" width="48" height="26" fill="var(--paper)" stroke="var(--line)"/><text x="194" y="47">4</text>
+      <rect x="220" y="30" width="48" height="26" fill="var(--paper)" stroke="var(--line)"/><text x="244" y="47">5</text>
+      <rect x="270" y="30" width="48" height="26" fill="var(--paper)" stroke="var(--line)"/><text x="294" y="47">6</text>
+      <rect x="320" y="30" width="48" height="26" fill="var(--paper)" stroke="var(--line)"/><text x="344" y="47">7</text>
+      <rect x="370" y="30" width="48" height="26" fill="var(--paper)" stroke="var(--line)"/><text x="394" y="47">8</text>
+      <rect x="420" y="30" width="48" height="26" fill="var(--paper)" stroke="var(--line)"/><text x="444" y="47">9</text>
+      <rect x="470" y="30" width="48" height="26" fill="var(--paper)" stroke="var(--line)"/><text x="494" y="47">10</text>
+      <rect x="520" y="30" width="48" height="26" fill="var(--paper)" stroke="var(--line)"/><text x="544" y="47">11</text>
+      <rect x="570" y="30" width="48" height="26" fill="var(--paper)" stroke="var(--line)"/><text x="594" y="47">12</text>
+    </g>
+    <rect x="20" y="92" width="298" height="40" fill="var(--accent-gold-soft)" stroke="var(--accent-gold)" stroke-width="1.5"/>
+    <text x="169" y="116" font-size="12" text-anchor="middle" fill="var(--ink)" font-family="var(--font-mono)">col-md-6</text>
+    <rect x="322" y="92" width="298" height="40" fill="var(--accent-sage-soft)" stroke="var(--accent-sage)" stroke-width="1.5"/>
+    <text x="471" y="116" font-size="12" text-anchor="middle" fill="var(--ink)" font-family="var(--font-mono)">col-md-6</text>
+  </svg>
+  <figcaption>Bootstrap's grid always adds up to 12 — two col-md-6 columns split the row evenly, but you could just as easily do col-md-4 three times, or col-md-3 four times.</figcaption>
+</figure>
+
 For lighter interactivity than a full JavaScript framework requires, **Alpine.js** offers a small, HTML-first way to add behavior directly in your markup — useful for toggles, dropdowns, and simple state without a build step. For more structured, component-based applications, **Vue.js** and **React** are the two most common choices today, both well suited to building an interface out of small, reusable pieces.
 
 One more name worth knowing as you look at job listings and modern codebases: **TypeScript**. It's JavaScript with a type system added on top — you declare that a variable is a number or a specific object shape, and the compiler catches mismatches before they become runtime bugs. All the major frameworks (React, Vue, Angular) have full TypeScript support, and it's increasingly the default choice for new projects. If you know JavaScript, TypeScript is a natural next step rather than a different language entirely.

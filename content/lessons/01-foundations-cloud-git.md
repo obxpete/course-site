@@ -21,6 +21,31 @@ Before writing a single line of application code, every developer needs a safety
 
 **GitHub** is a cloud-hosted home for Git repositories. Where Git tracks history, GitHub gives that history a place to live online, so it can be shared, backed up, and worked on by more than one person at a time. Pushing and pulling synchronize your local copy with the shared copy on GitHub; cloning downloads a full copy of someone else's repository so you can work with it too. (GitHub itself is a cloud-hosted service — the next lesson digs into what "the cloud" means more broadly, and why so much of modern development depends on it.)
 
+<figure class="lesson-figure" role="img" aria-label="Diagram of the Git workflow: changes move from the working directory to the staging area with git add, become a commit in the local repository with git commit, and reach GitHub with git push">
+  <svg viewBox="0 0 640 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:var(--font-body);">
+    <text x="0" y="16" font-size="11" fill="var(--ink-faint)" font-family="var(--font-mono)">FROM YOUR EDITOR TO GITHUB</text>
+    <rect x="0" y="40" width="130" height="56" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="65" y="64" font-size="11.5" text-anchor="middle" fill="var(--ink)">Working</text>
+    <text x="65" y="80" font-size="11.5" text-anchor="middle" fill="var(--ink)">directory</text>
+    <rect x="170" y="40" width="130" height="56" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="235" y="64" font-size="11.5" text-anchor="middle" fill="var(--ink)">Staging</text>
+    <text x="235" y="80" font-size="11.5" text-anchor="middle" fill="var(--ink)">area</text>
+    <rect x="340" y="40" width="130" height="56" rx="6" fill="var(--accent-gold-soft)" stroke="var(--accent-gold)" stroke-width="1.5"/>
+    <text x="405" y="64" font-size="11.5" text-anchor="middle" fill="var(--ink)" font-weight="600">Local</text>
+    <text x="405" y="80" font-size="11.5" text-anchor="middle" fill="var(--ink)" font-weight="600">repository</text>
+    <rect x="510" y="40" width="130" height="56" rx="6" fill="var(--accent-sage-soft)" stroke="var(--accent-sage)" stroke-width="1.5"/>
+    <text x="575" y="64" font-size="11.5" text-anchor="middle" fill="var(--ink)" font-weight="600">GitHub</text>
+    <text x="575" y="80" font-size="11.5" text-anchor="middle" fill="var(--ink)" font-weight="600">(remote)</text>
+    <line x1="130" y1="68" x2="170" y2="68" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <text x="150" y="108" font-size="10" text-anchor="middle" fill="var(--ink-soft)" font-family="var(--font-mono)">git add</text>
+    <line x1="300" y1="68" x2="340" y2="68" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <text x="320" y="108" font-size="10" text-anchor="middle" fill="var(--ink-soft)" font-family="var(--font-mono)">git commit</text>
+    <line x1="470" y1="68" x2="510" y2="68" stroke="var(--accent-sage)" stroke-width="1.5"/>
+    <text x="490" y="108" font-size="10" text-anchor="middle" fill="var(--accent-sage)" font-family="var(--font-mono)">git push</text>
+  </svg>
+  <figcaption>git add and git commit happen entirely on your machine — nothing reaches GitHub, or anyone else, until you run git push.</figcaption>
+</figure>
+
 ## Technology
 
 A **`.gitignore` file** tells Git which files and folders to skip entirely — dependency folders (`node_modules`), local environment files (`.env`), editor config, and anything else that shouldn't be tracked or shared. Most project templates include one by default; when starting from scratch, [gitignore.io](https://www.toptal.com/developers/gitignore) generates one for your environment in seconds.

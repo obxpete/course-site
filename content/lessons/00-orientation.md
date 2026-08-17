@@ -24,6 +24,25 @@ Every lesson in this course follows the same rhythm, sometimes in a different or
 3. **Soft Skills** — the project and communication habits that separate a good developer from a great one.
 4. **Check Your Understanding** — a short, low-stakes quiz at the end of the lesson page.
 
+<figure class="lesson-figure" role="img" aria-label="Diagram of the four-part rhythm every lesson follows: Concepts and Terminology, then Technology, then Soft Skills, then a short quiz">
+  <svg viewBox="0 0 640 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:var(--font-body);">
+    <text x="0" y="16" font-size="11" fill="var(--ink-faint)" font-family="var(--font-mono)">EVERY LESSON FOLLOWS THE SAME RHYTHM</text>
+    <rect x="0" y="40" width="150" height="56" rx="6" fill="var(--accent-sage-soft)" stroke="var(--accent-sage)" stroke-width="1.5"/>
+    <text x="75" y="64" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="600">Concepts &amp;</text>
+    <text x="75" y="80" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="600">Terminology</text>
+    <rect x="175" y="40" width="150" height="56" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="250" y="73" font-size="12" text-anchor="middle" fill="var(--ink)">Technology</text>
+    <rect x="350" y="40" width="140" height="56" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="420" y="73" font-size="12" text-anchor="middle" fill="var(--ink)">Soft Skills</text>
+    <rect x="515" y="40" width="125" height="56" rx="6" fill="var(--accent-gold-soft)" stroke="var(--accent-gold)" stroke-width="1.5"/>
+    <text x="577" y="73" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="600">Quiz</text>
+    <line x1="150" y1="68" x2="175" y2="68" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <line x1="325" y1="68" x2="350" y2="68" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <line x1="490" y1="68" x2="515" y2="68" stroke="var(--ink-soft)" stroke-width="1.5"/>
+  </svg>
+  <figcaption>The vocabulary comes first, the hands-on practice second, and the quiz at the end checks that it actually stuck.</figcaption>
+</figure>
+
 Lessons build on each other, so plan to move through them in order the first time. After that, treat this site as a reference you can jump back into anytime.
 
 ## What you'll need
