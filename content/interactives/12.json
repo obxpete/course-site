@@ -3,36 +3,44 @@
   "categories": ["SQL Injection", "XSS", "Auth Issue", "Safe"],
   "items": [
     {
-      "label": "db.query(`SELECT * FROM users WHERE id = ${req.params.id}`)",
-      "answer": "SQL Injection"
+      "task": "db.query(`SELECT * FROM users WHERE id = ${req.params.id}`)",
+      "answer": "SQL Injection",
+      "explanation": "User input is interpolated directly into the query string, so an attacker can send something like \"1 OR 1=1\" and change what the query actually does. Parameterized queries fix this."
     },
     {
-      "label": "res.send('<p>Welcome, ' + req.query.name + '!</p>')",
-      "answer": "XSS"
+      "task": "res.send('<p>Welcome, ' + req.query.name + '!</p>')",
+      "answer": "XSS",
+      "explanation": "Untrusted input is injected straight into the HTML response with no escaping, so an attacker can submit a <script> tag that runs in another user's browser."
     },
     {
-      "label": "Storing the user's password as-is in the database after registration",
-      "answer": "Auth Issue"
+      "task": "Storing the user's password as-is in the database after registration",
+      "answer": "Auth Issue",
+      "explanation": "Passwords must be hashed (with bcrypt) before storage. If the database is ever breached, plain-text passwords hand an attacker every account immediately — and probably other accounts too, since people reuse passwords."
     },
     {
-      "label": "db.query('SELECT * FROM users WHERE id = ?', [req.params.id])",
-      "answer": "Safe"
+      "task": "db.query('SELECT * FROM users WHERE id = ?', [req.params.id])",
+      "answer": "Safe",
+      "explanation": "This is a parameterized query — the database receives the SQL and the value separately, so user input can never become part of the query structure."
     },
     {
-      "label": "if (req.body.password === storedPassword) { /* login */ }",
-      "answer": "Auth Issue"
+      "task": "if (req.body.password === storedPassword) { /* login */ }",
+      "answer": "Auth Issue",
+      "explanation": "This compares a plain-text password directly, which means storedPassword isn't hashed, and the === comparison isn't constant-time — both are real problems. Use bcrypt.compare() instead."
     },
     {
-      "label": "element.textContent = userInput  // instead of innerHTML",
-      "answer": "Safe"
+      "task": "element.textContent = userInput  // instead of innerHTML",
+      "answer": "Safe",
+      "explanation": "textContent sets text, not HTML, so a string like \"<script>\" is rendered as literal visible text instead of being parsed and executed. This is the standard fix for the XSS pattern above."
     },
     {
-      "label": "const apiKey = 'sk_live_abc123'; // hardcoded in app.js",
-      "answer": "Auth Issue"
+      "task": "const apiKey = 'sk_live_abc123'; // hardcoded in app.js",
+      "answer": "Auth Issue",
+      "explanation": "Secrets belong in environment variables, not committed source code. A hardcoded key is exposed to anyone with repository access, and stays exposed in git history even after it's removed."
     },
     {
-      "label": "const hash = await bcrypt.hash(password, 10); // stored in DB",
-      "answer": "Safe"
+      "task": "const hash = await bcrypt.hash(password, 10); // stored in DB",
+      "answer": "Safe",
+      "explanation": "This is exactly the right pattern: hash the password with bcrypt before storing it, so the original password is never saved anywhere."
     }
   ]
 }
