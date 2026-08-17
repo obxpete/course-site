@@ -14,10 +14,10 @@
       "explanation": "Git is a local version control tool that runs on your machine. GitHub is a hosting service that stores Git repositories in the cloud, making them shareable and accessible from anywhere. You can use Git without GitHub, but not the other way around."
     },
     {
-      "q": "Cloud computing is best described as:",
-      "choices": ["Software that only runs on rainy days", "A way of accessing computing resources on demand, without owning the hardware", "A synonym for the internet in general", "A type of database"],
+      "q": "What does a `.gitignore` file do?",
+      "choices": ["Deletes the files it lists from the project", "Tells Git which files and folders to skip and never track", "Hides the repository from other collaborators", "Encrypts sensitive files before committing them"],
       "answer": 1,
-      "explanation": "Cloud computing means renting computing resources — servers, storage, databases — on demand over the internet, instead of buying and maintaining physical hardware yourself. You pay for what you use, and the provider handles the infrastructure."
+      "explanation": "A `.gitignore` file tells Git which files and folders to skip entirely — dependency folders, local environment files, and editor config — so they're never tracked or accidentally shared."
     }
   ]
 }

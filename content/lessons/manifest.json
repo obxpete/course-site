@@ -9,7 +9,7 @@
     {
       "id": "foundations",
       "title": "Foundations",
-      "lessons": ["00", "01", "02"]
+      "lessons": ["00", "01", "14", "02"]
     },
     {
       "id": "building-blocks",
@@ -37,12 +37,21 @@
     },
     {
       "id": "01",
-      "title": "Foundations: Version Control, GitHub & the Cloud",
-      "summary": "Why developers track every change, and what \"the cloud\" actually means.",
+      "title": "Foundations: Version Control & GitHub",
+      "summary": "Why developers track every change, and how Git and GitHub make collaboration possible.",
       "duration": "50 min",
       "file": "01-foundations-cloud-git.md",
       "quiz": "01.json",
       "interactive": { "type": "git-simulator", "file": "01.json" }
+    },
+    {
+      "id": "14",
+      "title": "Cloud Computing: Renting the Internet's Infrastructure",
+      "summary": "What \"the cloud\" actually is, IaaS/PaaS/SaaS, and the tradeoffs of renting infrastructure instead of owning it.",
+      "duration": "45 min",
+      "file": "14-cloud-computing.md",
+      "quiz": "14.json",
+      "interactive": { "type": "classifier", "file": "14.json" }
     },
     {
       "id": "02",

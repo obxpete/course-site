@@ -1,4 +1,4 @@
-# Foundations: Version Control, GitHub & the Cloud
+# Foundations: Version Control & GitHub
 
 *Foundations · About 50 minutes*
 
@@ -11,7 +11,7 @@
 
 ## Where we're headed
 
-Before writing a single line of application code, every developer needs two things: a safety net for their work, and a shared understanding of where that work actually runs. This lesson covers both — version control with Git, and the basics of cloud computing.
+Before writing a single line of application code, every developer needs a safety net for their work. This lesson covers version control with Git — the tool that makes it possible to change code fearlessly, collaborate without stepping on each other, and undo mistakes instead of dreading them.
 
 ## Concepts & Terminology
 
@@ -19,11 +19,7 @@ Before writing a single line of application code, every developer needs two thin
 
 **Git** is the version control system almost the entire industry has standardized on. It tracks changes locally on your machine as a series of **commits** — small, labeled snapshots of your project.
 
-**GitHub** is a cloud-hosted home for Git repositories. Where Git tracks history, GitHub gives that history a place to live online, so it can be shared, backed up, and worked on by more than one person at a time. Pushing and pulling synchronize your local copy with the shared copy on GitHub; cloning downloads a full copy of someone else's repository so you can work with it too.
-
-**Cloud computing** means running software and storing data on someone else's servers, accessed over the internet, rather than on hardware you own and maintain. It is less about *where* the computing physically happens and more about *how* you pay for and access it — on demand, and only for what you use, instead of buying and maintaining your own equipment.
-
-Owning your own servers (sometimes called being **on-premises**) comes with real overhead most organizations would rather not manage directly: power, physical security, staffing, equipment refreshes, and real estate. Cloud providers absorb that overhead and resell computing capacity as a service.
+**GitHub** is a cloud-hosted home for Git repositories. Where Git tracks history, GitHub gives that history a place to live online, so it can be shared, backed up, and worked on by more than one person at a time. Pushing and pulling synchronize your local copy with the shared copy on GitHub; cloning downloads a full copy of someone else's repository so you can work with it too. (GitHub itself is a cloud-hosted service — the next lesson digs into what "the cloud" means more broadly, and why so much of modern development depends on it.)
 
 ## Technology
 
@@ -55,5 +51,5 @@ Try it below first — a simulated terminal, no sign-up required. Then, for real
 
 - Version control (Git) tracks every change to a project as a history of commits.
 - GitHub hosts that history in the cloud so teams can collaborate.
-- Cloud computing is a way of accessing computing resources on demand, shifting overhead away from the organization using them.
+- Pushing and pulling sync your local repository with the shared copy on GitHub; cloning downloads someone else's repository to work with.
 - GitHub Codespaces gives you a complete cloud development environment in your browser.

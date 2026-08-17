@@ -1,0 +1,49 @@
+{
+  "lessonId": "14",
+  "questions": [
+    {
+      "q": "What best defines cloud computing?",
+      "choices": [
+        "Any software that connects to the internet",
+        "Running software and storing data on someone else's servers, accessed on demand over the internet",
+        "A specific brand of server hardware",
+        "Software that only runs inside a web browser"
+      ],
+      "answer": 1,
+      "explanation": "Cloud computing is defined by how you access and pay for computing capacity — on demand, from someone else's infrastructure — not by any specific technology or location."
+    },
+    {
+      "q": "In the IaaS / PaaS / SaaS spectrum, what changes as you move from IaaS toward SaaS?",
+      "choices": [
+        "Nothing — they're marketing terms for the same thing",
+        "You get more control but less convenience",
+        "The provider manages more of the stack, and you get more convenience in exchange for less control",
+        "Only the price changes; the underlying management is identical"
+      ],
+      "answer": 2,
+      "explanation": "IaaS hands you raw infrastructure with the most control; SaaS hands you a finished product with the least control. Convenience and provider-managed scope both increase as you move up the stack."
+    },
+    {
+      "q": "What is elasticity, in the context of cloud computing?",
+      "choices": [
+        "A pricing discount for long-term contracts",
+        "The physical flexibility of server hardware",
+        "The ability to scale capacity up or down automatically based on real demand",
+        "A type of database used only by cloud providers"
+      ],
+      "answer": 2,
+      "explanation": "Elasticity is what separates cloud computing from simply renting a fixed server — capacity adjusts automatically to match actual traffic, instead of being sized for a worst-case day."
+    },
+    {
+      "q": "Why can cloud costs sometimes spike unexpectedly, in a way on-prem costs generally don't?",
+      "choices": [
+        "Cloud providers change their prices daily without notice",
+        "Elastic, usage-based billing scales automatically with demand — including demand caused by bugs, spikes, or forgotten resources left running",
+        "On-prem hardware is always more expensive, so cloud costs just look higher by comparison",
+        "Cloud bills are fixed regardless of usage, so this isn't actually possible"
+      ],
+      "answer": 1,
+      "explanation": "The same elasticity that makes cloud computing efficient also means costs scale automatically with usage — a bug, traffic spike, or forgotten test resource can drive up a bill with no human in the loop until the invoice arrives."
+    }
+  ]
+}

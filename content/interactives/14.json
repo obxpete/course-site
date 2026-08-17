@@ -1,0 +1,37 @@
+{
+  "label": "IaaS, PaaS, or SaaS?",
+  "prompt": "Click the service layer that best describes each scenario, based on how much of the stack the provider is managing for you.",
+  "categories": ["IaaS", "PaaS", "SaaS"],
+  "items": [
+    {
+      "task": "You rent a virtual machine, then install and configure your own OS, database, and web server on it",
+      "answer": "IaaS",
+      "explanation": "The provider only manages the underlying hardware, virtualization, and networking. Everything from the OS up is your responsibility — the classic IaaS tradeoff."
+    },
+    {
+      "task": "You push your app's code to a platform, and it handles the OS, runtime, and scaling automatically",
+      "answer": "PaaS",
+      "explanation": "Platform as a Service manages the operating system and runtime for you. You only think about your application code — Heroku and Vercel work this way."
+    },
+    {
+      "task": "Your team uses a web-based email inbox and never installs, patches, or configures anything",
+      "answer": "SaaS",
+      "explanation": "A fully finished, ready-to-use application delivered over the internet is SaaS. Gmail is the textbook example — the provider manages the entire stack."
+    },
+    {
+      "task": "Your company sets up its own custom Linux server images on rented cloud hardware for full control over the OS",
+      "answer": "IaaS",
+      "explanation": "Custom OS images and full control over the operating system layer is the signature of IaaS — you get raw compute and decide everything above it."
+    },
+    {
+      "task": "Your team subscribes to a project management tool and just logs in through a browser to use it",
+      "answer": "SaaS",
+      "explanation": "No installation, no infrastructure decisions, just a finished product accessed through a browser — that's SaaS."
+    },
+    {
+      "task": "You deploy code with a single command, and the platform automatically provisions the runtime and scales instances under load",
+      "answer": "PaaS",
+      "explanation": "Automatic runtime provisioning and scaling based on your code, without managing servers yourself, is the core PaaS pitch."
+    }
+  ]
+}

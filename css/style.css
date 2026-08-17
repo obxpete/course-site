@@ -517,6 +517,20 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .lesson-content table { display: block; overflow-x: auto; }
 .lesson-content pre { overflow-x: auto; }
 
+.lesson-figure {
+  margin: 1.4rem 0;
+  padding: 1rem 1.1rem 0.9rem;
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.lesson-figure svg { display: block; }
+.lesson-figure figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
 .lesson-nav {
   display: flex;
   justify-content: space-between;
