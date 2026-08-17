@@ -1,0 +1,35 @@
+{
+  "lessonId": "16",
+  "questions": [
+    {
+      "q": "A wireframe is best described as:",
+      "choices": ["The final, fully styled version of a screen", "A low-fidelity sketch of a screen's layout and content, without visual design", "A type of database schema", "A piece of server-side code"],
+      "answer": 1,
+      "explanation": "Wireframes are a two-dimensional sketch of a screen's layout, prioritizing space and content over visual design. They let everyone walk through structure and functionality early, surfacing questions cheaply instead of expensively later in development."
+    },
+    {
+      "q": "In the fidelity spectrum, what comes right after a low-fidelity wireframe?",
+      "choices": ["A sketch", "A mockup", "A finished, deployed page", "A database migration"],
+      "answer": 1,
+      "explanation": "The spectrum runs Sketch → Wireframe → Mockup → Prototype. A mockup adds real colors, fonts, and imagery on top of the structure a wireframe already established."
+    },
+    {
+      "q": "What's the purpose of an X-box placeholder in a wireframe?",
+      "choices": ["It marks a section that should be deleted", "It stands in for an image that doesn't exist yet, without distracting from the layout conversation", "It indicates a broken link", "It shows where a database query will run"],
+      "answer": 1,
+      "explanation": "An X-box (a rectangle with a diagonal cross) is shared wireframe shorthand for \"an image goes here\" — it reserves the right amount of space without anyone reacting to actual photography or artwork that isn't ready yet."
+    },
+    {
+      "q": "What's the key difference between a mockup and a prototype?",
+      "choices": ["A mockup is clickable and a prototype is static", "A prototype simulates interaction (clicking through a flow); a mockup is a static, fully styled image", "They are two names for the same thing", "A prototype has no visual design at all"],
+      "answer": 1,
+      "explanation": "A mockup is a static, high-fidelity image of one screen. A prototype links multiple mockups together so someone can click through an actual flow — sign up, confirm, land on the dashboard — before any code exists."
+    },
+    {
+      "q": "Why present a wireframe as explicitly \"not final design\"?",
+      "choices": ["To avoid legal liability", "So stakeholders don't fixate on colors and fonts during a structure conversation", "Because wireframes are always thrown away afterward", "Because clients aren't allowed to see wireframes"],
+      "answer": 1,
+      "explanation": "Skipping this reminder is one of the most common ways a structure conversation accidentally turns into a color-palette argument. Naming the stage out loud keeps the conversation focused on what it's actually meant to cover."
+    }
+  ]
+}

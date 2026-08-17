@@ -1,0 +1,35 @@
+{
+  "lessonId": "15",
+  "questions": [
+    {
+      "q": "In the \"cards, conversations, confirmation\" model, what do conversations provide?",
+      "choices": ["A legal contract", "The detail a short card can't hold on its own", "A final invoice", "A replacement for acceptance criteria"],
+      "answer": 1,
+      "explanation": "A card is just a short placeholder — a reminder to have a conversation. The conversation fills in the edge cases, constraints, and context the card couldn't hold. Confirmation then nails down what \"done\" actually means."
+    },
+    {
+      "q": "Which of these is a non-functional requirement?",
+      "choices": ["Users can reset their password by email", "The homepage loads in under 2 seconds on a typical connection", "Admins can export a report as CSV", "Users can filter search results by date"],
+      "answer": 1,
+      "explanation": "Non-functional requirements describe a quality the system must have while doing its job — speed, reliability, capacity — rather than a specific action it performs. The other three all describe something the system does, which makes them functional requirements."
+    },
+    {
+      "q": "What does the \"T\" in the INVEST criteria for user stories stand for, and why does it matter?",
+      "choices": ["Timely — the story must be built immediately", "Testable — there must be a clear way to check it's actually done", "Transferable — any developer can pick it up", "Total — it must cover the entire feature at once"],
+      "answer": 1,
+      "explanation": "Testable means there's a concrete way to verify the story is complete — which is exactly what acceptance criteria (Given/When/Then) are for. A story that can't be tested can't reliably be called \"done.\""
+    },
+    {
+      "q": "In MoSCoW prioritization, what does a \"Won't have (this time)\" item mean?",
+      "choices": ["It's a bug that will never be fixed", "It's explicitly out of scope for now, so it stops resurfacing in every conversation", "It's the single most important requirement", "It was already built in a previous project"],
+      "answer": 1,
+      "explanation": "\"Won't have this time\" doesn't mean an idea is bad — it means the team has deliberately decided not to build it in the current scope, which prevents the same idea from derailing every planning conversation."
+    },
+    {
+      "q": "Why is \"the app should be fast\" a poorly written requirement?",
+      "choices": ["It's too short to be a real requirement", "It isn't testable — there's no specific, measurable condition to check", "It should be a functional requirement instead", "Speed isn't something developers can control"],
+      "answer": 1,
+      "explanation": "A good requirement is testable: \"the homepage loads in under 2 seconds on a standard connection\" can be measured and verified. \"The app should be fast\" gives no concrete condition anyone can check."
+    }
+  ]
+}

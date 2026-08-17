@@ -1,0 +1,37 @@
+{
+  "label": "Prioritize each request using MoSCoW",
+  "prompt": "A small team is building a class sign-up app for launch next month. Sort each request the way a product owner would.",
+  "categories": ["Must have", "Should have", "Could have", "Won't have"],
+  "items": [
+    {
+      "task": "Students can create an account and sign up for a class",
+      "answer": "Must have",
+      "explanation": "The core action the entire app exists for. Without this, there's no product — it's the definition of a Must have."
+    },
+    {
+      "task": "Students get a confirmation email after signing up",
+      "answer": "Should have",
+      "explanation": "Important for trust and reducing support questions, but the app technically still functions at launch without it — sign-ups would just be silent."
+    },
+    {
+      "task": "Students can add a class to their personal calendar with one click",
+      "answer": "Could have",
+      "explanation": "A genuinely nice convenience, but nobody is blocked without it — a classic Could have, first to cut if the deadline tightens."
+    },
+    {
+      "task": "A full native mobile app, in addition to the website",
+      "answer": "Won't have",
+      "explanation": "A much larger undertaking than the current scope calls for. Naming it Won't have (this time) — rather than ignoring it — keeps it from resurfacing in every planning conversation."
+    },
+    {
+      "task": "Instructors can see a live list of who has signed up for their class",
+      "answer": "Must have",
+      "explanation": "Without this, instructors have no way to actually run their class — it's core functionality, not a nice-to-have."
+    },
+    {
+      "task": "Students can leave a star rating and review after a class ends",
+      "answer": "Could have",
+      "explanation": "Adds value over time but has zero impact on whether sign-ups work at launch — a reasonable Could have for a later release."
+    }
+  ]
+}

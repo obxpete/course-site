@@ -1,6 +1,6 @@
 {
-  "label": "Try it: your first JavaScript",
-  "html": "<h1>Hello, page</h1>\n<p>Edit the JavaScript tab, then press Run.</p>\n<button id=\"greet\">Say hello</button>",
-  "css": "body { font-family: sans-serif; padding: 1.5rem; color: #202C3C; }\nbutton { padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid #ccc; cursor: pointer; }",
-  "js": "let message = \"Hello, world\";\n\ndocument.getElementById(\"greet\").addEventListener(\"click\", () => {\n  alert(message);\n});\n\n// Try changing `message`, or swap alert() for updating\n// an element's text instead:\n// document.querySelector(\"h1\").textContent = message;"
+  "label": "Try it: variables, events, and the DOM",
+  "html": "<h1>Click Counter</h1>\n<button id=\"counter\">Clicked 0 times</button>\n<p id=\"status\"></p>",
+  "css": "body { font-family: sans-serif; padding: 1.5rem; color: #202C3C; }\nbutton { padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid #ccc; cursor: pointer; font-size: 1rem; }",
+  "js": "let clicks = 0;\nconst button = document.querySelector(\"#counter\");\nconst status = document.querySelector(\"#status\");\n\nbutton.addEventListener(\"click\", () => {\n  clicks++;\n  button.textContent = `Clicked ${clicks} times`;\n\n  if (clicks >= 5) {\n    status.textContent = \"You really like clicking, huh?\";\n  }\n});\n\n// Try changing the message that appears at 5 clicks, or add a\n// Reset button with its own addEventListener that sets clicks\n// back to 0 and updates both the button text and this message."
 }

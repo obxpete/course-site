@@ -24,7 +24,7 @@
     {
       "id": "finishing-strong",
       "title": "Finishing Strong",
-      "lessons": ["09", "13", "10"]
+      "lessons": ["09", "15", "16", "13", "10"]
     }
   ],
   "lessons": [
@@ -64,10 +64,10 @@
     },
     {
       "id": "03",
-      "title": "Requirements, Wireframes & Your First JavaScript",
-      "summary": "Turning a vague idea into a plan, then turning that plan into code.",
-      "duration": "55 min",
-      "file": "03-requirements-and-js.md",
+      "title": "JavaScript Fundamentals: Variables, Logic & the DOM",
+      "summary": "From variables to live DOM updates — the language that makes a webpage actually do things.",
+      "duration": "65 min",
+      "file": "03-javascript-fundamentals.md",
       "quiz": "03.json",
       "interactive": { "type": "playground", "file": "03.json" }
     },
@@ -142,6 +142,24 @@
       "file": "09-resources-testing-debugging.md",
       "quiz": "09.json",
       "interactive": { "type": "regex-tester", "file": "09.json" }
+    },
+    {
+      "id": "15",
+      "title": "Requirements Gathering: From Idea to Spec",
+      "summary": "Turning a vague idea into a spec a developer can build and a stakeholder can sign off on.",
+      "duration": "45 min",
+      "file": "15-requirements-gathering.md",
+      "quiz": "15.json",
+      "interactive": { "type": "classifier", "file": "15.json" }
+    },
+    {
+      "id": "16",
+      "title": "Wireframing: Structure Before Style",
+      "summary": "Sketching structure before anyone touches a color palette — from napkin sketch to clickable prototype.",
+      "duration": "40 min",
+      "file": "16-wireframing.md",
+      "quiz": "16.json",
+      "interactive": { "type": "classifier", "file": "16.json" }
     },
     {
       "id": "13",

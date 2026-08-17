@@ -2,22 +2,34 @@
   "lessonId": "03",
   "questions": [
     {
-      "q": "In the \"cards, conversations, confirmation\" model, what do conversations provide?",
-      "choices": ["A legal contract", "The detail a short card can't hold on its own", "A final invoice", "A replacement for wireframes"],
+      "q": "Why does modern JavaScript favor let and const over var?",
+      "choices": ["var was removed from the language", "let and const fixed confusing edge cases var had around scope", "var only works on servers", "let and const run faster in every case"],
       "answer": 1,
-      "explanation": "A card (user story) is just a short placeholder — a reminder to have a conversation. The conversation fills in the edge cases, constraints, and context the card couldn't hold. Confirmation (acceptance criteria) then nails down what 'done' actually means."
+      "explanation": "var still works, but its scoping rules produced confusing bugs. let and const fixed those edge cases, which is why modern code uses them almost exclusively — const for values that won't be reassigned, let for values that will."
     },
     {
-      "q": "Where does JavaScript typically run?",
-      "choices": ["Only on the server", "Only inside a database", "In the browser (and, as covered later, on servers too)", "Only inside GitHub"],
+      "q": "What's the main risk of using == instead of === in JavaScript?",
+      "choices": ["== is slower to type", "== silently converts types before comparing, which can produce surprising results", "== only works with numbers", "== is deprecated and throws an error"],
+      "answer": 1,
+      "explanation": "== performs implicit type conversion before comparing, so \"5\" == 5 is true. === compares value and type together with no conversion, which avoids that entire class of bug."
+    },
+    {
+      "q": "What does document.querySelector(\"#counter\") do?",
+      "choices": ["Creates a new element with the id counter", "Finds and returns the first element matching that CSS selector", "Deletes the element with that id", "Counts how many elements match that selector"],
+      "answer": 1,
+      "explanation": "querySelector finds the first element matching a CSS selector and returns it so your code can read or change it. It doesn't create, delete, or count elements."
+    },
+    {
+      "q": "In the event → listener → DOM update → redraw loop, what triggers the listener function to run?",
+      "choices": ["The page finishing its initial load", "An event, such as a click, that the element is listening for", "A fixed timer that runs every second", "The browser refreshing automatically"],
+      "answer": 1,
+      "explanation": "addEventListener registers a callback that runs whenever the specified event fires on that element — a click, an input change, a form submit, and so on. Nothing runs until the event actually happens."
+    },
+    {
+      "q": "Where does JavaScript run?",
+      "choices": ["Only in the browser", "Only on a server, via Node.js", "In the browser, and — as covered in Lesson 7 — on servers too", "Only inside a database"],
       "answer": 2,
-      "explanation": "JavaScript was originally browser-only, but today it also runs on servers via Node.js (covered in Lesson 7). That's what 'full stack JavaScript' means — one language front to back."
-    },
-    {
-      "q": "A wireframe is best described as:",
-      "choices": ["The final, fully styled version of a screen", "A low-fidelity sketch of a screen's layout and content, without visual design", "A type of database schema", "A piece of server-side code"],
-      "answer": 1,
-      "explanation": "Wireframes are a two-dimensional sketch of a screen's layout, prioritizing space and content over visual design. They let everyone walk through structure and functionality early, surfacing questions cheaply instead of expensively later in development."
+      "explanation": "JavaScript was originally browser-only, but today it also runs on servers via Node.js (Lesson 7). That's what \"full stack JavaScript\" means — one language front to back."
     }
   ]
 }

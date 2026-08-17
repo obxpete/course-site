@@ -93,8 +93,8 @@ Good requirements gathering is one of the most consistently underrated skills in
 
 - **Define the problem, not the solution, first.** A request to "build a blog" often really means "help me build an audience" — and those two problem statements lead to very different applications.
 - **Write user stories**: a short description of what a person does, how they do it, and why, small enough to fit on a sticky note. Start with a handful and refine as you learn more.
-- **Use story cards** to keep functional requirements concrete: *As a [type of user], I need [some capability], so that [some benefit].*
-- **Wireframe before you design.** A wireframe is a simple, low-fidelity sketch of a screen's layout and content — deliberately ignoring color and imagery — so stakeholders can agree on structure before anyone debates a color palette.
+- **Use story cards** to keep functional requirements concrete: *As a [type of user], I need [some capability], so that [some benefit].* Lesson 15 covers requirements gathering in full, including how to prioritize and write acceptance criteria for stories like this.
+- **Wireframe before you design.** A wireframe is a simple, low-fidelity sketch of a screen's layout and content — deliberately ignoring color and imagery — so stakeholders can agree on structure before anyone debates a color palette. Lesson 16 covers this in full, including the fidelity spectrum from napkin sketch to clickable prototype.
 
 ## Try It
 

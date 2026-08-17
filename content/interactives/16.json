@@ -1,0 +1,37 @@
+{
+  "label": "Sort each artifact by fidelity stage",
+  "prompt": "Classify each design artifact as the stage of the fidelity spectrum it belongs to.",
+  "categories": ["Sketch", "Wireframe", "Mockup", "Prototype"],
+  "items": [
+    {
+      "task": "Hand-drawn boxes on a napkin during a coffee meeting",
+      "answer": "Sketch",
+      "explanation": "Fast, disposable, and meant to explore several layout ideas before committing to any one of them — the cheapest possible stage to be wrong at."
+    },
+    {
+      "task": "Grayscale boxes with placeholder text showing a header, sidebar, and content area",
+      "answer": "Wireframe",
+      "explanation": "Real structure and content hierarchy, but no color, imagery, or finished copy yet — exactly what a low-fidelity wireframe is for."
+    },
+    {
+      "task": "The finished login screen with brand colors, the real logo, and finished button copy",
+      "answer": "Mockup",
+      "explanation": "Fully styled and realistic, but still a static image — nothing on it actually responds to a click yet."
+    },
+    {
+      "task": "A clickable Figma file that simulates the full checkout flow from cart to confirmation",
+      "answer": "Prototype",
+      "explanation": "Multiple mockups linked together so someone can click through a real flow — the last stop before code."
+    },
+    {
+      "task": "A whiteboard photo from a team meeting, redrawn three different ways",
+      "answer": "Sketch",
+      "explanation": "Cheap, fast iteration on layout ideas — the entire point of the sketch stage is producing (and discarding) several of these quickly."
+    },
+    {
+      "task": "A single static image showing the exact fonts, spacing, and photography for the homepage",
+      "answer": "Mockup",
+      "explanation": "Full visual design on one screen, but it's still just an image — no interaction, which is what separates a mockup from a prototype."
+    }
+  ]
+}
