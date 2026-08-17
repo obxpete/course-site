@@ -15,6 +15,13 @@ This lesson zooms out from code to career: what the job market actually looks li
 
 ## Concepts & Terminology
 
+**Agile** is a development methodology built around adapting to changing needs rather than resisting them. **DevOps** is a broader culture of collaboration between everyone involved in building and running software — developers, operations, QA — so that releasing new code is a routine, low-drama event rather than a rare, high-stakes one. The two ideas complement each other: Agile shapes *how a team decides what to build next*; DevOps shapes *how that work reliably reaches users*.
+
+A **sprint** is a short, fixed period (often one to two weeks) in which a team plans work, executes it, and checks in daily via a brief **standup** meeting. Even solo developers often borrow this rhythm, because a small, time-boxed goal is easier to finish than an open-ended one.
+
+
+## Careers in Full Stack Development
+
 The U.S. Bureau of Labor Statistics groups full stack developers under its broader "web developers and digital designers" category, and projects that employment in that category will grow about 7 percent from 2024 to 2034 — faster than the average for all occupations — with roughly 14,500 openings projected each year over the decade (source: [BLS Occupational Outlook Handbook](https://www.bls.gov/ooh/computer-and-information-technology/web-developers.htm)). That's a healthy, durable outlook — and it holds even as AI tools change *how* developers work day to day, which we'll return to below.
 
 Full stack work typically spans several layers:
@@ -26,10 +33,6 @@ Full stack work typically spans several layers:
 - **Process and teamwork**: Agile, DevOps, project management, requirements gathering, meeting facilitation.
 
 No developer is expected to master all of it at once — most build deep expertise in one or two layers while staying conversant in the rest.
-
-**Agile** is a development methodology built around adapting to changing needs rather than resisting them. **DevOps** is a broader culture of collaboration between everyone involved in building and running software — developers, operations, QA — so that releasing new code is a routine, low-drama event rather than a rare, high-stakes one. The two ideas complement each other: Agile shapes *how a team decides what to build next*; DevOps shapes *how that work reliably reaches users*.
-
-A **sprint** is a short, fixed period (often one to two weeks) in which a team plans work, executes it, and checks in daily via a brief **standup** meeting. Even solo developers often borrow this rhythm, because a small, time-boxed goal is easier to finish than an open-ended one.
 
 ## Technology
 
