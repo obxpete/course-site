@@ -24,12 +24,20 @@ window.CourseComponents.PlaygroundWidget = {
   mounted() {
     this.run();
   },
+  beforeUnmount() {
+    clearTimeout(this._debounceTimer);
+  },
   methods: {
     run() {
+      clearTimeout(this._debounceTimer);
       const head = this.config.extraHead || "";
       const bodyEnd = this.config.extraBodyEnd || "";
       this.srcdoc = `<!DOCTYPE html><html><head><meta charset="utf-8">${head}<style>${this.css}</style></head><body>${this.html}${bodyEnd}<script>${this.js}<\/script></body></html>`;
       this.runCount++;
+    },
+    scheduleRun() {
+      clearTimeout(this._debounceTimer);
+      this._debounceTimer = setTimeout(this.run, 500);
     },
     reset() {
       this.html = this.config.html || "";
@@ -54,9 +62,9 @@ window.CourseComponents.PlaygroundWidget = {
             <button type="button" :class="{ 'is-active': tab === 'css' }" @click="tab = 'css'">CSS</button>
             <button type="button" :class="{ 'is-active': tab === 'js' }" @click="tab = 'js'">JS</button>
           </div>
-          <textarea v-show="tab === 'html'" v-model="html" spellcheck="false"></textarea>
-          <textarea v-show="tab === 'css'" v-model="css" spellcheck="false"></textarea>
-          <textarea v-show="tab === 'js'" v-model="js" spellcheck="false"></textarea>
+          <textarea v-show="tab === 'html'" v-model="html" spellcheck="false" @input="scheduleRun"></textarea>
+          <textarea v-show="tab === 'css'" v-model="css" spellcheck="false" @input="scheduleRun"></textarea>
+          <textarea v-show="tab === 'js'" v-model="js" spellcheck="false" @input="scheduleRun"></textarea>
         </div>
         <iframe :key="runCount" class="playground__preview" sandbox="allow-scripts allow-modals" :srcdoc="srcdoc" title="Live preview"></iframe>
       </div>
