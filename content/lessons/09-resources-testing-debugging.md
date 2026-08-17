@@ -23,6 +23,24 @@ No developer memorizes everything — the job is as much about knowing where to 
 
 A **URL** breaks down into predictable parts — protocol, domain name, path, and optional query parameters — and understanding that structure makes both debugging and API work much clearer.
 
+<figure class="lesson-figure" role="img" aria-label="Diagram breaking a URL into its four parts: protocol, domain, path, and query string">
+  <svg viewBox="0 0 640 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:var(--font-body);">
+    <text x="0" y="16" font-size="11" fill="var(--ink-faint)" font-family="var(--font-mono)">ANATOMY OF A URL</text>
+    <text x="20" y="50" font-size="15" font-family="var(--font-mono)">
+      <tspan fill="var(--accent-gold)">https://</tspan><tspan fill="var(--accent-sage)">api.example.com</tspan><tspan fill="var(--accent-berry)">/users/42</tspan><tspan fill="var(--ink-soft)">?active=true</tspan>
+    </text>
+    <line x1="20" y1="60" x2="88" y2="60" stroke="var(--accent-gold)" stroke-width="2"/>
+    <text x="20" y="78" font-size="10" fill="var(--accent-gold)">protocol</text>
+    <line x1="90" y1="60" x2="226" y2="60" stroke="var(--accent-sage)" stroke-width="2"/>
+    <text x="90" y="78" font-size="10" fill="var(--accent-sage)">domain</text>
+    <line x1="228" y1="60" x2="304" y2="60" stroke="var(--accent-berry)" stroke-width="2"/>
+    <text x="228" y="78" font-size="10" fill="var(--accent-berry)">path</text>
+    <line x1="306" y1="60" x2="408" y2="60" stroke="var(--ink-soft)" stroke-width="2"/>
+    <text x="306" y="78" font-size="10" fill="var(--ink-soft)">query string</text>
+  </svg>
+  <figcaption>The query string is the part you'll build dynamically most often — exactly what an API call appends to send parameters like `?active=true`.</figcaption>
+</figure>
+
 ## Technology
 
 A working reference list, worth bookmarking:

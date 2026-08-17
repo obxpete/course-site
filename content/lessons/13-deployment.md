@@ -92,6 +92,29 @@ jobs:
 
 Most platforms (Netlify, Vercel, Render) also offer direct GitHub integration that triggers a deploy on every push without you writing the YAML yourself — often the right starting point.
 
+<figure class="lesson-figure" role="img" aria-label="Diagram of a CI/CD pipeline: a push to GitHub triggers automated tests; if they pass the app is built and deployed, and if they fail the pipeline stops before anything reaches production">
+  <svg viewBox="0 0 640 190" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:var(--font-body);">
+    <text x="0" y="16" font-size="11" fill="var(--ink-faint)" font-family="var(--font-mono)">A TYPICAL CI/CD PIPELINE</text>
+    <rect x="0" y="40" width="130" height="50" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="65" y="70" font-size="12" text-anchor="middle" fill="var(--ink)">git push</text>
+    <rect x="185" y="40" width="130" height="50" rx="6" fill="var(--accent-gold-soft)" stroke="var(--accent-gold)" stroke-width="1.5"/>
+    <text x="250" y="70" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="600">Run tests</text>
+    <rect x="370" y="40" width="120" height="50" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="430" y="70" font-size="12" text-anchor="middle" fill="var(--ink)">Build</text>
+    <rect x="530" y="40" width="110" height="50" rx="6" fill="var(--accent-sage-soft)" stroke="var(--accent-sage)" stroke-width="1.5"/>
+    <text x="585" y="70" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="600">Deploy</text>
+    <line x1="130" y1="65" x2="185" y2="65" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <line x1="315" y1="65" x2="370" y2="65" stroke="var(--accent-sage)" stroke-width="1.5"/>
+    <text x="322" y="58" font-size="9.5" fill="var(--accent-sage)">pass</text>
+    <line x1="490" y1="65" x2="530" y2="65" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <path d="M250,90 L250,140" fill="none" stroke="var(--accent-berry)" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="258" y="118" font-size="9.5" fill="var(--accent-berry)">fail</text>
+    <rect x="150" y="140" width="200" height="36" rx="6" fill="var(--accent-berry-soft)" stroke="var(--accent-berry)" stroke-width="1.5"/>
+    <text x="250" y="163" font-size="11" text-anchor="middle" fill="var(--accent-berry)">pipeline stops here — nothing deploys</text>
+  </svg>
+  <figcaption>Running tests before build and deploy is the entire point of CI/CD: a broken change never reaches production, because the pipeline stops on failure instead of continuing anyway.</figcaption>
+</figure>
+
 ### Custom Domains
 
 Deploying to Netlify gives you a URL like `hungry-babbage-abc123.netlify.app`. Connecting your own domain requires two steps:

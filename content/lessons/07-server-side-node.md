@@ -62,6 +62,27 @@ app.use((req, res, next) => {      // custom logging middleware
 
 Understanding middleware is the key to reading real Express apps — most of the interesting behavior in a production server happens before the route handler ever runs.
 
+<figure class="lesson-figure" role="img" aria-label="Diagram of an Express middleware chain: a request passes through express.json(), then a logging middleware, then the route handler, each calling next() to pass control forward">
+  <svg viewBox="0 0 640 150" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:var(--font-body);">
+    <text x="0" y="16" font-size="11" fill="var(--ink-faint)" font-family="var(--font-mono)">A REQUEST PASSING THROUGH MIDDLEWARE</text>
+    <rect x="0" y="40" width="90" height="50" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="45" y="70" font-size="12" text-anchor="middle" fill="var(--ink)">Request</text>
+    <rect x="150" y="40" width="150" height="50" rx="6" fill="var(--accent-gold-soft)" stroke="var(--accent-gold)" stroke-width="1.5"/>
+    <text x="225" y="70" font-size="11.5" text-anchor="middle" fill="var(--ink)" font-family="var(--font-mono)">express.json()</text>
+    <rect x="360" y="40" width="130" height="50" rx="6" fill="var(--accent-gold-soft)" stroke="var(--accent-gold)" stroke-width="1.5"/>
+    <text x="425" y="70" font-size="11.5" text-anchor="middle" fill="var(--ink)" font-family="var(--font-mono)">logger</text>
+    <rect x="550" y="40" width="90" height="50" rx="6" fill="var(--accent-sage-soft)" stroke="var(--accent-sage)" stroke-width="1.5"/>
+    <text x="595" y="65" font-size="11" text-anchor="middle" fill="var(--ink)" font-weight="600">Route</text>
+    <text x="595" y="79" font-size="11" text-anchor="middle" fill="var(--ink)" font-weight="600">handler</text>
+    <line x1="90" y1="65" x2="150" y2="65" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <line x1="300" y1="65" x2="360" y2="65" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <text x="305" y="58" font-size="9.5" fill="var(--ink-soft)">next()</text>
+    <line x1="490" y1="65" x2="550" y2="65" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <text x="495" y="58" font-size="9.5" fill="var(--ink-soft)">next()</text>
+  </svg>
+  <figcaption>Each middleware function runs in order and calls next() to hand off control — skip that call, and the request stalls with no response ever sent.</figcaption>
+</figure>
+
 ## Soft Skills
 
 Working on "the backend" tends to reward a specific kind of patience: errors are often less visible than in the browser, and debugging usually means reading logs carefully rather than watching something break on screen. A few habits that help:

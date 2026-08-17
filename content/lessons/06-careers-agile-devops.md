@@ -34,6 +34,30 @@ Full stack work typically spans several layers:
 
 No developer is expected to master all of it at once — most build deep expertise in one or two layers while staying conversant in the rest.
 
+### Salary Range & Growth
+
+Pay varies widely by experience, location, and specialization, but BLS wage data for web developers gives a useful sense of the overall range: the lowest-earning 10 percent made under $48,560 a year, the median was $90,930, and the highest-earning 10 percent made over $162,870 (May 2024 figures; source: [BLS Occupational Employment and Wage Statistics](https://www.bls.gov/ooh/computer-and-information-technology/web-developers.htm)).
+
+<figure class="lesson-figure" role="img" aria-label="Bar showing the web developer salary range from the 10th percentile through the median to the 90th percentile">
+  <svg viewBox="0 0 640 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:var(--font-body);">
+    <text x="0" y="16" font-size="11" fill="var(--ink-faint)" font-family="var(--font-mono)">WEB DEVELOPER PAY RANGE, MAY 2024</text>
+    <line x1="20" y1="55" x2="620" y2="55" stroke="var(--line)" stroke-width="10" stroke-linecap="round"/>
+    <line x1="20" y1="55" x2="335" y2="55" stroke="var(--accent-sage)" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="20" cy="55" r="6" fill="var(--accent-sage)"/>
+    <circle cx="335" cy="55" r="7" fill="var(--accent-gold)"/>
+    <circle cx="620" cy="55" r="6" fill="var(--accent-berry)"/>
+    <text x="20" y="80" font-size="11" fill="var(--ink-soft)" text-anchor="start">$48,560</text>
+    <text x="20" y="94" font-size="10" fill="var(--ink-faint)" text-anchor="start">10th pct</text>
+    <text x="335" y="80" font-size="12" fill="var(--ink)" text-anchor="middle" font-weight="600">$90,930</text>
+    <text x="335" y="94" font-size="10" fill="var(--ink-faint)" text-anchor="middle">median</text>
+    <text x="620" y="80" font-size="11" fill="var(--ink-soft)" text-anchor="end">$162,870</text>
+    <text x="620" y="94" font-size="10" fill="var(--ink-faint)" text-anchor="end">90th pct</text>
+  </svg>
+  <figcaption>The gap between the 10th and 90th percentile is roughly 3.4x — a rough proxy for how much pay grows from an entry-level role to a senior or specialized one over a career.</figcaption>
+</figure>
+
+That spread is the growth pattern worth internalizing: entry-level roles cluster toward the low end, but pay climbs steadily with experience, specialization (security, cloud architecture, engineering management), and geography — high-cost tech hubs and remote roles at well-funded companies pull the top end up considerably.
+
 ## Technology
 
 Two developments worth knowing about as you plan a career in this field:

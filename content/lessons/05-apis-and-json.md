@@ -31,6 +31,21 @@ A JSON example:
 }
 ```
 
+<figure class="lesson-figure" role="img" aria-label="Diagram of an API request and response: the client sends a request to the API, which sends back a status code and a JSON body">
+  <svg viewBox="0 0 640 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:var(--font-body);">
+    <text x="0" y="16" font-size="11" fill="var(--ink-faint)" font-family="var(--font-mono)">ONE API CALL, START TO FINISH</text>
+    <rect x="20" y="45" width="130" height="60" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="85" y="80" font-size="13" text-anchor="middle" fill="var(--ink)">Your App</text>
+    <rect x="490" y="45" width="130" height="60" rx="6" fill="var(--accent-gold-soft)" stroke="var(--accent-gold)" stroke-width="1.5"/>
+    <text x="555" y="80" font-size="13" text-anchor="middle" fill="var(--ink)" font-weight="600">API Server</text>
+    <line x1="150" y1="60" x2="490" y2="60" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <text x="320" y="52" font-size="10.5" text-anchor="middle" fill="var(--ink-soft)" font-family="var(--font-mono)">GET /users/42</text>
+    <line x1="490" y1="92" x2="150" y2="92" stroke="var(--accent-sage)" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="320" y="112" font-size="10.5" text-anchor="middle" fill="var(--accent-sage)" font-family="var(--font-mono)">200 OK · { "id": 42, ... }</text>
+  </svg>
+  <figcaption>The status code (here 200) tells you whether the call worked before you even look at the body — that's why checking it first saves debugging time.</figcaption>
+</figure>
+
 ## Technology
 
 **Postman** is a widely used tool for exploring and testing APIs without writing any code — you can send a request to an API endpoint and inspect exactly what comes back. It's an excellent way to understand an API before you start writing code that depends on it. (The request tester below gives you the same core idea right on this page, with no account needed.)

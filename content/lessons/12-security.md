@@ -49,6 +49,36 @@ if (!match) return res.status(401).json({ error: 'Invalid credentials' });
 
 Never compare passwords with `===`. Use the library's compare function — it runs in constant time to prevent **timing attacks** (where an attacker infers information from how long a comparison takes).
 
+<figure class="lesson-figure" role="img" aria-label="Diagram of password hashing: at sign up the plain-text password is hashed with bcrypt and stored; at login the entered password is hashed again and compared against the stored hash, and the plain password is never stored">
+  <svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:var(--font-body);">
+    <text x="0" y="16" font-size="11" fill="var(--ink-faint)" font-family="var(--font-mono)">THE PLAIN PASSWORD NEVER GETS STORED</text>
+    <text x="0" y="42" font-size="11" fill="var(--ink-soft)" font-weight="600">SIGN UP</text>
+    <rect x="0" y="52" width="130" height="46" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="65" y="72" font-size="11" text-anchor="middle" fill="var(--ink)">Password</text>
+    <text x="65" y="87" font-size="9.5" text-anchor="middle" fill="var(--ink-faint)">(plain text)</text>
+    <rect x="220" y="52" width="150" height="46" rx="6" fill="var(--accent-gold-soft)" stroke="var(--accent-gold)" stroke-width="1.5"/>
+    <text x="295" y="80" font-size="12" text-anchor="middle" fill="var(--ink)" font-family="var(--font-mono)">bcrypt.hash()</text>
+    <rect x="470" y="52" width="150" height="46" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="545" y="72" font-size="11" text-anchor="middle" fill="var(--ink)">Stored hash</text>
+    <text x="545" y="87" font-size="9.5" text-anchor="middle" fill="var(--ink-faint)">in the database</text>
+    <line x1="130" y1="75" x2="220" y2="75" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <line x1="370" y1="75" x2="470" y2="75" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <text x="0" y="132" font-size="11" fill="var(--ink-soft)" font-weight="600">LOG IN</text>
+    <rect x="0" y="142" width="130" height="46" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="65" y="162" font-size="11" text-anchor="middle" fill="var(--ink)">Password</text>
+    <text x="65" y="177" font-size="9.5" text-anchor="middle" fill="var(--ink-faint)">(typed at login)</text>
+    <rect x="220" y="142" width="150" height="46" rx="6" fill="var(--accent-gold-soft)" stroke="var(--accent-gold)" stroke-width="1.5"/>
+    <text x="295" y="170" font-size="12" text-anchor="middle" fill="var(--ink)" font-family="var(--font-mono)">bcrypt.hash()</text>
+    <rect x="470" y="142" width="150" height="46" rx="6" fill="var(--accent-sage-soft)" stroke="var(--accent-sage)" stroke-width="1.5"/>
+    <text x="545" y="170" font-size="12" text-anchor="middle" fill="var(--ink)" font-family="var(--font-mono)">compare()</text>
+    <line x1="130" y1="165" x2="220" y2="165" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <line x1="370" y1="165" x2="470" y2="165" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <path d="M545,142 L545,98" fill="none" stroke="var(--accent-sage)" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="552" y="122" font-size="9.5" fill="var(--accent-sage)">checks against</text>
+  </svg>
+  <figcaption>Two different plain-text passwords produce completely different hashes, and the process can't run backward — even a stolen database of hashes doesn't hand over anyone's actual password.</figcaption>
+</figure>
+
 ### Sessions vs. Tokens (JWT)
 
 After a user authenticates, the server needs a way to remember them across requests. Two common approaches:

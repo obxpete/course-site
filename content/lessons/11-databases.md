@@ -55,6 +55,35 @@ WHERE orders.total > 100;
 
 This returns every order over $100, with the first name of the user who placed it — even though that data lives in two separate tables.
 
+<figure class="lesson-figure" role="img" aria-label="Diagram of a foreign key relationship: the orders table's user_id column points to the id column in the users table">
+  <svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:var(--font-body);">
+    <text x="0" y="16" font-size="11" fill="var(--ink-faint)" font-family="var(--font-mono)">HOW A JOIN CONNECTS TWO TABLES</text>
+    <rect x="60" y="30" width="200" height="128" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <rect x="60" y="30" width="200" height="30" rx="6" fill="var(--accent-sage-soft)"/>
+    <text x="160" y="50" font-size="13" text-anchor="middle" fill="var(--ink)" font-weight="600" font-family="var(--font-mono)">users</text>
+    <line x1="60" y1="90" x2="260" y2="90" stroke="var(--line)" stroke-width="1"/>
+    <line x1="60" y1="124" x2="260" y2="124" stroke="var(--line)" stroke-width="1"/>
+    <text x="76" y="79" font-size="12" fill="var(--ink)" font-family="var(--font-mono)">id</text>
+    <text x="244" y="79" font-size="10" text-anchor="end" fill="var(--accent-sage)" font-family="var(--font-mono)">PK</text>
+    <text x="76" y="111" font-size="12" fill="var(--ink-soft)" font-family="var(--font-mono)">first_name</text>
+    <text x="76" y="145" font-size="12" fill="var(--ink-soft)" font-family="var(--font-mono)">email</text>
+    <rect x="380" y="30" width="200" height="128" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <rect x="380" y="30" width="200" height="30" rx="6" fill="var(--accent-berry-soft)"/>
+    <text x="480" y="50" font-size="13" text-anchor="middle" fill="var(--ink)" font-weight="600" font-family="var(--font-mono)">orders</text>
+    <line x1="380" y1="90" x2="580" y2="90" stroke="var(--line)" stroke-width="1"/>
+    <line x1="380" y1="124" x2="580" y2="124" stroke="var(--line)" stroke-width="1"/>
+    <text x="396" y="79" font-size="12" fill="var(--ink-soft)" font-family="var(--font-mono)">id</text>
+    <text x="396" y="111" font-size="12" fill="var(--ink)" font-family="var(--font-mono)">user_id</text>
+    <text x="564" y="111" font-size="10" text-anchor="end" fill="var(--accent-gold)" font-family="var(--font-mono)">FK</text>
+    <text x="396" y="145" font-size="12" fill="var(--ink-soft)" font-family="var(--font-mono)">total</text>
+    <path d="M380,107 L260,72" fill="none" stroke="var(--accent-gold)" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <circle cx="380" cy="107" r="3" fill="var(--accent-gold)"/>
+    <circle cx="260" cy="72" r="3" fill="var(--accent-gold)"/>
+    <text x="320" y="78" font-size="10" text-anchor="middle" fill="var(--accent-gold)">orders.user_id → users.id</text>
+  </svg>
+  <figcaption>A JOIN matches each order's user_id against the users table's id (its primary key) so a single query can pull fields from both tables at once.</figcaption>
+</figure>
+
 ### Indexes
 
 An **index** is a data structure that makes a specific query faster, similar to the index at the back of a book. Without an index, the database reads every row to find a match; with one, it jumps directly to the matching rows. Primary keys are indexed automatically. For columns you query often — especially foreign keys — adding an index can make a significant performance difference.

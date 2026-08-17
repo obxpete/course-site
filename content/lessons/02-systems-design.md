@@ -33,6 +33,29 @@ These three layers have to exist in every application. The question is how you o
 
 When a user submits a form, that HTTP request hits a **controller**, which calls the right **model** (to read or write data), then passes the result to a **view** (to format the response). Everything flows through the controller.
 
+<figure class="lesson-figure" role="img" aria-label="Diagram of the MVC request cycle: a browser request goes to the controller, which reads or writes through the model and passes data to the view, which sends a response back to the browser">
+  <svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:var(--font-body);">
+    <text x="0" y="16" font-size="11" fill="var(--ink-faint)" font-family="var(--font-mono)">THE MVC REQUEST CYCLE</text>
+    <rect x="270" y="26" width="100" height="44" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="320" y="53" font-size="13" text-anchor="middle" fill="var(--ink)">Browser</text>
+    <rect x="270" y="116" width="100" height="44" rx="6" fill="var(--accent-gold-soft)" stroke="var(--accent-gold)" stroke-width="1.5"/>
+    <text x="320" y="143" font-size="13" text-anchor="middle" fill="var(--ink)" font-weight="600">Controller</text>
+    <rect x="60" y="206" width="120" height="44" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="120" y="233" font-size="13" text-anchor="middle" fill="var(--ink)">Model</text>
+    <rect x="460" y="206" width="120" height="44" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="520" y="233" font-size="13" text-anchor="middle" fill="var(--ink)">View</text>
+    <line x1="320" y1="70" x2="320" y2="116" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <text x="330" y="96" font-size="10.5" fill="var(--ink-soft)">1. request</text>
+    <line x1="280" y1="160" x2="150" y2="206" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <text x="140" y="192" font-size="10.5" fill="var(--ink-soft)">2. read / write data</text>
+    <line x1="360" y1="160" x2="480" y2="206" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <text x="368" y="192" font-size="10.5" fill="var(--ink-soft)">3. pass data to render</text>
+    <path d="M520,206 L370,70" fill="none" stroke="var(--accent-sage)" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="450" y="134" font-size="10.5" fill="var(--accent-sage)">4. response</text>
+  </svg>
+  <figcaption>A controller never touches the database or the response format directly — it orchestrates the model (data) and the view (presentation) in between.</figcaption>
+</figure>
+
 ### On the frontend: Component-Based Architecture
 
 Backend MVC was designed when servers rendered complete HTML pages for every request. The modern frontend works differently: a JavaScript framework loads once, then updates the page in-place in response to user actions. For this, a different pattern dominates.
