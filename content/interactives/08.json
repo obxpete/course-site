@@ -1,8 +1,8 @@
 {
   "label": "Try it: build with Bootstrap",
-  "html": "<div class=\"container\">\n  <h1>My Layout</h1>\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <div class=\"p-3 bg-light border rounded\">Left column</div>\n    </div>\n    <div class=\"col-md-6\">\n      <div class=\"p-3 bg-light border rounded\">Right column</div>\n    </div>\n  </div>\n  <button class=\"btn btn-primary mt-3\">Click me</button>\n</div>",
-  "css": "body { padding: 1.5rem; }",
-  "js": "// Bootstrap's CSS and JS are already loaded in this preview.\n// Try adding another .col-md-4 column, or changing btn-primary\n// to btn-outline-secondary.\n",
+  "html": "<div class=\"container\">\n  <h1>My Layout</h1>\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <div class=\"p-3 bg-light border rounded\">Left column</div>\n    </div>\n    <div class=\"col-md-6\">\n      <div class=\"p-3 bg-light border rounded\">Right column</div>\n    </div>\n  </div>\n  <button id=\"winkBtn\" class=\"btn btn-primary mt-3\">Click me</button>\n</div>",
+  "css": "body { padding: 1.5rem; }\n\n@keyframes wink {\n  0%, 100% { transform: scale(1) rotate(0); }\n  50% { transform: scale(1.15) rotate(-4deg); }\n}\n.wink {\n  animation: wink 0.4s ease;\n}",
+  "js": "// Bootstrap's CSS and JS are already loaded in this preview.\n// Try adding another .col-md-4 column, or changing btn-primary\n// to btn-outline-secondary.\n\nconst winkBtn = document.getElementById('winkBtn');\nwinkBtn.addEventListener('click', () => {\n  winkBtn.textContent = '😉 Nice click!';\n  winkBtn.classList.add('wink');\n  setTimeout(() => {\n    winkBtn.textContent = 'Click me';\n    winkBtn.classList.remove('wink');\n  }, 900);\n});\n",
   "extraHead": "<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\">",
   "extraBodyEnd": "<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\"></script>"
 }
