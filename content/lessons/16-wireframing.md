@@ -2,6 +2,13 @@
 
 *Finishing Strong · About 40 minutes*
 
+<div class="lesson-audio">
+  <audio controls preload="metadata" src="../../audio/16.mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <span class="lesson-audio__label">Lesson overview · ~75 sec</span>
+</div>
+
 ## Where we're headed
 
 Wireframing came up briefly back in Lesson 2 as a way to agree on structure before anyone debates a color palette. This lesson gives it a full treatment: the fidelity spectrum from napkin sketch to clickable prototype, the shared visual vocabulary every wireframe uses, and the judgment calls that make one actually useful to a team instead of just another deliverable nobody reads.

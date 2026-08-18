@@ -2,6 +2,13 @@
 
 *Building Blocks · About 65 minutes*
 
+<div class="lesson-audio">
+  <audio controls preload="metadata" src="../../audio/03.mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <span class="lesson-audio__label">Lesson overview · ~75 sec</span>
+</div>
+
 ## Where we're headed
 
 This lesson is a real, ground-up introduction to JavaScript — the language that turns a static page into something that responds, calculates, and updates itself while someone is looking at it. By the end you'll be able to store data in variables, make decisions with conditionals, repeat work with loops, package logic into reusable functions, and — the part that makes it feel like magic the first time — reach into a live webpage and change it.

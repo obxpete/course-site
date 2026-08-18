@@ -2,6 +2,13 @@
 
 *Finishing Strong · About 45 minutes*
 
+<div class="lesson-audio">
+  <audio controls preload="metadata" src="../../audio/15.mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <span class="lesson-audio__label">Lesson overview · ~75 sec</span>
+</div>
+
 ## Where we're headed
 
 An early lesson introduced requirements gathering as an ongoing conversation, not a one-time meeting. Now that you've built real pieces of a full stack application, this lesson gives it the depth it deserves: the frameworks that turn "build me a sign-up page" into something a developer can actually build and a stakeholder can actually sign off on — and the habits that keep a project from quietly drifting off course.
